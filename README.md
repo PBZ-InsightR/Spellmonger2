@@ -1,2 +1,2 @@
 # Spellmonger2
-card Game
+Card game
