@@ -15,7 +15,7 @@ public class Ritual {
                 this.damage=1;
                 break;
             case "Blessing":
-                this.damage=2;
+                this.damage=-2;
                 break;
 
         }
