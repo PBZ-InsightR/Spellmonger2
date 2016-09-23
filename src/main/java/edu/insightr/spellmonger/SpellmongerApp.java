@@ -13,8 +13,6 @@ public class SpellmongerApp {
     Map<String, Integer> playersLifePoints = new HashMap<>(2);
     Map<String, Integer> playersCreature = new HashMap<>(2);
     List<String> cardPool = new ArrayList<>(70);
-    private int discard = 0;
-    //Création d'une discard
 
     public SpellmongerApp() {
         playersLifePoints.put("Alice", 20);
@@ -25,7 +23,7 @@ public class SpellmongerApp {
 
         for (int i = 0; i < 70; i++) {
             if (i % ritualMod == 0) {
-                cardPool.add("Ritual");
+                cardPool.add("edu.insightr.spellmonger.Ritual");
             }
             if (i % ritualMod != 0) {
                 cardPool.add("Creature");
@@ -39,7 +37,6 @@ public class SpellmongerApp {
 
         }
     }
-
 
     public static void main(String[] args) {
         SpellmongerApp app = new SpellmongerApp();
@@ -86,43 +83,26 @@ public class SpellmongerApp {
 
 
     }
-    int nbCrea = 0;
+
     public void drawACard(String currentPlayer, String opponent, int currentCardNumber) {
 
         if ("Creature".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
-
-            //Compteur pour savoir le nombre de points perdu a chaque tour
-            Creature c1 = new Creature();
-            nbCrea = nbCrea + c1.Damage();
             logger.info(currentPlayer + " draw a Creature");
             playersCreature.put(currentPlayer, playersCreature.get(currentPlayer).intValue() + 1);
             int nbCreatures = playersCreature.get(currentPlayer).intValue();
-            if (nbCrea > 0) {
-                playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - nbCrea));
-                logger.info("The " + nbCreatures + " creatures of " + currentPlayer + " attack and deal " + nbCrea + " damages to its opponent");
+            if (nbCreatures > 0) {
+                playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - nbCreatures));
+                logger.info("The " + nbCreatures + " creatures of " + currentPlayer + " attack and deal " + nbCreatures + " damages to its opponent");
             }
-            discard = discard + 1;
         }
-        if ("Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
-            logger.info(currentPlayer + " draw a Ritual");
-            //int nbCreatures = playersCreature.get(currentPlayer).intValue();
-            //if (nbCreatures > 0) {
-                //playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - nbCreatures - 3));
-                //logger.info("The " + nbCreatures + " creatures of " + currentPlayer + " attack and deal " + nbCreatures + " damages to its opponent");
-            //}
-            Ritual r1 = new Ritual();
-            if(r1.Type() == "curse")
-            {
-                logger.info(currentPlayer + " cast a curse ritual that deals 3 damages to " + opponent);
-                playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - 3));
+        if ("edu.insightr.spellmonger.Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
+            logger.info(currentPlayer + " draw a edu.insightr.spellmonger.Ritual");
+            int nbCreatures = playersCreature.get(currentPlayer).intValue();
+            if (nbCreatures > 0) {
+                playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - nbCreatures - 3));
+                logger.info("The " + nbCreatures + " creatures of " + currentPlayer + " attack and deal " + nbCreatures + " damages to its opponent");
             }
-            else if(r1.Type() == "blessing")
-            {
-                logger.info(currentPlayer + " cast a blessing ritual that restore 2 life points to " + currentPlayer);
-                playersLifePoints.put(currentPlayer, (playersLifePoints.get(currentPlayer).intValue() + 2));
-            }
-            //logger.info(currentPlayer + " cast a ritual that deals 3 damages to " + opponent);
-            discard = discard + 1;
+            logger.info(currentPlayer + " cast a ritual that deals 3 damages to " + opponent);
         }
     }
 
