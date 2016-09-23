@@ -1,39 +1,51 @@
 package edu.insightr.spellmonger;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
 /**
- * Created by Jean-Paul on 21/09/2016.
+ * Created by Tanguy on 22/09/2016.
  */
-public  class Creature {
+public class Creature {
+
+    private String name;
     private int damage;
-    private String animal;
-    public Creature(String animal) {
-        this.animal = animal;
-        if (animal == "Eagle") {
-            this.damage = 1;
-        }
-        else if(animal == "Wolf"){
-            this.damage=2;
-        }
-        else if(animal == "Bear"){
-            this.damage=3;
-        }
-        //rajouter ici les autres créatures
-    }
-    /*public boolean possibleCreature(String animal){
-        List<String> creaturesPossibles=new ArrayList<String>();
-        creaturesPossibles.add("Eagle");
-        creaturesPossibles.add("Wolf");
-        creaturesPossibles.add("Bear");
-        //rajouter ici les autres créatures
-        for(String s : creaturesPossibles)
+
+    public Creature() {
+
+        int Min = 1;
+        int Max = 4;
+        Random r = new Random();
+        int nb = Min + r.nextInt(Max - Min);
+        if (nb == 1)
         {
-            if(animal==s) {
-                return true;
-            }
+            name = "Eagle";
         }
-        return false;
-    }*/
+        else if(nb == 2)
+        {
+            name = "Wolf";
+        }
+        else if(nb == 3)
+        {
+            name = "Bear";
+        }
+        //nb sera un entier aléatoire entre 1 et 3 (Min inclus, Max exclus)
+        //Cette fonction Random permets d'équilibrer les chances de piocher chaque Creature
+
+
+        if (name == "Eagle") {
+            damage = 1;
+        } else if (name == "Wolf") {
+            damage = 2;
+        } else if (name == "Bear") {
+            damage = 3;
+        }
+    }
+    public String Name()
+    {
+        return name;
+    }
+    public int Damage()
+    {
+        return damage;
+    }
 }
