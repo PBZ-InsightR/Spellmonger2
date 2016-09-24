@@ -2,28 +2,25 @@ package edu.insightr.spellmonger;
 
 
 public class Ritual {
-    private String typeRitual;
+    private String nameRitual;
     private int damage;
-    public Ritual(String typeRitual) {
-        this.typeRitual = typeRitual;
-        switch (typeRitual)
+    public Ritual(String nameRitual) {
+        this.nameRitual=nameRitual;
+        if (nameRitual=="Curse")
         {
-            default:
-                System.out.print("Ritual Unknown");
-                break;
-            case "Curse":
-                this.damage=1;
-                break;
-            case "Blessing":
-                this.damage=-2;
-                break;
-
+            this.damage=3;
         }
+        if (nameRitual=="Blessing")
+        {
+            this.damage=-3;
+        }
+
     }
 
     public int getDamage(){
         return damage;
     }
+    public String getNameRitual() {return nameRitual;}
 
 
 
