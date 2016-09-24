@@ -1,31 +1,30 @@
 package edu.insightr.spellmonger;
 
+/**
+ * Created by Etienne on 24/09/2016.
+ */
 public class Creature {
-    private int damage;
-    private String typeCreature;
+    private String nameC;
+    private int dmg;
 
-    public Creature(String typeCreature) {
-        this.typeCreature = typeCreature;
-
-        switch (typeCreature) {
-            default:
-                System.out.print("Creature Unknown");
-                break;
-            case "Eagle":
-                this.damage = 1;
-                break;
-            case "Wolf":
-                this.damage = 2;
-                break;
-            case "Bear":
-                this.damage = 3;
-                break;
-
-        }
+    public Creature(String nameC)
+    {
+        this.nameC=nameC;
+        if(nameC=="Eagle") dmg=1;
+        if(nameC=="Wolf") dmg=2;
+        if(nameC=="Bear") dmg=3;
     }
 
-    public int getDamage() {
-        return damage;
+    public String NameC(){
+        return nameC;
+    }
+
+    public int Dmg(){
+        return dmg;
+    }
+
+    public String toString()
+    {
+        return "Name="+nameC+" Damage="+dmg;
     }
 }
-

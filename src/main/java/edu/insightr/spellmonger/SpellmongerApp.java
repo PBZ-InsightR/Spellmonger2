@@ -6,13 +6,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import static java.lang.Math.abs;
 
 public class SpellmongerApp {
     private static final Logger logger = Logger.getLogger(SpellmongerApp.class);
 
     Map<String, Integer> playersLifePoints = new HashMap<>(2);
     Map<String, Integer> playersCreature = new HashMap<>(2);
+    List<String> Discard = new ArrayList<>();
+    List<Creature> Creatures = new ArrayList<>();
+    List<Ritual> Rituals = new ArrayList<>();
     List<String> cardPool = new ArrayList<>(70);
+    static Random rand = new Random();
+
 
     public SpellmongerApp() {
         playersLifePoints.put("Alice", 20);
@@ -20,10 +27,15 @@ public class SpellmongerApp {
         playersCreature.put("Alice", 0);
         playersCreature.put("Bob", 0);
         int ritualMod = 3;
+        int nbRand=0;
+        int nbRand2=0;
+        Creature cre;
+        Ritual rit;
 
+        //Génération aléatoire des cartes
         for (int i = 0; i < 70; i++) {
             if (i % ritualMod == 0) {
-                cardPool.add("edu.insightr.spellmonger.Ritual");
+                cardPool.add("Ritual");
             }
             if (i % ritualMod != 0) {
                 cardPool.add("Creature");
@@ -34,7 +46,43 @@ public class SpellmongerApp {
             } else {
                 ritualMod = 3;
             }
+        }
 
+        //génération aléatoire des créatures
+        for(int i=0;i<70;i++)
+        {
+            nbRand=rand.nextInt(3 - 1 + 1) +1;
+            if(nbRand==1)
+            {
+                cre=new Creature("Eagle");
+                Creatures.add(cre);
+            }
+            else if(nbRand==2)
+            {
+                cre=new Creature("Wolf");
+                Creatures.add(cre);
+            }
+            else
+            {
+                cre=new Creature("Bear");
+                Creatures.add(cre);
+            }
+        }
+
+        //génération aléatoire des rituels
+        for(int i=0;i<70;i++)
+        {
+            nbRand2=rand.nextInt(2 - 1 + 1) +1;
+            if(nbRand2==1)
+            {
+                rit=new Ritual("Curse");
+                Rituals.add(rit);
+            }
+            else
+            {
+                rit=new Ritual("Blessing");
+                Rituals.add(rit);
+            }
         }
     }
 
@@ -86,23 +134,41 @@ public class SpellmongerApp {
 
     public void drawACard(String currentPlayer, String opponent, int currentCardNumber) {
 
+        //si la carte est une créature
         if ("Creature".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
-            logger.info(currentPlayer + " draw a Creature");
-            playersCreature.put(currentPlayer, playersCreature.get(currentPlayer).intValue() + 1);
+            logger.info(currentPlayer + " draw the Creature "+Creatures.get(currentCardNumber).NameC());
+            playersCreature.put(currentPlayer, playersCreature.get(currentPlayer).intValue() + Creatures.get(currentCardNumber).Dmg());
             int nbCreatures = playersCreature.get(currentPlayer).intValue();
             if (nbCreatures > 0) {
                 playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - nbCreatures));
-                logger.info("The " + nbCreatures + " creatures of " + currentPlayer + " attack and deal " + nbCreatures + " damages to its opponent");
+                logger.info("The creatures of " + currentPlayer + " attack and deal " + nbCreatures + " damages to its opponent");
             }
+            Discard.add(Creatures.get(currentCardNumber).NameC());
         }
-        if ("edu.insightr.spellmonger.Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
-            logger.info(currentPlayer + " draw a edu.insightr.spellmonger.Ritual");
+
+        //si la carte est un rituel
+        if ("Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
+            logger.info(currentPlayer + " draw the Ritual "+Rituals.get(currentCardNumber).NameR());
             int nbCreatures = playersCreature.get(currentPlayer).intValue();
-            if (nbCreatures > 0) {
-                playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - nbCreatures - 3));
-                logger.info("The " + nbCreatures + " creatures of " + currentPlayer + " attack and deal " + nbCreatures + " damages to its opponent");
+
+            //si le rituel est "Curse"
+            if("Curse".equalsIgnoreCase(Rituals.get(currentCardNumber).NameR()))
+            {
+                playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - nbCreatures - Rituals.get(currentCardNumber).Effect()));
+                logger.info(currentPlayer + " cast a ritual that deals "+Rituals.get(currentCardNumber).Effect()+" damages to " + opponent);
             }
-            logger.info(currentPlayer + " cast a ritual that deals 3 damages to " + opponent);
+
+            //si le rituel est "Blessing"
+            else if("Blessing".equalsIgnoreCase(Rituals.get(currentCardNumber).NameR()))
+            {
+                playersLifePoints.put(currentPlayer, (playersLifePoints.get(currentPlayer).intValue() - Rituals.get(currentCardNumber).Effect()));
+                logger.info(currentPlayer + " cast a ritual that heals "+abs(Rituals.get(currentCardNumber).Effect())+" point to " + currentPlayer);
+            }
+            if (nbCreatures > 0) {
+                playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - nbCreatures));
+                logger.info("The creatures of " + currentPlayer + " attack and deal " + nbCreatures + " damages to its opponent");
+            }
+            Discard.add(Rituals.get(currentCardNumber).NameR());
         }
     }
 
