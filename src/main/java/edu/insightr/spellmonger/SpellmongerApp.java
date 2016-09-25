@@ -192,7 +192,7 @@ public class SpellmongerApp {
                 }
             }
             if ("Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
-                //choisit aléatoirement le rituel
+                //choisit aléatoirement le ritue
                 Random rand= new Random();
                 int nombre = rand.nextInt(2);
                 if (nombre==0) {
