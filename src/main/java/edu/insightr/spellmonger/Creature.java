@@ -22,4 +22,8 @@ public class Creature {
     public int getDamage() {
         return damage;
     }
+
+    public String toString(){
+        return "La créature "+this.animal+" fait "+this.damage+" points de dégat";
+    }
 }

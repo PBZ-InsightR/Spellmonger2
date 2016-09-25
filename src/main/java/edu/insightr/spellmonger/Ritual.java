@@ -19,4 +19,15 @@ public class Ritual {
     public int getDamage() {
         return damage;
     }
+
+    public String toString(){
+        String message="";
+        if(ritualName.equals("Curse")){
+            message="Le rituel fait "+this.damage+" points de dégat";
+        }
+        else{
+            message="Le rituel soigne"+this.damage+" points de vie";
+        }
+        return message;
+    }
 }
