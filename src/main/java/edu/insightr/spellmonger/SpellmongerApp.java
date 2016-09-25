@@ -13,19 +13,17 @@ public class SpellmongerApp {
 
     Map<String, Integer> playersLifePoints = new HashMap<>(2);
     Map<String, Integer> playersCreature = new HashMap<>(2);
+    Map<String, Integer> playersDamage = new HashMap<>(2);
     List<String> cardPool = new ArrayList<>(70);
     List<String> discard = new ArrayList<>(70);
-    List<Creature> creature1 = new ArrayList<>(70);
-    int nbCreatures1 = 0;
-    List<Creature> creature2 = new ArrayList<>(70);
-    int nbCreatures2 = 0;
-    int degat1=0;
-    int degat2=0;
+
     public SpellmongerApp() {
         playersLifePoints.put("Alice", 20);
         playersLifePoints.put("Bob", 20);
         playersCreature.put("Alice", 0);
         playersCreature.put("Bob", 0);
+        playersDamage.put("Alice", 0);
+        playersDamage.put("Bob", 0);
         int ritualMod = 3;
 
         for (int i = 0; i < 70; i++) {
@@ -92,127 +90,59 @@ public class SpellmongerApp {
     }
 
     public void drawACard(String currentPlayer, String opponent, int currentCardNumber) {
-        if (currentPlayer == "Bob") {
-            if ("Creature".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
-                //choisit aléatoirement le type de creature
-                Random rand = new Random();
-                int nombre = rand.nextInt(3);
-                if (nombre == 0) {
-                    logger.info(currentPlayer + " draw a Eagle");
-                    Creature eagle = new Creature("Eagle");
-                    creature1.add(eagle);
-                    nbCreatures1++;
-                    discard.add("Eagle");
-                }
-                if (nombre == 1) {
-                    logger.info(currentPlayer + " draw a Wolf");
-                    Creature wolf = new Creature("Wolf");
-                    creature1.add(wolf);
-                    nbCreatures1++;
-                    discard.add("Wolf");
-                }
-                if (nombre == 2) {
-                    logger.info(currentPlayer + " draw a Bear");
-                    Creature bear = new Creature("Bear");
-                    creature1.add(bear);
-                    nbCreatures1++;
-                    discard.add("Bear");
-                }
-                //calcul les dégats de chaque créature
-                if (nbCreatures1> 0) {
-                    int index;
-                    degat1 = 0;
-                    for (index = 0; index < nbCreatures1; index++) {
-                        degat1 = degat1 + creature1.get(index).damage;
-                    }
-                    playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - degat1));
-                    logger.info("The " + nbCreatures1 + " creatures of " + currentPlayer + " attack and deal " + degat1 + " damages to its opponent");
-
-
-                }
+        /* On créé des créatures différentes. On stock les damage associés à chaque créature (Eagle, Wolf, Bear)
+        ** dans un tableau associé à chaque joueur. Ces dégats se cumulent et s'appliquent à la fin du tour
+         */
+        if ("Creature".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
+            Random rand = new Random();
+            int randNb = rand.nextInt(3);
+            if (randNb == 0){
+                logger.info(currentPlayer + " draw an Eagle");
+                Creature eagle = new Creature("Eagle");
+                playersDamage.put(currentPlayer, playersDamage.get(currentPlayer) + eagle.getDamage());
+                discard.add("Eagle");
             }
-            if ("Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
-                //choisit aléatoirement le rituel
-                Random rand= new Random();
-                int nombre = rand.nextInt(2);
-                if (nombre==0) {
-                    logger.info(currentPlayer + " draw a Curse");
-                    logger.info(currentPlayer + " cast a curse that deals 3 damages to " + opponent);
-                    playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - degat1 - 3));
-                    logger.info("The " + nbCreatures1 + " creatures of " + currentPlayer + " attack and deal " + degat1 + " damages to its opponent");
-                    discard.add("Curse");
-                }
-                if (nombre==1) {
-                    logger.info(currentPlayer + " draw a Blessing");
-                    logger.info(currentPlayer + " cast a blessing that heals 3 HP to " + currentPlayer);
-                    playersLifePoints.put(currentPlayer, (playersLifePoints.get(currentPlayer).intValue() +3));
-                    playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - degat1));
-                    logger.info("The " + nbCreatures1 + " creatures of " + currentPlayer + " attack and deal " + degat1 + " damages to its opponent");
-                    discard.add("Blessing");
-                }
+            if (randNb == 1){
+                logger.info(currentPlayer + " draw a Wolf");
+                Creature wolf = new Creature("Wolf");
+                playersDamage.put(currentPlayer, playersDamage.get(currentPlayer) + wolf.getDamage());
+                discard.add("Wolf");
+            }
+            if (randNb == 2){
+                logger.info(currentPlayer + " draw a Bear");
+                Creature bear = new Creature("Bear");
+                playersDamage.put(currentPlayer, playersDamage.get(currentPlayer) + bear.getDamage());
+                discard.add("Bear");
+            }
+            playersCreature.put(currentPlayer, playersCreature.get(currentPlayer).intValue() + 1);
+            int nbCreatures = playersCreature.get(currentPlayer).intValue();
 
+            if (nbCreatures > 0) {
+                playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - playersDamage.get(currentPlayer)));
+                logger.info("The " + nbCreatures + " creatures of " + currentPlayer + " attack and deal " + playersDamage.get(currentPlayer) + " damages to its opponent");
             }
         }
-        if (currentPlayer == "Alice") {
-            if ("Creature".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
-                //choisit aléatoirement le type de creature
-                Random rand = new Random();
-                int nombre = rand.nextInt(3);
-                if (nombre == 0) {
-                    logger.info(currentPlayer + " draw a Eagle");
-                    Creature eagle = new Creature("Eagle");
-                    creature2.add(eagle);
-                    nbCreatures2++;
-                    discard.add("Eagle");
-                }
-                if (nombre == 1) {
-                    logger.info(currentPlayer + " draw a Wolf");
-                    Creature wolf = new Creature("Wolf");
-                    creature2.add(wolf);
-                    nbCreatures2++;
-                    discard.add("Wolf");
-                }
-                if (nombre == 2) {
-                    logger.info(currentPlayer + " draw a Bear");
-                    Creature bear = new Creature("Bear");
-                    creature2.add(bear);
-                    nbCreatures2++;
-                    discard.add("Bear");
-                }
-                if (nbCreatures2 > 0) {
-                    //calcul les dégats de chaque créature
-                    int index;
-                    degat2 = 0;
-                    for (index = 0; index < nbCreatures2; index++) {
-                        degat2 = degat2 + creature2.get(index).damage;
-                    }
-                    playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - degat2));
-                    logger.info("The " + nbCreatures2 + " creatures of " + currentPlayer + " attack and deal " + degat2 + " damages to its opponent");
-
-                }
+        if ("Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
+            Random rand = new Random();
+            int randNb = rand.nextInt(2);
+            int nbCreatures = playersCreature.get(currentPlayer).intValue();
+            if (randNb == 0) {
+                logger.info(currentPlayer + " draw a Curse");
+                Ritual curse = new Ritual("Curse");
+                playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - nbCreatures - curse.getDamage()));
+                logger.info("The " + nbCreatures + " creatures of " + currentPlayer + " attack and deal " + nbCreatures + " damages to its opponent");
+                logger.info(currentPlayer + " cast a ritual that deals 3 damages to " + opponent);
+                discard.add("Curse");
             }
-            if ("Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
-                //choisit aléatoirement le rituel
-                Random rand= new Random();
-                int nombre = rand.nextInt(2);
-                if (nombre==0) {
-                    logger.info(currentPlayer + " draw a Curse");
-                    logger.info(currentPlayer + " cast a curse that deals 3 damages to " + opponent);
-                    playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - degat2 - 3));
-                    logger.info("The " + nbCreatures2 + " creatures of " + currentPlayer + " attack and deal " + degat2 + " damages to its opponent");
-                    discard.add("Curse");
-                }
-
-                if (nombre==1) {
-                    logger.info(currentPlayer + " draw a Blessing");
-                    logger.info(currentPlayer + " cast a blessing that heals 3 HP to " + currentPlayer);
-                    playersLifePoints.put(currentPlayer, (playersLifePoints.get(currentPlayer).intValue() + 3));
-                    playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - degat2));
-                    logger.info("The " + nbCreatures2 + " creatures of " + currentPlayer + " attack and deal " + degat2 + " damages to its opponent");
-                    discard.add("Blessing");
-                }
+            if (randNb == 1) {
+                logger.info(currentPlayer + " draw a Blessing");
+                Ritual blessing = new Ritual("Blessing");
+                playersLifePoints.put(currentPlayer, (playersLifePoints.get(currentPlayer).intValue() - blessing.getDamage()));
+                logger.info("The " + nbCreatures + " creatures of " + currentPlayer + " attack and deal " + nbCreatures + " damages to its opponent");
+                logger.info(currentPlayer + " cast a ritual that heals 3 lifepoints to " + currentPlayer);
+                discard.add("Blessing");
             }
+
         }
     }
-
 }

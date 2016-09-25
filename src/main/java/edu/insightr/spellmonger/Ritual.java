@@ -1,28 +1,22 @@
 package edu.insightr.spellmonger;
 
-
+/**
+ * Created by Théo on 25/09/2016.
+ */
 public class Ritual {
-    private String nameRitual;
-    private int damage;
-    public Ritual(String nameRitual) {
-        this.nameRitual=nameRitual;
-        if (nameRitual=="Curse")
-        {
-            this.damage=3;
-        }
-        if (nameRitual=="Blessing")
-        {
-            this.damage=-3;
-        }
 
+    private int damage;
+    private String ritualName;
+
+    public Ritual(String ritualName){
+        this.ritualName = ritualName;
+        if (ritualName == "Curse")
+            this.damage = 3;
+        if (ritualName == "Blessing")
+            this.damage = -3;
     }
 
-    public int getDamage(){
+    public int getDamage() {
         return damage;
     }
-    public String getNameRitual() {return nameRitual;}
-
-
-
-
 }

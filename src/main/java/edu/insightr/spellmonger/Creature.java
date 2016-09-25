@@ -1,30 +1,25 @@
 package edu.insightr.spellmonger;
 
+/**
+ * Created by Théo on 21/09/2016.
+ */
 public class Creature {
-    public int damage;
-    private String name;
 
-    public Creature(String name) {
-        this.name = name;
-        if (name=="Eagle")
-        {
-            this.damage=1;
-        }
-        if (name=="Wolf")
-        {
-            this.damage=2;
-        }
-        if (name=="Bear")
-        {
-            this.damage=3;
+    private int damage;
+    private String animal;
+
+    public Creature(String animal) {
+        this.animal = animal;
+        if (animal == "Eagle") {
+            this.damage = 1;
+        } else if (animal == "Wolf") {
+            this.damage = 2;
+        } else if (animal == "Bear") {
+            this.damage = 3;
         }
     }
-
-
 
     public int getDamage() {
         return damage;
     }
-    public String getName() {return name;}
 }
-
