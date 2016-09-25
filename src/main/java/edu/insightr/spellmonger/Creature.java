@@ -13,7 +13,6 @@ public class Creature {
         if(nameC=="Eagle") dmg=1;
         if(nameC=="Wolf") dmg=2;
         if(nameC=="Bear") dmg=3;
-        //ajout des autres créatures
     }
 
     public String NameC(){
