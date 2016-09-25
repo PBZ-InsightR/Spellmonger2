@@ -94,6 +94,7 @@ public class SpellmongerApp {
     public void drawACard(String currentPlayer, String opponent, int currentCardNumber) {
         if (currentPlayer == "Bob") {
             if ("Creature".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
+                //choisit aléatoirement le type de creature
                 Random rand = new Random();
                 int nombre = rand.nextInt(3);
                 if (nombre == 0) {
@@ -117,6 +118,7 @@ public class SpellmongerApp {
                     nbCreatures1++;
                     discard.add("Bear");
                 }
+                //calcul les dégats de chaque créature
                 if (nbCreatures1> 0) {
                     int index;
                     degat1 = 0;
@@ -130,6 +132,7 @@ public class SpellmongerApp {
                 }
             }
             if ("Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
+                //choisit aléatoirement le rituel
                 Random rand= new Random();
                 int nombre = rand.nextInt(2);
                 if (nombre==0) {
@@ -152,6 +155,7 @@ public class SpellmongerApp {
         }
         if (currentPlayer == "Alice") {
             if ("Creature".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
+                //choisit aléatoirement le type de creature
                 Random rand = new Random();
                 int nombre = rand.nextInt(3);
                 if (nombre == 0) {
@@ -176,6 +180,7 @@ public class SpellmongerApp {
                     discard.add("Bear");
                 }
                 if (nbCreatures2 > 0) {
+                    //calcul les dégats de chaque créature
                     int index;
                     degat2 = 0;
                     for (index = 0; index < nbCreatures2; index++) {
@@ -187,6 +192,7 @@ public class SpellmongerApp {
                 }
             }
             if ("Ritual".equalsIgnoreCase(cardPool.get(currentCardNumber))) {
+                //choisit aléatoirement le rituel
                 Random rand= new Random();
                 int nombre = rand.nextInt(2);
                 if (nombre==0) {
@@ -195,7 +201,7 @@ public class SpellmongerApp {
                     playersLifePoints.put(opponent, (playersLifePoints.get(opponent).intValue() - degat2 - 3));
                     logger.info("The " + nbCreatures2 + " creatures of " + currentPlayer + " attack and deal " + degat2 + " damages to its opponent");
                     discard.add("Curse");
-                    }
+                }
 
                 if (nombre==1) {
                     logger.info(currentPlayer + " draw a Blessing");
@@ -209,6 +215,4 @@ public class SpellmongerApp {
         }
     }
 
-        }
-
-
+}
