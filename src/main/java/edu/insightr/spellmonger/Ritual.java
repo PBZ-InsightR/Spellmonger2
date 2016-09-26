@@ -8,12 +8,17 @@ public class Ritual {
     private int damage;
     private String ritualName;
 
+
     public Ritual(String ritualName){
         this.ritualName = ritualName;
-        if (ritualName == "Curse")
+        if (ritualName.equals( "Curse"))
             this.damage = 3;
-        if (ritualName == "Blessing")
+        if (ritualName.equals("Blessing"))
             this.damage = -3;
+        if(ritualName.equals("Energy drain"))
+            this.damage=0;
+
+
     }
 
     public int getDamage() {
@@ -25,7 +30,7 @@ public class Ritual {
         if(ritualName.equals("Curse")){
             message="Le rituel fait "+this.damage+" points de dégat";
         }
-        else{
+        else if(ritualName.equals("Blessing")){
             message="Le rituel soigne"+this.damage+" points de vie";
         }
         return message;
