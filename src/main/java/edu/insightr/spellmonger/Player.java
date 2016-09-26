@@ -20,13 +20,14 @@ public class Player {
     }
 
     public boolean IsAlive(){
-        boolean isAlive;
-        if(this.lifePoints<0){
+        boolean isAlive=true;
+        if(this.lifePoints<=0){
             isAlive=false;
         }
-        else{
-            isAlive=true;
-        }
         return isAlive;
+    }
+
+    public String toString(){
+        return "Le joueur "+this.name+" a "+this.lifePoints+" points de vie";
     }
 }
