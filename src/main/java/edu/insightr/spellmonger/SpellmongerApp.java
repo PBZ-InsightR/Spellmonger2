@@ -11,7 +11,7 @@ import java.util.Random;
 public class SpellmongerApp {
     private static final Logger logger = Logger.getLogger(SpellmongerApp.class);
 
-    //Instancier Deck
+    //Instancier Dec;
     //Instancier Plateau
     public Player p1;
     public Player p2;
