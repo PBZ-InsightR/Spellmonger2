@@ -1,8 +1,5 @@
 package edu.insightr.spellmonger;
 
-/**
- * Created by Théo on 21/09/2016.
- */
 public class Creature {
 
     private int damage;
@@ -21,9 +18,5 @@ public class Creature {
 
     public int getDamage() {
         return damage;
-    }
-
-    public String toString(){
-        return "La créature "+this.animal+" fait "+this.damage+" points de dégat";
     }
 }
