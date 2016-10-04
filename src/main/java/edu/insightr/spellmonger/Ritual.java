@@ -7,6 +7,7 @@ public class Ritual {
 
     private int damage;
     private String ritualName;
+    private int energy =0;
 
 
     public Ritual(String ritualName){
@@ -17,12 +18,16 @@ public class Ritual {
             this.damage = -3;
         if(ritualName.equals("Energy drain"))
             this.damage=0;
+        this.energy=2;
 
 
     }
 
     public int getDamage() {
         return damage;
+    }
+    public int getEnergy() {
+        return energy;
     }
 
     public String toString(){
@@ -32,6 +37,9 @@ public class Ritual {
         }
         else if(ritualName.equals("Blessing")){
             message="Le rituel soigne"+this.damage+" points de vie";
+        }
+        else if(ritualName.equals("Energy drain")){
+            message="Le rituel vous donne"+this.energy+" points d'énergie et enlève"+this.energy+" points d'énergie à l'adversaire";
         }
         return message;
     }
