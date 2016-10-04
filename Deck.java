@@ -37,22 +37,27 @@ public class Deck {
         return cardPool;
     }
 
-    public String drawCard(int currentCardNumber,List<String> deck)
+    //retourne objet carte contenant son nom, son type et ses dégâts
+    public Card drawCard(int currentCardNumber,List<String> deck)
     {
         String card="";
+        Card carte=new Card("","",0);
         if ("Creature".equalsIgnoreCase(deck.get(currentCardNumber))) {
             Random rand = new Random();
             int randNb = rand.nextInt(3);
             if (randNb == 0){
-                card="Eagle";
+                Creature eagle = new Creature("Eagle");
+                carte=new Card(eagle.getName(),"Creature",eagle.getDamage());
                 discard.add(card);
             }
             else if (randNb == 1){
-                card="Wolf";
+                Creature wolf = new Creature("Wolf");
+                carte=new Card(wolf.getName(),"Creature",wolf.getDamage());
                 discard.add(card);
             }
             else if(randNb == 2){
-                card="Bear";
+                Creature bear = new Creature("Bear");
+                carte=new Card(bear.getName(),"Creature",bear.getDamage());
                 discard.add(card);
             }
         }
@@ -60,14 +65,16 @@ public class Deck {
             Random rand = new Random();
             int randNb = rand.nextInt(2);
             if (randNb == 0) {
-                card="Curse";
+                Ritual curse = new Ritual("Curse");
+                carte=new Card(curse.getName(),"Ritual",curse.getDamage());
                 discard.add(card);
             }
             else if(randNb == 1) {
-                card="Blessing";
+                Ritual blessing = new Ritual("Blessing");
+                carte=new Card(blessing.getName(),"Ritual",blessing.getDamage());
                 discard.add(card);
             }
         }
-        return card;
+        return carte;
     }
 }

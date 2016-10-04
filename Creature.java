@@ -16,6 +16,10 @@ public class Creature {
         }
     }
 
+    public String getName() {
+        return animal;
+    }
+
     public int getDamage() {
         return damage;
     }

@@ -41,7 +41,7 @@ public class SpellmongerApp {
         int roundCounter = 1;
         String winner="";
         int currentCardNumber = 0;
-        String card="";
+        Card carte;
 
         while((app.p1.IsAlive()==true || app.p2.IsAlive()==true) && 70>currentCardNumber && 70>currentCardNumber){
             logger.info("\n");
@@ -53,13 +53,13 @@ public class SpellmongerApp {
             //Tirer une carte du deck du joueur courant
             if(currentPlayer.GetName().equals(p1.GetName()))
             {
-                card=d1.drawCard(currentCardNumber,app.deck1);
+                carte=d1.drawCard(currentCardNumber,app.deck1);
             }
             else
             {
-                card=d2.drawCard(currentCardNumber,app.deck2);
+                carte=d2.drawCard(currentCardNumber,app.deck2);
             }
-            logger.info("Le joueur "+currentPlayer.GetName()+" pioche la carte "+card);
+            logger.info("Le joueur "+currentPlayer.GetName()+" pioche la carte "+carte.getName());
 
             //Appliquer dégats
 
