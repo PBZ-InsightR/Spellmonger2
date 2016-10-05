@@ -12,8 +12,8 @@ public class Creature extends Card {
 
 
 
-    public Creature(String animal,String name,String type ) {
-        super( name, type);
+    public Creature(String animal,String name, String type) {
+        super(name, type);
         this.animal = animal;
         type="creature";
         if (animal == "Eagle") {
@@ -42,8 +42,15 @@ public class Creature extends Card {
     public String getCapacity() {return capacity;}
 
     public boolean IsAlive()    {
+        if (getPV()>0)
+        {
+            return true;
+        }
+    else{
+            return false;
 
-    return false;
+        }
+
 
     }
 

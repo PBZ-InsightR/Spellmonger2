@@ -12,11 +12,12 @@ public class CreatureTest {
 
     @Test
     public void monTest() throws Exception {
-        Creature Bear = new Creature("Bear");
-        Creature Eagle = new Creature("Eagle");
+        Creature Bear = new Creature("Bear","bear","Creature");
+        Creature Eagle = new Creature("Eagle","eagle","Creature");
 
         Assert.assertEquals("Flying",Eagle.getCapacity());
         Assert.assertEquals(3, Bear.getPV());
+        Assert.assertEquals(true,Bear.IsAlive());
     }
 
 
