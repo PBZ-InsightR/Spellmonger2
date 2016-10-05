@@ -1,13 +1,11 @@
-/**
+package edu.insightr.spellmonger; /**
  * Created by Jean-Paul on 26/09/2016.
  */
+
 import static org.junit.Assert.*;
 
 
 
-import edu.insightr.spellmonger.Ritual;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import edu.insightr.spellmonger.Ritual;
 import org.junit.Test;
 
@@ -23,5 +21,3 @@ public class TestRitual {
         assertEquals(0.0, r.getDamage(), 0.01);
     }
 }
-
-
