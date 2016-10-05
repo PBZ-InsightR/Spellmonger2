@@ -7,30 +7,28 @@ public class Creature extends Card {
 
     private int damage;
     private String capacity;
-    private String animal;
     private int PV;
 
 
 
-    public Creature(String animal,String name, String type) {
+    public Creature(String name, String type) {
         super(name, type);
-        this.animal = animal;
         type="creature";
-        if (animal == "Eagle") {
+        if (name == "Eagle") {
             this.damage = 1;
             this.capacity = "Flying";
             this.PV = 1;
-            name = "Eagle";
-        } else if (animal == "Wolf") {
+
+        } else if (name == "Wolf") {
             this.damage = 2;
             this.PV=2;
             this.capacity = "None";
-            name="Wolf";
-        } else if (animal == "Bear") {
+
+        } else if (name == "Bear") {
             this.damage = 3;
             this.PV = 3;
             this.capacity = "None";
-            name="Bear";
+
         }
     }
 
@@ -55,6 +53,6 @@ public class Creature extends Card {
     }
 
     public String toString(){
-        return "La créature "+this.animal+"a"+this.PV+"point de vie"+"(capacité :"+ this.capacity+")"+ " fait "+this.damage+" points de dégat";
+        return "La créature "+getName()+"a"+this.PV+"point de vie"+"(capacité :"+ this.capacity+")"+ " fait "+this.damage+" points de dégat";
     }
 }
