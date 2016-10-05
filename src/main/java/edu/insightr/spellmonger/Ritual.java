@@ -16,11 +16,10 @@ public class Ritual {
             this.damage = 3;
         if (ritualName.equals("Blessing"))
             this.damage = -3;
-        if (ritualName.equals("Energy drain"))
+        if (ritualName.equals("Energy drain")) {
             this.damage = 0;
-        this.energy = 2;
-
-
+            this.energy = 2;
+        }
     }
 
     public int getDamage() {
