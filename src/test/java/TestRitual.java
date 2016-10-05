@@ -7,9 +7,7 @@ import static org.junit.Assert.*;
 
 import edu.insightr.spellmonger.Ritual;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import edu.insightr.spellmonger.Ritual;
-import org.junit.Test;
+
 
 public class TestRitual {
 
