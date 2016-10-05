@@ -23,7 +23,7 @@ public class Creature {
         return damage;
     }
 
-    public String toString(){
-        return "La créature "+this.animal+" fait "+this.damage+" points de dégat";
+    public String toString() {
+        return "La créature " + this.animal + " fait " + this.damage + " points de dégat";
     }
 }
