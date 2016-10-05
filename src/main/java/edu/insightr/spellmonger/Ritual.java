@@ -10,7 +10,7 @@ public class Ritual {
     private int energy = 0;
 
 
-    public Ritual(String ritualName) {
+    public Ritual(String ritualName){
         this.ritualName = ritualName;
         if (ritualName.equals("Curse"))
             this.damage = 3;
