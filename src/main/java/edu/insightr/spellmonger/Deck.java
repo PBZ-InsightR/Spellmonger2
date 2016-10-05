@@ -27,12 +27,12 @@ public class Deck {
             nbRand=rand.nextInt(6 - 1 + 1) +1;
             if(nbRand==1)
             {
-                carte=new Card("Ritual");
+                carte=new Card("","Ritual");
                 cardPool.add(carte);
             }
             else
             {
-                carte=new Card("Creature");
+                carte=new Card("","Creature");
                 cardPool.add(carte);
             }
         }
@@ -54,51 +54,33 @@ public class Deck {
     public Card drawCard(int currentCardNumber,List<Card> deck)
     {
 
-        Card carte=new Card("");
+        Card carte=new Card("","");
 
-        if("Creature".equalsIgnoreCase(deck.get(currentCardNumber).getType()))
-        {
-            carte=new Card("Creature");
-        }
-        else
-        {
-            carte=new Card("Ritual");
-        }
-        return carte;
 
-        //String card="";
-        /*if ("Creature".equalsIgnoreCase(deck.get(currentCardNumber))) {
+        if ("Creature".equalsIgnoreCase(deck.get(currentCardNumber).getType())) {
             Random rand = new Random();
             int randNb = rand.nextInt(3);
             if (randNb == 0){
-                Creature eagle = new Creature("Eagle");
-                carte=new Card(eagle.getName(),"Creature",eagle.getDamage());
-                //discard.add(card);
+                carte=new Card("Eagle","Creature");
             }
             else if (randNb == 1){
-                Creature wolf = new Creature("Wolf");
-                carte=new Card(wolf.getName(),"Creature",wolf.getDamage());
-                //discard.add(card);
+                carte=new Card("Wolf","Creature");
             }
             else if(randNb == 2){
-                Creature bear = new Creature("Bear");
-                carte=new Card(bear.getName(),"Creature",bear.getDamage());
-                //discard.add(card);
+                carte=new Card("Bear","Creature");
             }
         }
-        else if("Ritual".equalsIgnoreCase(deck.get(currentCardNumber))) {
+        else if("Ritual".equalsIgnoreCase(deck.get(currentCardNumber).getType())) {
             Random rand = new Random();
             int randNb = rand.nextInt(2);
             if (randNb == 0) {
-                Ritual curse = new Ritual("Curse");
-                carte=new Card(curse.getName(),"Ritual",curse.getDamage());
-                //discard.add(card);
+                carte=new Card("Curse","Ritual");
             }
             else if(randNb == 1) {
-                Ritual blessing = new Ritual("Blessing");
-                carte=new Card(blessing.getName(),"Ritual",blessing.getDamage());
-                //discard.add(card);
+                carte=new Card("Blessing","Ritual");
             }
-        }*/
+        }
+
+        return carte;
     }
 }
