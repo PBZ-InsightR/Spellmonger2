@@ -1,8 +1,9 @@
-/**
+package edu.insightr.spellmonger; /**
  * Created by Jean-Paul on 26/09/2016.
  */
 
 import static org.junit.Assert.*;
+
 
 
 import edu.insightr.spellmonger.Ritual;

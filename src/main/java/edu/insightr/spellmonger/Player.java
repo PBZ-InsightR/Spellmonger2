@@ -12,7 +12,7 @@ public class Player {
         this.lifePoints = lifePoints;
     }
 
-    public String GetName(){
+    public String GetName() {
         return this.name;
     }
 
