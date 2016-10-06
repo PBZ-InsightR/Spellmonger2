@@ -7,23 +7,22 @@ public class Card {
     private String name;
     private String type;
 
-    public Card(String name,String type)
-    {
-        this.name=name;
-        this.type=type;
+    public Card(String name, String type) {
+        this.name = name;
+        this.type = type;
     }
 
 
-    public String getName() {
+    public String GetName() {
         return name;
     }
 
-    public String getType() {
+    public String GetType() {
         return type;
     }
 
 
-    public String toString(){
-        return "type= "+type;
+    public String ToString() {
+        return "la carte est du type" + type+"son nom est"+name;
     }
 }

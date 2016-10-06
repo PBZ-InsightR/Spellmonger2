@@ -8,13 +8,16 @@ import java.util.Random;
  * Created by Etienne on 03/10/2016.
  */
 public class Deck {
-    List<Card> cardPool = new ArrayList<>(70);
-    List<Card> discard = new ArrayList<>(70);
-    static Random rand = new Random();
-    private int nbRand = 0;
+    private List<Card> cardPool;
+    private int nombreDeCartes;
+    static Random rand;
+    private int nbRand;
 
-    public Deck() {
-
+    public Deck(int nombreDeCartes) {
+        rand = new Random();
+        nbRand = 0;
+        this.nombreDeCartes = nombreDeCartes;
+        cardPool = new ArrayList<>(nombreDeCartes);
     }
 
     // Initialisation aléatoire du deck
@@ -34,18 +37,22 @@ public class Deck {
     }
 
     public void AjouterCard(Card carte) {
-        discard.add(carte);
+        cardPool.add(carte);
     }
 
     public void RetirerCard(Card carte) {
-        discard.remove(carte);
+        cardPool.remove(carte);
     }
 
-    // Retourne objet carte contenant son nom, son type et ses dégâts
-    public Card drawCard(int currentCardNumber, List<Card> deck) {
-        Card carte = new Card("", "");
+    //La méthode retourne la dernière carte du paquet
+    public Card drawCard() {
+        int i = 0;
+        while (!cardPool.isEmpty()) {
+            i++;
+        }
+        return cardPool.get(i);
 
-        if ("Creature".equalsIgnoreCase(deck.get(currentCardNumber).getType())) {
+        /*if ("Creature".equalsIgnoreCase(deck.get(currentCardNumber).GetType())) {
             Random rand = new Random();
             int randNb = rand.nextInt(3);
             if (randNb == 0) {
@@ -55,7 +62,7 @@ public class Deck {
             } else if (randNb == 2) {
                 carte = new Card("Bear", "Creature");
             }
-        } else if ("Ritual".equalsIgnoreCase(deck.get(currentCardNumber).getType())) {
+        } else if ("Ritual".equalsIgnoreCase(deck.get(currentCardNumber).GetType())) {
             Random rand = new Random();
             int randNb = rand.nextInt(3);
             if (randNb == 0) {
@@ -66,7 +73,6 @@ public class Deck {
                 carte = new Card("Energy drain", "Ritual");
             }
 
-        }
-        return carte;
+        }*/
     }
 }

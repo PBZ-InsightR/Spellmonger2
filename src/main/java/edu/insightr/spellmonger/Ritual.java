@@ -22,15 +22,15 @@ public class Ritual {
         }
     }
 
-    public int getDamage() {
+    public int GetDamage() {
         return damage;
     }
 
-    public int getEnergy() {
+    public int GetEnergy() {
         return energy;
     }
 
-    public String toString() {
+    public String ToString() {
         String message = "";
         if (ritualName.equals("Curse")) {
             message = "Le rituel fait " + this.damage + " points de dégat";

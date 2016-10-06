@@ -15,16 +15,22 @@ public class SpellmongerApp {
     //Instancier Plateau
     public Player p1;
     public Player p2;
+    private Deck pioche;
+    private Deck fausse;
 
     public SpellmongerApp(String name1, String name2, int lifePoints) {
         this.p1 = new Player(name1, lifePoints);
         this.p2 = new Player(name2, lifePoints);
         //Initialiser plateau
         //initialiser deck
+        pioche=new Deck(70);
+        fausse=new Deck(0);
+
     }
 
     public static void main(String[] args) {
         SpellmongerApp app = new SpellmongerApp("Alice", "Bob", 20);
+        app.pioche.InitDeck();
 
         Player currentPlayer = app.p1;
         Player opponent = app.p2;
@@ -38,7 +44,11 @@ public class SpellmongerApp {
 
             logger.info(currentPlayer.toString() + opponent.toString());
             //Tirer une carte du deck du joueur courant
+            Card currentCard= app.pioche.drawCard();
+            app.pioche.RetirerCard(currentCard);
+            app.fausse.AjouterCard(currentCard);
             //Appliquer dégats
+            
 
             if (currentPlayer.IsAlive() == false) {
                 winner = opponent.GetName();
