@@ -14,10 +14,10 @@ public class TestRitual {
     @Test
     public final void testRitualGetDamage() {
         Ritual r = new Ritual("Curse");
-        assertEquals(3.0, r.getDamage(), 0.01);
+        assertEquals(3.0, r.GetDamage(), 0.01);
         r = new Ritual("Blessing");
-        assertEquals(-3.0, r.getDamage(), 0.01);
+        assertEquals(-3.0, r.GetDamage(), 0.01);
         r = new Ritual("Energy drain");
-        assertEquals(0.0, r.getDamage(), 0.01);
+        assertEquals(0.0, r.GetDamage(), 0.01);
     }
 }

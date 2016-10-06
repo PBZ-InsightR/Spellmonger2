@@ -48,7 +48,7 @@ public class SpellmongerApp {
             app.pioche.RetirerCard(currentCard);
             app.fausse.AjouterCard(currentCard);
             //Appliquer dégats
-            
+
 
             if (currentPlayer.IsAlive() == false) {
                 winner = opponent.GetName();
