@@ -12,8 +12,8 @@ public class CreatureTest {
 
     @Test
     public void monTest() throws Exception {
-        Creature Bear = new Creature("Bear","Creature");
-        Creature Eagle = new Creature("Eagle","Creature");
+        Creature Bear = new Creature("Bear");
+        Creature Eagle = new Creature("Eagle");
 
         Assert.assertEquals("Flying",Eagle.GetCapacity());
         Assert.assertEquals(3, Bear.GetPV());

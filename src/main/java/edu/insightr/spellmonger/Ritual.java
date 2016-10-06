@@ -7,7 +7,7 @@ public class Ritual {
 
     private int damage;
     private String ritualName;
-    private int energy = 0;
+    private int energy ;
 
 
     public Ritual(String ritualName){

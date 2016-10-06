@@ -1,5 +1,6 @@
 package edu.insightr.spellmonger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ public class Player {
     public Player(String name, int lifePoints) {
         this.name = name;
         this.lifePoints = lifePoints;
-        this.listeCreature=listeCreature;
+        this.listeCreature=new ArrayList<>(0);
     }
 
     public String GetName() {

@@ -48,10 +48,12 @@ public class SpellmongerApp {
             app.pioche.RetirerCard(currentCard);
             app.fausse.AjouterCard(currentCard);
             //Appliquer dégats
-
+            if(currentCard.GetIsCreature()==true){
+                opponent.GetLifePoints()-=currentCard.GetCreature().GetDamage();
+            }
 
             if (currentPlayer.IsAlive() == false) {
-                winner = opponent.GetName();
+                opponent.GetLifePoints()-=currentCard.GetRitual().GetDamage();
             }
             if (opponent.IsAlive() == false) {
                 winner = currentPlayer.GetName();

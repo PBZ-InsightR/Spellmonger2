@@ -3,16 +3,14 @@ package edu.insightr.spellmonger;
 /**
  * Created by Walidey on 21/09/2016.
  */
-public class Creature extends Card {
+public class Creature {
     private String name;
     private int damage;
     private String capacity;
     private int PV;
 
 
-    public Creature(String name, String type) {
-        super(name, type);
-        type = "creature";
+    public Creature(String name) {
         if (name == "Eagle") {
             this.name = name;
             this.damage = 1;
@@ -34,9 +32,9 @@ public class Creature extends Card {
         }
     }
 
-    @Override
+
     public String ToString() {
-        return super.ToString() + "La créature " + name + "a" + this.PV + "point de vie" + "(capacité :" + this.capacity + ")" + " fait " + this.damage + " points de dégat";
+        return "La créature " + name + "a" + this.PV + "point de vie" + "(capacité :" + this.capacity + ")" + " fait " + this.damage + " points de dégat";
     }
 
     public String GetName() {

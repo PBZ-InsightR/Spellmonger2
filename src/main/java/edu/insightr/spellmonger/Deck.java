@@ -24,12 +24,35 @@ public class Deck {
     public List<Card> InitDeck() {
         Card carte;
         for (int i = 0; i < 70; i++) {
-            nbRand = rand.nextInt(6 - 1 + 1) + 1;
-            if (nbRand == 1) {
-                carte = new Card("", "Ritual");
+            nbRand = rand.nextInt(6);
+            if (nbRand == 0) {
+                Ritual curse = new Ritual("Curse");
+                carte = new Card(curse);
                 cardPool.add(carte);
-            } else {
-                carte = new Card("", "Creature");
+            }
+            else if (nbRand == 1) {
+                Ritual blessing = new Ritual("Blessing");
+                carte = new Card(blessing);
+                cardPool.add(carte);
+            }
+            else if (nbRand == 2) {
+                Ritual energyDrain = new Ritual("Energy drain");
+                carte = new Card(energyDrain);
+                cardPool.add(carte);
+            }
+            else if (nbRand == 3) {
+                Creature bear= new Creature("Bear");
+                carte = new Card(bear);
+                cardPool.add(carte);
+            }
+            else if (nbRand == 4) {
+                Creature wolf= new Creature("Wolf");
+                carte = new Card(wolf);
+                cardPool.add(carte);
+            }
+            else if (nbRand == 5) {
+                Creature eagle= new Creature("Eagle");
+                carte = new Card(eagle);
                 cardPool.add(carte);
             }
         }
