@@ -69,11 +69,11 @@ public class Deck {
 
     //La méthode retourne la dernière carte du paquet
     public Card drawCard() {
-        int i = 0;
+        /*int i = 0;
         while (!cardPool.isEmpty()) {
             i++;
-        }
-        return cardPool.get(i);
+        }*/
+        return cardPool.get(cardPool.size()-1);
 
         /*if ("Creature".equalsIgnoreCase(deck.get(currentCardNumber).GetType())) {
             Random rand = new Random();

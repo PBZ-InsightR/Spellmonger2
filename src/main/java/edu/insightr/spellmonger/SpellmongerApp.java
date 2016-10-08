@@ -37,23 +37,34 @@ public class SpellmongerApp {
         int roundCounter = 1;
         String winner = "";
 
-        while (app.p1.IsAlive() == true || app.p2.IsAlive() == true) {
+        while (app.p1.IsAlive() == true && app.p2.IsAlive() == true) {
             logger.info("\n");
             logger.info("***** ROUND " + roundCounter);
 
 
-            logger.info(currentPlayer.toString() + opponent.toString());
+
+            logger.info(currentPlayer.toString() +" et "+ opponent.toString());
             //Tirer une carte du deck du joueur courant
             Card currentCard= app.pioche.drawCard();
-            app.pioche.RetirerCard(currentCard);
-            app.fausse.AjouterCard(currentCard);
-            //Appliquer dégats
             if(currentCard.GetIsCreature()==true){
-                opponent.GetLifePoints()-=currentCard.GetCreature().GetDamage();
+                logger.info("Le joueur pioche la carte "+currentCard.GetCreature().GetName());
+                //Appliquer dégats
+                opponent.altererHP(currentCard.GetCreature().GetDamage());}
+            else if(currentCard.GetIsCreature()==false)
+            {
+                logger.info(currentPlayer.GetName()+" pioche la carte "+currentCard.GetRitual().GetName());
+                if(currentCard.GetRitual().GetName()=="Blessing"){
+                currentPlayer.altererHP(currentCard.GetRitual().GetDamage());}
+                else{
+                opponent.altererHP(currentCard.GetRitual().GetDamage());}
             }
 
+            app.pioche.RetirerCard(currentCard);
+            app.fausse.AjouterCard(currentCard);
+
+
             if (currentPlayer.IsAlive() == false) {
-                opponent.GetLifePoints()-=currentCard.GetRitual().GetDamage();
+                winner = opponent.GetName();
             }
             if (opponent.IsAlive() == false) {
                 winner = currentPlayer.GetName();
@@ -61,7 +72,7 @@ public class SpellmongerApp {
 
             Player temp = currentPlayer;
             currentPlayer = opponent;
-            opponent = currentPlayer;
+            opponent = temp;
             roundCounter++;
         }
 

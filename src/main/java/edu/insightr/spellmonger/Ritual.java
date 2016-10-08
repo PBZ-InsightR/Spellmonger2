@@ -22,6 +22,8 @@ public class Ritual {
         }
     }
 
+    public String GetName(){return ritualName;}
+
     public int GetDamage() {
         return damage;
     }
