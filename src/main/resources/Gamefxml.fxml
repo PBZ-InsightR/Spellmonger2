@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <SplitPane layoutX="7.0" layoutY="450.0" prefHeight="150.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0">
+            <items>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Button layoutX="249.0" layoutY="49.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="Draw" />
+                    </children>
+                </Pane>
+            </items></SplitPane>
+        <SplitPane layoutY="300.0" prefHeight="150.0" prefWidth="700.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <items>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <ScrollBar layoutY="135.0" prefHeight="15.0" prefWidth="700.0" />
+                    </children>
+                </Pane>
+            </items></SplitPane>
+        <SplitPane layoutY="150.0" prefHeight="150.0" prefWidth="700.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="0.0">
+            <items>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <ScrollBar prefHeight="15.0" prefWidth="700.0" />
+                    </children>
+                </Pane>
+            </items></SplitPane>
+        <SplitPane layoutX="10.0" layoutY="460.0" prefHeight="150.0" prefWidth="450.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Button layoutX="249.0" layoutY="49.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="Draw" />
+                    </children>
+                </Pane>
+            </items></SplitPane>
+        <SplitPane layoutX="-18.0" layoutY="-32.0" prefHeight="150.0" prefWidth="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" layoutY="10.0" prefWidth="150.0" text="Alice" textAlignment="CENTER">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="150.0" text="20" textFill="RED">
+                            <font>
+                                <Font size="64.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </items></SplitPane>
+        <SplitPane layoutX="-8.0" layoutY="-22.0" prefHeight="150.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <items>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Label alignment="CENTER" layoutY="10.0" prefWidth="150.0" text="Bob" textAlignment="CENTER">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="150.0" text="20" textFill="RED">
+                            <font>
+                                <Font size="64.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </items></SplitPane>
+    </children>
+</AnchorPane>
