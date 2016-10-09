@@ -25,6 +25,8 @@ public class Player {
         return this.lifePoints;
     }
 
+    public List<Creature> GetListeCreature(){return this.listeCreature;}
+
     public boolean IsAlive() {
         boolean isAlive = true;
         if (this.lifePoints <= 0) {
@@ -33,7 +35,7 @@ public class Player {
         return isAlive;
     }
 
-    public void altererHP(int dmg){this.lifePoints-=dmg;}
+    public void AltererHP(int dmg){this.lifePoints-=dmg;}
 
     public String toString() {
         return "Le joueur " + this.name + " a " + this.lifePoints + " points de vie";

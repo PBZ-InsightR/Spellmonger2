@@ -48,4 +48,8 @@ public class Creature extends Card {
     public String toString(){
         return "La créature "+this.animal+"a"+this.PV+"point de vie"+"(capacité :"+ this.capacity+")"+ " fait "+this.damage+" points de dégat";
     }
+
+    public void AlterePV(int damage) {
+        this.PV -= damage;
+    }
 }
