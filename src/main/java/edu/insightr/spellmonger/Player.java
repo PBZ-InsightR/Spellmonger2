@@ -25,6 +25,8 @@ public class Player {
         return this.lifePoints;
     }
 
+    public List<Creature> GetListeCreature(){return this.listeCreature;}
+
     public boolean IsAlive() {
         boolean isAlive = true;
         if (this.lifePoints <= 0) {
