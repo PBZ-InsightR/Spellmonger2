@@ -12,6 +12,16 @@ import org.junit.Test;
 public class TestRitual {
 
     @Test
+    public final void testRitualGetName() {
+        Ritual r = new Ritual("Curse");
+        assertEquals("Curse", r.GetName());
+        r = new Ritual("Blessing");
+        assertEquals("Blessing", r.GetName());
+        r = new Ritual("Energy drain");
+        assertEquals("Energy Drain", r.GetName());
+    }
+
+    @Test
     public final void testRitualGetDamage() {
         Ritual r = new Ritual("Curse");
         assertEquals(3.0, r.GetDamage(), 0.01);
