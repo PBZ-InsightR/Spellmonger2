@@ -35,7 +35,7 @@ public class Player {
         return isAlive;
     }
 
-    public void altererHP(int dmg){this.lifePoints-=dmg;}
+    public void AltererHP(int dmg){this.lifePoints-=dmg;}
 
     public String toString() {
         return "Le joueur " + this.name + " a " + this.lifePoints + " points de vie";

@@ -22,9 +22,9 @@ public class PlayerTest {
     }
 
     @Test
-    public void altererHP() throws Exception{
+    public void AltererHP() throws Exception{
         Player p = new Player("p",5);
-        p.altererHP(2);
+        p.AltererHP(2);
         Assert.assertEquals(3,p.GetLifePoints());
     }
 

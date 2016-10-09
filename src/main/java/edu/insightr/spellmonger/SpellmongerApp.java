@@ -59,7 +59,9 @@ public class SpellmongerApp {
                     currentPlayer.GetListeCreature().add(currentCard.GetCreature());
 
                 }
-                opponent.altererHP(currentCard.GetCreature().GetDamage());
+                else {
+                    opponent.AltererHP(currentCard.GetCreature().GetDamage());
+                }
             } else if (currentCard.GetIsCreature() == false) {
                 logger.info(currentPlayer.GetName() + " pioche la carte " + currentCard.GetRitual().GetName());
                 if (opponent.GetListeCreature().size() != 0) {
@@ -70,6 +72,9 @@ public class SpellmongerApp {
                     if (!opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).IsAlive()) {
                         opponent.GetListeCreature().remove(opponent.GetListeCreature().size() - 1);
                     }
+                }
+                else {
+                    opponent.AltererHP(currentCard.GetRitual().GetDamage());
                 }
 
             }
