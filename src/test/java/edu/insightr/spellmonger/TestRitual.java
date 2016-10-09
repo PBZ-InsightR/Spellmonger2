@@ -20,4 +20,14 @@ public class TestRitual {
         r = new Ritual("Energy drain");
         assertEquals(0.0, r.GetDamage(), 0.01);
     }
+
+    @Test
+    public final void testRitualGetEnergy() {
+        Ritual r = new Ritual("Curse");
+        assertEquals(0.0, r.GetEnergy(), 0.01);
+        r = new Ritual("Blessing");
+        assertEquals(0.0, r.GetEnergy(), 0.01);
+        r = new Ritual("Energy drain");
+        assertEquals(2.0, r.GetEnergy(), 0.01);
+    }
 }
