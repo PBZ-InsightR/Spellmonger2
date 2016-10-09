@@ -15,8 +15,8 @@ public class CreatureTest {
         Creature Bear = new Creature("Bear");
         Creature Eagle = new Creature("Eagle");
 
-        Assert.assertEquals("Flying",Eagle.GetCapacity());
-        Assert.assertEquals(3, Bear.GetPV());
+        Assert.assertEquals("Flying",Eagle.getCapacity());
+        Assert.assertEquals(3, Bear.getPV());
         Assert.assertEquals(true,Bear.IsAlive());
     }
 

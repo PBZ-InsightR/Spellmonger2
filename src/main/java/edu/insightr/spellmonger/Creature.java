@@ -3,19 +3,16 @@ package edu.insightr.spellmonger;
 /**
  * Created by Walidey on 21/09/2016.
  */
-public class Creature extends Card {
+public class Creature {
 
-    //private int damage;
+    private int damage;
     private String capacity;
-    private String animal;
+    private String name;
     private int PV;
 
 
 
-    public Creature(String animal,String name,String type ) {
-        super( name, type, damage);
-        this.animal = animal;
-        type="creature";
+    public Creature(String animal){
         if (animal == "Eagle") {
             this.damage = 1;
             this.capacity = "Flying";
@@ -46,10 +43,18 @@ public class Creature extends Card {
     }
 
     public String toString(){
-        return "La créature "+this.animal+"a"+this.PV+"point de vie"+"(capacité :"+ this.capacity+")"+ " fait "+this.damage+" points de dégat";
+        return "La créature "+this.name+"a"+this.PV+"point de vie"+"(capacité :"+ this.capacity+")"+ " fait "+this.damage+" points de dégat";
     }
 
     public void AlterePV(int damage) {
         this.PV -= damage;
+    }
+
+    public String GetName() {
+        return name;
+    }
+
+    public int GetDamage(){
+        return damage;
     }
 }
