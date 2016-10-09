@@ -33,10 +33,23 @@ public class Plateau {
     public Player CalculDegat(Card c, Player p)
     {
         if(c.getType().equals("Creature")){
-            p.GetLifePoints() -= c.getDamage();
+            if(c.getName().equals("Eagle")) {
+                p.AltererHP(1);
+            }
+            if(c.getName().equals("Wolf")) {
+                p.AltererHP(2);
+            }
+            if(c.getName().equals("Bear")) {
+                p.AltererHP(3);
+            }
     }
         if(c.getType().equals("Ritual")){
-        p.GetLifePoints() -= c.getDamage();
+            if(c.getName().equals("Curse")) {
+                p.AltererHP(3);
+            }
+            if(c.getName().equals("Blessing")) {
+                p.AltererHP(-3);
+            }
 
     }
         return p;
