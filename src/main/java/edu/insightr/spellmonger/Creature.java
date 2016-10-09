@@ -63,4 +63,8 @@ public class Creature {
 
 
     }
+
+    public void AlterePV(int damage) {
+        this.PV -= damage;
+    }
 }
