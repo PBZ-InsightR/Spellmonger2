@@ -4,31 +4,33 @@ package edu.insightr.spellmonger;
  * Created by Etienne on 04/10/2016.
  */
 public class Card {
-    private Creature creature;
-    private Ritual ritual;
-    private boolean isCreature;
-
-    public Card(Creature creature) {
-        this.creature = creature;
-        ritual = null;
-        isCreature=true;
+    private String name;
+    private String type;
+    private int damage;
+    
+    public Card(String name,String type, int damage)
+    {
+        this.name=name;
+        this.type=type;
+        this.damage = damage;
     }
 
-    public Card(Ritual ritual) {
-        this.ritual = ritual;
-        creature = null;
-        isCreature=false;
+
+    public String getName() {
+        return name;
     }
 
-    public Creature GetCreature(){
-        return this.creature;
+    public String getType() {
+        return type;
     }
 
-    public Ritual GetRitual(){
-        return this.ritual;
+
+    public String toString(){
+        return "type= "+type;
     }
 
-    public boolean GetIsCreature(){
-        return this.isCreature;
+
+    public int getDamage() {
+        return damage;
     }
 }
