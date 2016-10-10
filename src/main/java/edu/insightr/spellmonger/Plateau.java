@@ -3,6 +3,9 @@ package edu.insightr.spellmonger;
 /**
  * Created by Karim_Utilisateur on 05/10/2016.
  */
+
+import java.io.*;
+
 public class Plateau {
     private Player p1, p2;
     private int nbTours;
@@ -29,6 +32,10 @@ public class Plateau {
         return gagnant;
     }
 
+    public String toString(){
+        return "Joueur 1 :" + p1 + "\nJoueur 2 :" + p2 + "Durée de la partie en tour :" + nbTours + "Gagnant" + gagnant;
+    }
+
 
     public Player CalculDegat(Card c, Player p)
     {
@@ -42,7 +49,7 @@ public class Plateau {
             if(c.getName().equals("Bear")) {
                 p.AltererHP(3);
             }
-    }
+        }
         if(c.getType().equals("Ritual")){
             if(c.getName().equals("Curse")) {
                 p.AltererHP(3);
@@ -51,10 +58,9 @@ public class Plateau {
                 p.AltererHP(-3);
             }
 
-    }
+        }
         return p;
     }
-
 
 
 }
