@@ -45,7 +45,7 @@ public class SpellmongerApp {
             logger.info(currentPlayer.toString() + " et " + opponent.toString());
             //Tirer une carte du deck du joueur courant
             Card currentCard = app.pioche.drawCard();
-            if (currentCard.GetIsCreature() == true) {
+            if (currentCard.IsCreature() == true) {
                 logger.info("Le joueur pioche la carte " + currentCard.GetCreature().GetName());
                 //Appliquer dégats
                 if (opponent.GetListeCreature().size() != 0) {
@@ -62,7 +62,7 @@ public class SpellmongerApp {
                 else {
                     opponent.AltererHP(currentCard.GetCreature().GetDamage());
                 }
-            } else if (currentCard.GetIsCreature() == false) {
+            } else if (currentCard.IsCreature() == false) {
                 logger.info(currentPlayer.GetName() + " pioche la carte " + currentCard.GetRitual().GetName());
                 if (opponent.GetListeCreature().size() != 0) {
 

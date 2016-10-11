@@ -37,7 +37,7 @@ public class Plateau {
     }
 
 
-    public Player CalculDegat(Card c, Player p)
+    /*public Player CalculDegat(Card c, Player p)
     {
         if(c.getType().equals("Creature")){
             if(c.getName().equals("Eagle")) {
@@ -61,6 +61,6 @@ public class Plateau {
         }
         return p;
     }
-
+*/
 
 }
