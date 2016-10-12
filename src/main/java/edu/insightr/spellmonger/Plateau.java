@@ -14,7 +14,7 @@ public class Plateau {
     public Plateau(String name1, String name2, int lifePoints) {
         this.current = new Player(name1, lifePoints);
         this.opponent = new Player(name2, lifePoints);
-        nbTours=1;
+        nbTours = 1;
     }
 
     public int getNbTours() {
@@ -40,14 +40,14 @@ public class Plateau {
     }
 
     public boolean IsThereAWinner() {
-        boolean isThereAWinner=false;
+        boolean isThereAWinner = false;
         if (current.IsAlive() == false) {
             winner = opponent.GetName();
-            isThereAWinner=true;
+            isThereAWinner = true;
         }
         if (opponent.IsAlive() == false) {
             winner = current.GetName();
-            isThereAWinner=true;
+            isThereAWinner = true;
         }
         return isThereAWinner;
     }
@@ -84,7 +84,7 @@ public class Plateau {
                 }
             } else if (currentCard.IsCreature() == false) {
                 logger.info(current.GetName() + " pioche la carte " + currentCard.GetRitual().GetName());
-                if (opponent.GetListeCreature().size() != 0) {
+                /*if (opponent.GetListeCreature().size() != 0) {
 
                     //on applique les damages a la derniere carte de l'opponent
                     opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).AlterePV(currentCard.GetRitual().GetDamage());
@@ -92,24 +92,29 @@ public class Plateau {
                     if (!opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).IsAlive()) {
                         opponent.GetListeCreature().remove(opponent.GetListeCreature().size() - 1);
                     }
+                } else {*/
+                if (currentCard.GetRitual().GetName() == "Blessing") {
+                    current.AltererHP(currentCard.GetRitual().GetDamage());
+
                 } else {
                     opponent.AltererHP(currentCard.GetRitual().GetDamage());
                 }
 
+                current.getPioche().RetirerCard(currentCard);
+                current.getFausse().AjouterCard(currentCard);
             }
 
-            current.getPioche().RetirerCard(currentCard);
-            current.getFausse().AjouterCard(currentCard);
+                ChangeCurrent();
+                AjouterTour();
 
-            ChangeCurrent();
-            AjouterTour();
         }
 
-        logger.info("\n");
-        logger.info("******************************");
-        logger.info("THE WINNER IS " + getWinner() + " !!!");
-        logger.info("******************************");
+            logger.info("\n");
+            logger.info("******************************");
+            logger.info("THE WINNER IS " + getWinner() + " !!!");
+            logger.info("******************************");
 
 
+        }
     }
-}
+
