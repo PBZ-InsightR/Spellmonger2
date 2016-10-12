@@ -10,6 +10,10 @@ import java.util.Random;
 public class Deck {
 
 
+    public List<Card> getCardPool() {
+        return cardPool;
+    }
+
     private List<Card> cardPool;
     private int nombreDeCartes;
     static Random rand;
@@ -26,11 +30,10 @@ public class Deck {
     // Initialisation aléatoire du deck
     public List<Card> InitDeck() {
         Card carte;
-        int i=1;
-        while(i<=40){
+
+        for (int i = 0; i < 40; i++) {
             nbRand = rand.nextInt(6);
             if (nbRand == 0) {
-
                 Ritual curse = new Ritual("Curse");
                 carte = new Card(curse);
                 cardPool.add(carte);
@@ -60,13 +63,10 @@ public class Deck {
                 carte = new Card(eagle);
                 cardPool.add(carte);
             }
-            i++;
         }
         return cardPool;
     }
-    public List<Card> getCardPool() {
-        return cardPool;
-    }
+
     public void AjouterCard(Card carte) {
         cardPool.add(carte);
     }
