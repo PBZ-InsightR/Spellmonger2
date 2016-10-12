@@ -11,9 +11,9 @@ import static org.junit.Assert.*;
 public class DeckTest {
     @Test
     public void initDeck() throws Exception {
-        Deck d=new Deck(1);
+        Deck d=new Deck(40);
 
-        Assert.assertEquals(70,d.InitDeck().size());
+        Assert.assertEquals(40,d.getCardPool().size());
         
     }
 }
