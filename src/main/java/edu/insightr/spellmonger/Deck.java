@@ -22,9 +22,7 @@ public class Deck {
     public Deck(int nombreDeCartes) {
         rand = new Random();
         nbRand = 0;
-        cardPool=new ArrayList<Card>();
-        cardPool=this.InitDeck();
-        this.nombreDeCartes=nombreDeCartes;
+        cardPool=new ArrayList<Card>(nombreDeCartes);
     }
 
     // Initialisation aléatoire du deck
