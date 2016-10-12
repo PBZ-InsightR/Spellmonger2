@@ -14,11 +14,19 @@ public class CreatureTest {
     public void monTest() throws Exception {
         Creature Bear = new Creature("Bear");
         Creature Eagle = new Creature("Eagle");
+        Creature wolf = new Creature("Wolf");
+
+        int pv = wolf.getPV();
+        int damage = wolf.GetDamage();
+        pv -= damage;
+
+        wolf.AlterePV(damage);
 
         Assert.assertEquals("Flying",Eagle.getCapacity());
-        Assert.assertEquals(3, Bear.getPV(),0.1);
-        Assert.assertTrue(Bear.IsAlive());
-
+        Assert.assertEquals(3, Bear.getPV());
+        Assert.assertEquals(true,Bear.IsAlive());
+        Assert.assertEquals(pv,wolf.getPV());
+        //Assert.assertThat(true, is(equalTo(Bear.IsAlive())));
     }
 
 

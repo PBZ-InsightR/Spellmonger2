@@ -9,32 +9,20 @@ import java.util.Map;
 import java.util.Random;
 
 public class SpellmongerApp {
-    private static final Logger logger = Logger.getLogger(SpellmongerApp.class);
-
-    //Instancier Dec;
-    //Instancier Plateau
-    public Player p1;
-    public Player p2;
-    private Deck pioche;
-    private Deck fausse;
 
     public SpellmongerApp(String name1, String name2, int lifePoints) {
-        this.p1 = new Player(name1, lifePoints);
-        this.p2 = new Player(name2, lifePoints);
-        //Initialiser plateau
-        //initialiser deck
-        pioche = new Deck(40);
-        fausse = new Deck(0);
 
     }
 
     public static void main(String[] args) {
-        Plateau p=new Plateau("Alice","Bob",20);
+        Plateau p = new Plateau("Alice","Bob",20,0);
         p.Jeu();
+
+
+
         /*SpellmongerApp app = new SpellmongerApp("Alice", "Bob", 20);
         app.pioche.InitDeck();
-        app.p1.getPioche().InitDeck();
-        app.p2.getPioche().InitDeck();
+
         Player currentPlayer = app.p1;
         Player opponent = app.p2;
         int roundCounter = 1;
@@ -47,7 +35,7 @@ public class SpellmongerApp {
 
             logger.info(currentPlayer.toString() + " et " + opponent.toString());
             //Tirer une carte du deck du joueur courant
-            Card currentCard = currentPlayer.getPioche().drawCard();
+            Card currentCard = app.pioche.drawCard();
             if (currentCard.IsCreature() == true) {
                 logger.info("Le joueur pioche la carte " + currentCard.GetCreature().GetName());
                 //Appliquer dégats

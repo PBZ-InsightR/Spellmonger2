@@ -11,19 +11,19 @@ import static org.junit.Assert.*;
 public class PlayerTest {
     @Test
     public void isAlive() throws Exception {
-        Player p = new Player("p",0);
+        Player p = new Player("p",0,0);
         Assert.assertEquals(p.IsAlive(),false);
 
     }
     @Test
     public void getLifePoints() throws Exception{
-        Player p = new Player("p",1);
+        Player p = new Player("p",1,0);
         Assert.assertEquals(1,p.GetLifePoints());
     }
 
     @Test
     public void AltererHP() throws Exception{
-        Player p = new Player("p",5);
+        Player p = new Player("p",5,0);
         p.AltererHP(2);
         Assert.assertEquals(3,p.GetLifePoints());
     }
