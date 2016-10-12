@@ -23,7 +23,7 @@ public class SpellmongerApp {
         this.p2 = new Player(name2, lifePoints);
         //Initialiser plateau
         //initialiser deck
-        pioche = new Deck(70);
+        pioche = new Deck(40);
         fausse = new Deck(0);
 
     }
