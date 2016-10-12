@@ -93,7 +93,13 @@ public class Plateau {
                 }
             } else if (currentCard.IsCreature() == false) {
                 logger.info(current.GetName() + " pioche la carte " + currentCard.GetRitual().GetName());
-                opponent.AltererHP(currentCard.GetRitual().GetDamage());
+                if(currentCard.GetRitual().GetName()=="Blessing")
+                {
+                    current.AltererHP(currentCard.GetRitual().GetDamage());
+                }
+                else {
+                    opponent.AltererHP(currentCard.GetRitual().GetDamage());
+                }
             }
 
             current.getPioche().RetirerCard(currentCard);
