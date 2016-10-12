@@ -89,6 +89,14 @@ public class Deck {
         cardPool.remove(carte);
     }
 
+    public boolean isEmpty(){
+        boolean isEmpty=false;
+        if(cardPool.size()==0){
+            isEmpty=true;
+        }
+        return isEmpty;
+    }
+
     //La méthode retourne la dernière carte du paquet
     public Card drawCard() {
         /*int i = 0;
