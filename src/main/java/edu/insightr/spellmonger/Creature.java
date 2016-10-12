@@ -37,9 +37,13 @@ public class Creature {
     public String getCapacity() {return capacity;}
 
     public boolean IsAlive()    {
-
-    return false;
-
+        if(this.PV<=0) {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     public String toString(){
