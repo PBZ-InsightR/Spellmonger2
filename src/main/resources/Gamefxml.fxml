@@ -7,25 +7,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <SplitPane prefHeight="175.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0">
+        <SplitPane prefHeight="150.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
             <items>
                 <Pane>
                     <children>
-                        <Button layoutX="449.0" layoutY="37.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Draw" />
+                        <Button layoutX="449.0" layoutY="24.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Draw" />
                     </children>
                 </Pane>
             </items></SplitPane>
-        <SplitPane prefHeight="175.0" prefWidth="1200.0" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="0.0">
+        <SplitPane prefHeight="150.0" prefWidth="1200.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0">
             <items>
                 <Pane>
                     <children>
-                        <ScrollBar layoutY="160.0" prefHeight="15.0" prefWidth="1200.0" />
+                        <ScrollBar layoutY="135.0" prefHeight="15.0" prefWidth="1200.0" />
                     </children>
                 </Pane>
             </items></SplitPane>
-        <SplitPane prefHeight="175.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="175.0">
+        <SplitPane prefHeight="150.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="150.0">
             <items>
                 <Pane>
                     <children>
@@ -33,15 +33,15 @@
                     </children>
                 </Pane>
             </items></SplitPane>
-        <SplitPane prefHeight="175.0" prefWidth="1000.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="0.0">
+        <SplitPane layoutX="200.0" prefHeight="150.0" prefWidth="1000.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
                 <Pane>
                     <children>
-                        <Button layoutX="449.0" layoutY="37.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Draw" />
+                        <Button layoutX="449.0" layoutY="24.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Draw" />
                     </children>
                 </Pane>
             </items></SplitPane>
-        <SplitPane prefHeight="175.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <SplitPane prefHeight="150.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
                 <Pane>
                     <children>
@@ -58,7 +58,7 @@
                     </children>
                 </Pane>
             </items></SplitPane>
-        <SplitPane prefHeight="175.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+        <SplitPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
             <items>
                 <Pane>
                     <children>

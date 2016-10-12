@@ -19,12 +19,14 @@ public class Game extends Application {
             final URL url = getClass().getResource("/Gamefxml.fxml");
             final FXMLLoader fxmlLoader = new FXMLLoader(url);
             final AnchorPane root = (AnchorPane) fxmlLoader.load();
-            final Scene scene = new Scene(root, 700,600);
+            final Scene scene = new Scene(root, 1200,600);
             primaryStage.setScene(scene);
         }catch (IOException ex){
             System.err.println("Erreur" + ex);
         }
         primaryStage.setTitle("Card Game");
+        primaryStage.setResizable(false);
+        primaryStage.sizeToScene();
         primaryStage.show();
     }
 
