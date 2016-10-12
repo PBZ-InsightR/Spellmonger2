@@ -26,14 +26,14 @@ public class PlateauTest {
 
     @Test
     public void ajouterTour() throws Exception {
-        Plateau p = new Plateau("alice","bob",20);
+        Plateau p = new Plateau("alice","bob",20,0);
         p.AjouterTour();
         Assert.assertEquals(2,p.getNbTours());
     }
 
     @Test
     public void changeCurrent() throws Exception {
-        Plateau p = new Plateau("alice","bob",20);
+        Plateau p = new Plateau("alice","bob",20,0);
         p.ChangeCurrent();
         Player bob=p.getCurrent();
         Assert.assertEquals(bob,p.getCurrent());
