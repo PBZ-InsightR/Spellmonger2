@@ -6,7 +6,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CardTest {
-    
     @Test
     public void isCreature() throws Exception {
         Creature wolf = new Creature("Wolf");
