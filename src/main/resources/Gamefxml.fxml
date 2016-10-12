@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -13,7 +15,11 @@
             <items>
                 <Pane>
                     <children>
-                        <Button layoutX="449.0" layoutY="24.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Draw" />
+                        <Button layoutX="459.0" layoutY="34.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="Draw" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="639.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="259.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="118.0" prefWidth="100.0" text="Deck" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="639.0" layoutY="118.0" prefWidth="100.0" text="Discard" />
                     </children>
                 </Pane>
             </items></SplitPane>
@@ -37,7 +43,11 @@
             <items>
                 <Pane>
                     <children>
-                        <Button layoutX="449.0" layoutY="24.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Draw" />
+                        <Button layoutX="459.0" layoutY="34.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="Draw" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="259.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="639.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="14.0" prefWidth="100.0" text="Deck" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="639.0" layoutY="14.0" prefWidth="100.0" text="Discard" />
                     </children>
                 </Pane>
             </items></SplitPane>
@@ -50,9 +60,14 @@
                                 <Font size="24.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="200.0" text="20" textFill="RED">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="200.0" text="HP : 20" textFill="RED">
                             <font>
-                                <Font size="64.0" />
+                                <Font size="36.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="200.0" text="Energy : 0" textFill="#0048ff">
+                            <font>
+                                <Font size="36.0" />
                             </font>
                         </Label>
                     </children>
@@ -67,9 +82,14 @@
                                 <Font size="24.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="200.0" text="20" textFill="RED">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="200.0" text="HP : 20" textFill="RED">
                             <font>
-                                <Font size="64.0" />
+                                <Font size="36.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="200.0" text="Energy : 0" textFill="#0048ff">
+                            <font>
+                                <Font size="36.0" />
                             </font>
                         </Label>
                     </children>
