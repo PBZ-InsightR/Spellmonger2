@@ -18,7 +18,7 @@ public class TestRitual {
         r = new Ritual("Blessing");
         assertEquals("Blessing", r.GetName());
         r = new Ritual("Energy drain");
-        assertEquals("Energy Drain", r.GetName());
+        assertEquals("Energy drain", r.GetName());
     }
 
     @Test
