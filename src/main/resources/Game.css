@@ -10,3 +10,13 @@
     -fx-border-color: black;
 }
 
+.button:hover{
+    -fx-cursor:pointer;
+    -fx-background-color: gold;
+}
+.button:active{
+    -fx-position:relative;
+    -fx-left:1px;
+    -fx-top:1px;
+}
+
