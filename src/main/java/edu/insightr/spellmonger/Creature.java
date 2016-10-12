@@ -28,22 +28,22 @@ public class Creature {
             this.PV = 3;
             this.capacity = "None";
             name="Bear";
+
         }
     }
-
 
     public int getPV() {return PV;}
 
     public String getCapacity() {return capacity;}
 
     public boolean IsAlive()    {
-        if(this.PV<=0) {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        boolean resultat = false;
+        if(this.PV >= 0)
+            resultat = true;
+
+
+    return resultat;
+
     }
 
     public String toString(){
