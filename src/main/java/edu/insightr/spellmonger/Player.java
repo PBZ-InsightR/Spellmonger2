@@ -17,7 +17,7 @@ public class Player {
         this.name = name;
         this.lifePoints = lifePoints;
         this.listeCreature = new ArrayList<>(0);
-        pioche = new Deck(70);
+        pioche = new Deck(40);
         fausse = new Deck(0);
     }
 

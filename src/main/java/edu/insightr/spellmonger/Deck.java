@@ -8,6 +8,8 @@ import java.util.Random;
  * Created by Etienne on 03/10/2016.
  */
 public class Deck {
+
+
     private List<Card> cardPool;
     private int nombreDeCartes;
     static Random rand;
@@ -16,16 +18,19 @@ public class Deck {
     public Deck(int nombreDeCartes) {
         rand = new Random();
         nbRand = 0;
-        this.nombreDeCartes = nombreDeCartes;
-        cardPool = new ArrayList<>(nombreDeCartes);
+        cardPool=new ArrayList<Card>();
+        cardPool=this.InitDeck();
+        this.nombreDeCartes=nombreDeCartes;
     }
 
     // Initialisation aléatoire du deck
     public List<Card> InitDeck() {
         Card carte;
-        for (int i = 0; i < 70; i++) {
+        int i=1;
+        while(i<=40){
             nbRand = rand.nextInt(6);
             if (nbRand == 0) {
+
                 Ritual curse = new Ritual("Curse");
                 carte = new Card(curse);
                 cardPool.add(carte);
@@ -55,16 +60,27 @@ public class Deck {
                 carte = new Card(eagle);
                 cardPool.add(carte);
             }
+            i++;
         }
         return cardPool;
     }
-
+    public List<Card> getCardPool() {
+        return cardPool;
+    }
     public void AjouterCard(Card carte) {
         cardPool.add(carte);
     }
 
     public void RetirerCard(Card carte) {
         cardPool.remove(carte);
+    }
+
+    public boolean isEmpty(){
+        boolean isEmpty=false;
+        if(cardPool.size()==0){
+            isEmpty=true;
+        }
+        return isEmpty;
     }
 
     //La méthode retourne la dernière carte du paquet
