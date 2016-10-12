@@ -32,19 +32,18 @@ public class Creature {
         }
     }
 
-    public int count(){return 5;}
     public int getPV() {return PV;}
 
     public String getCapacity() {return capacity;}
 
     public boolean IsAlive()    {
-        if(this.PV<=0) {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        boolean resultat = false;
+        if(this.PV >= 0)
+            resultat = true;
+
+
+    return resultat;
+
     }
 
     public String toString(){
