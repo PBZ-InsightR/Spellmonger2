@@ -13,7 +13,7 @@ public class DeckTest {
     public void initDeck() throws Exception {
         Deck d=new Deck(1);
 
-        Assert.assertEquals(70,d.InitDeck().size());
+        Assert.assertEquals(40,d.InitDeck().size());
         
     }
 }
