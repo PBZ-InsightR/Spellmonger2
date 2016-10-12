@@ -25,6 +25,10 @@ public class Player {
         return this.name;
     }
 
+    public void Machin(){
+
+    }
+
     public int GetLifePoints() {
         return this.lifePoints;
     }
