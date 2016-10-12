@@ -5,9 +5,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Karim_Utilisateur on 12/10/2016.
- */
 public class CardTest {
     @Test
     public void isCreature() throws Exception {
