@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -36,22 +37,28 @@ public class Game extends Application {
     }
 
     @FXML
-    private Label hpPlayer1;
+    private Label hpPlayer1, hpPlayer2, nomPlayer1, nomPlayer2;
+    private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
+    private Player player1 = new Player("Alice", 20, 0);
+    private Player player2 = new Player("Bob", 20, 0);
+    private Button buttonPlayer1, buttonPlayer2;
 
     @FXML
     private void drawPlayer2(){
-        /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("TEST");
-        alert.showAndWait();*/
-
+        plateau.Jeu();
+        hpPlayer2.setText("10");
+        nomPlayer2.setText("Bob");
+        /*buttonPlayer1.setDisable(false);
+        buttonPlayer2.setDisable(true);*/
     }
 
     @FXML
     private void drawPlayer1(){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setContentText("BLABLABLA");
-        alert.showAndWait();
+        plateau.Jeu();
         hpPlayer1.setText("15");
+        nomPlayer1.setText("Alice");
+        /*buttonPlayer1.setDisable(true);
+        buttonPlayer2.setDisable(false);*/
     }
 
 }

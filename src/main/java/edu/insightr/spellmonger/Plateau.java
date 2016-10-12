@@ -64,7 +64,7 @@ public class Plateau {
 
     public void Jeu() {
 
-        while (!IsThereAWinner()) {
+         if(!IsThereAWinner()) {
             logger.info("\n");
             logger.info("***** ROUND " + nbTours);
 
@@ -108,10 +108,11 @@ public class Plateau {
             ChangeCurrent();
             AjouterTour();
         }
-
-        logger.info("\n");
-        logger.info("******************************");
-        logger.info("THE WINNER IS " + getWinner() + " !!!");
-        logger.info("******************************");
+        else{
+            logger.info("\n");
+            logger.info("******************************");
+            logger.info("THE WINNER IS " + getWinner() + " !!!");
+            logger.info("******************************");
+        }
     }
 }
