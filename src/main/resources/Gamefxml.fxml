@@ -58,7 +58,7 @@
                             </Label>
                             <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="120.0" text="HP :" textFill="RED">
                                 <font>
-                                    <Font size="36.0" />
+                                    <Font size="37.0" />
                                 </font>
                             </Label>
                             <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="150.0" text="Energy :" textFill="#0048ff">
