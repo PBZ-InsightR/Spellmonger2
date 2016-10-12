@@ -28,10 +28,11 @@ public class Creature {
             this.PV = 3;
             this.capacity = "None";
             name="Bear";
+
         }
     }
 
-
+    public int count(){return 5;}
     public int getPV() {return PV;}
 
     public String getCapacity() {return capacity;}
