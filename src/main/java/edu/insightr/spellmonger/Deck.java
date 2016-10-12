@@ -8,79 +8,65 @@ import java.util.Random;
  * Created by Etienne on 03/10/2016.
  */
 public class Deck {
+
+
     private List<Card> cardPool;
-    private int nombreDeCartes=40;
+    private int nombreDeCartes;
     static Random rand;
     private int nbRand;
 
     public Deck(int nombreDeCartes) {
         rand = new Random();
         nbRand = 0;
-        this.nombreDeCartes = nombreDeCartes;
-        cardPool = new ArrayList<>(nombreDeCartes);
+        cardPool=new ArrayList<Card>();
+        cardPool=this.InitDeck();
+        this.nombreDeCartes=nombreDeCartes;
     }
 
     // Initialisation aléatoire du deck
     public List<Card> InitDeck() {
         Card carte;
         int i=1;
-        int compteurCurse=0;
-        int compteurBlessing=0;
-        int compteurEnergyDrain=0;
-        int compteurEagle=0;
-        int compteurWolf=0;
-        int compteurBear=0;
-        while(i<=nombreDeCartes){
+        while(i<=40){
             nbRand = rand.nextInt(6);
-            if (nbRand == 0 && compteurCurse<2) {
+            if (nbRand == 0) {
 
                 Ritual curse = new Ritual("Curse");
                 carte = new Card(curse);
                 cardPool.add(carte);
-                compteurCurse++;
-                i++;
             }
-
-
-            else if (nbRand == 1 && compteurBlessing<3) {
+            else if (nbRand == 1) {
                 Ritual blessing = new Ritual("Blessing");
                 carte = new Card(blessing);
                 cardPool.add(carte);
-                compteurBlessing++;
-                i++;
             }
-            else if (nbRand == 2 && compteurEnergyDrain<5) {
+            else if (nbRand == 2) {
                 Ritual energyDrain = new Ritual("Energy drain");
                 carte = new Card(energyDrain);
                 cardPool.add(carte);
-                compteurEnergyDrain++;
-                i++;
             }
-            else if (nbRand == 3 && compteurBear<10) {
+            else if (nbRand == 3) {
                 Creature bear= new Creature("Bear");
                 carte = new Card(bear);
                 cardPool.add(carte);
-                compteurBear++;
-                i++;
             }
-            else if (nbRand == 4 && compteurWolf<10) {
+            else if (nbRand == 4) {
                 Creature wolf= new Creature("Wolf");
                 carte = new Card(wolf);
                 cardPool.add(carte);
-                compteurWolf++;
-                i++;
             }
-            else if (nbRand == 5 && compteurEagle<10) {
+            else if (nbRand == 5) {
                 Creature eagle= new Creature("Eagle");
                 carte = new Card(eagle);
                 cardPool.add(carte);
-                compteurEagle++;
-                i++;
             }
+            i++;
         }
         return cardPool;
     }
-
+    public List<Card> getCardPool() {
+        return cardPool;
+    }
     public void AjouterCard(Card carte) {
         cardPool.add(carte);
     }

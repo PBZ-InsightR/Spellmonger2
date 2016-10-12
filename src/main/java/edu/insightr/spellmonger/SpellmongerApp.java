@@ -29,9 +29,12 @@ public class SpellmongerApp {
     }
 
     public static void main(String[] args) {
-        SpellmongerApp app = new SpellmongerApp("Alice", "Bob", 20);
+        Plateau p=new Plateau("Alice","Bob",20);
+        p.Jeu();
+        /*SpellmongerApp app = new SpellmongerApp("Alice", "Bob", 20);
         app.pioche.InitDeck();
-
+        app.p1.getPioche().InitDeck();
+        app.p2.getPioche().InitDeck();
         Player currentPlayer = app.p1;
         Player opponent = app.p2;
         int roundCounter = 1;
@@ -44,7 +47,7 @@ public class SpellmongerApp {
 
             logger.info(currentPlayer.toString() + " et " + opponent.toString());
             //Tirer une carte du deck du joueur courant
-            Card currentCard = app.pioche.drawCard();
+            Card currentCard = currentPlayer.getPioche().drawCard();
             if (currentCard.IsCreature() == true) {
                 logger.info("Le joueur pioche la carte " + currentCard.GetCreature().GetName());
                 //Appliquer dégats
@@ -100,7 +103,7 @@ public class SpellmongerApp {
         logger.info("******************************");
         logger.info("THE WINNER IS " + winner + " !!!");
         logger.info("******************************");
-
+*/
 
     }
 }
