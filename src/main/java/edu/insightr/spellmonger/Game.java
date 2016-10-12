@@ -1,13 +1,14 @@
-package edu.insightr.spellmonger;/**
- * Created by Théo on 09/10/2016.
- */
+package edu.insightr.spellmonger;
 
 import java.io.IOException;
 import java.net.URL;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -33,4 +34,24 @@ public class Game extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    @FXML
+    private Label hpPlayer1;
+
+    @FXML
+    private void drawPlayer2(){
+        /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("TEST");
+        alert.showAndWait();*/
+
+    }
+
+    @FXML
+    private void drawPlayer1(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("BLABLABLA");
+        alert.showAndWait();
+        hpPlayer1.setText("15");
+    }
+
 }
