@@ -37,7 +37,7 @@ public class Game extends Application {
     }
 
     @FXML
-    private Label hpPlayer1, hpPlayer2, nomPlayer1, nomPlayer2;
+    private Label hpPlayer1, hpPlayer2, nomPlayer1, nomPlayer2, energyPlayer1, energyPlayer2;
     @FXML
     private Button buttonPlayer1, buttonPlayer2;
 
@@ -48,6 +48,7 @@ public class Game extends Application {
     private void drawPlayer1() {
         plateau.Jeu();
         hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+        energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer1.setText("Alice");
         buttonPlayer1.setDisable(true);
         buttonPlayer2.setDisable(false);
@@ -57,6 +58,7 @@ public class Game extends Application {
     private void drawPlayer2() {
         plateau.Jeu();
         hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+        energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
