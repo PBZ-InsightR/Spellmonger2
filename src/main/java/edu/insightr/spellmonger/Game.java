@@ -57,7 +57,6 @@ public class Game extends Application {
     private void drawPlayer2() {
         plateau.Jeu();
         hpPlayer1.setText(Integer.toString(plateau.getCurrent().GetLifePoints()));
-        //hpPlayer2.setText("10");
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
