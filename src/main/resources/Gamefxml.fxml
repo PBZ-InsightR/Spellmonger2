@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane stylesheets="@Game.css" id="anchor" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.spellmonger.Game">
+<AnchorPane stylesheets="@Game.css" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.spellmonger.Game">
         <children>
             <SplitPane prefHeight="150.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0">
                 <items>
@@ -56,22 +56,22 @@
                                     <Font size="24.0" />
                                 </font>
                             </Label>
-                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="120.0" text="HP :" textFill="RED">
+                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="120.0" text="HP :" textFill="red">
                                 <font>
                                     <Font size="36.0" />
                                 </font>
                             </Label>
-                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="150.0" text="Energy :" textFill="#0048ff">
+                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="150.0" text="Energy :" textFill="blue">
                                 <font>
                                     <Font size="36.0" />
                                 </font>
                             </Label>
-                            <Label fx:id="hpPlayer1" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="40.0" text="20" textFill="RED">
+                            <Label fx:id="hpPlayer1" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="40.0" text="20" textFill="red">
                                 <font>
                                     <Font size="36.0" />
                                 </font>
                             </Label>
-                            <Label fx:id="energyPlayer1" layoutX="150.0" layoutY="80.0" text="0" textFill="#0048ff">
+                            <Label fx:id="energyPlayer1" layoutX="150.0" layoutY="80.0" text="0" textFill="blue">
                                 <font>
                                     <Font size="36.0" />
                                 </font>
@@ -88,22 +88,22 @@
                                     <Font size="24.0" />
                                 </font>
                             </Label>
-                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="120.0" text="HP :" textFill="RED">
+                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="120.0" text="HP :" textFill="red">
                                 <font>
                                     <Font size="36.0" />
                                 </font>
                             </Label>
-                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="150.0" text="Energy :" textFill="#0048ff">
+                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="150.0" text="Energy :" textFill="blue">
                                 <font>
                                     <Font size="36.0" />
                                 </font>
                             </Label>
-                            <Label fx:id="hpPlayer2" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="40.0" text="20" textFill="RED">
+                            <Label fx:id="hpPlayer2" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="40.0" text="20" textFill="red">
                                 <font>
                                     <Font size="36.0" />
                                 </font>
                             </Label>
-                            <Label fx:id="energyPlayer2" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="80.0" text="0" textFill="#0048ff">
+                            <Label fx:id="energyPlayer2" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="80.0" text="0" textFill="blue">
                                 <font>
                                     <Font size="36.0" />
                                 </font>
