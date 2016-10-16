@@ -104,7 +104,6 @@ public class Plateau {
             //Toutes les créatures de current attaquent opponent
              if (current.GetListeCreature().size() !=0){
                  logger.info("Toutes les créatures de "+current.GetName()+" attaquent");
-
                  for (Creature creature : current.GetListeCreature()){
                      if (opponent.GetListeCreature().size() != 0) {
                          //on applique les damages a la derniere carte de l'opponent
