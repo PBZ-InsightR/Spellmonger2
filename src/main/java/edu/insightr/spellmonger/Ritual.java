@@ -13,11 +13,11 @@ public class Ritual extends Card {
         }
     }
 
-    public String GetName() {
+    public String getName() {
         return ritualName;
     }
 
-    public int GetEnergy() {
+    public int getEnergy() {
         return energy;
     }
 

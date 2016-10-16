@@ -47,7 +47,7 @@ public class Game extends Application {
     @FXML
     private void drawPlayer1() {
         plateau.Jeu();
-        hpPlayer2.setText(Integer.toString(plateau.getCurrent().GetLifePoints()));
+        hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         nomPlayer1.setText("Alice");
         buttonPlayer1.setDisable(true);
         buttonPlayer2.setDisable(false);
@@ -56,7 +56,7 @@ public class Game extends Application {
     @FXML
     private void drawPlayer2() {
         plateau.Jeu();
-        hpPlayer1.setText(Integer.toString(plateau.getCurrent().GetLifePoints()));
+        hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
