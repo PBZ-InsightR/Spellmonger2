@@ -64,10 +64,10 @@ public class Plateau {
 
     public void Jeu() {
 
-        if (!IsThereAWinner()) {
+         if(!IsThereAWinner()) {
             logger.info("\n");
             logger.info("***** ROUND " + nbTours);
-
+            //On ajoute au début de chaque tour +1 d'energy
             current.addEnergy(-1);
             logger.info(current.toString() + " et " + opponent.toString());
             //Tirer une carte du deck du joueur courant
@@ -83,7 +83,7 @@ public class Plateau {
                     if (!opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).IsAlive()) {
                         opponent.GetListeCreature().remove(opponent.GetListeCreature().size() - 1);
                     }
-                    //on ajoute la creature piocher a la liste de cartes du current player
+                    //on ajoute la creature piochée a la liste de cartes du current player
                     current.GetListeCreature().add(currentCard.GetCreature());
 
                 } else {
@@ -93,18 +93,40 @@ public class Plateau {
                 }
             } else if (currentCard.IsCreature() == false) {
                 logger.info(current.GetName() + " pioche la carte " + currentCard.GetRitual().GetName());
-                if (currentCard.GetRitual().GetName() == "Blessing") {
+                if(currentCard.GetRitual().GetName()=="Blessing")
+                {
                     current.AltererHP(currentCard.GetRitual().GetDamage());
-                } else {
+                }
+                else {
                     opponent.AltererHP(currentCard.GetRitual().GetDamage());
                 }
             }
+            //Toutes les créatures de current attaquent opponent
+             if (current.GetListeCreature().size() !=0){
+                 logger.info("Toutes les créatures de "+current.GetName()+" attaquent");
+                 for (Creature creature : current.GetListeCreature()){
+                     if (opponent.GetListeCreature().size() != 0) {
+                         //on applique les damages a la derniere carte de l'opponent
+                         opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).AlterePV(creature.GetDamage());
+
+                         //si la creature de l'adversaire est morte on la supprime
+                         if (!opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).IsAlive()) {
+                             opponent.GetListeCreature().remove(opponent.GetListeCreature().size() - 1);
+                         }
+                     } else {
+                         opponent.AltererHP(creature.GetDamage());
+                     }
+                 }
+             }
+
+
             current.getPioche().RetirerCard(currentCard);
             current.getFausse().AjouterCard(currentCard);
 
             ChangeCurrent();
             AjouterTour();
-        } else {
+        }
+        else{
             logger.info("\n");
             logger.info("******************************");
             logger.info("THE WINNER IS " + getWinner() + " !!!");
