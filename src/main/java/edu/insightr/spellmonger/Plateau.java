@@ -64,7 +64,7 @@ public class Plateau {
 
     public void Jeu() {
 
-         if(!IsThereAWinner()) {
+        if (!IsThereAWinner()) {
             logger.info("\n");
             logger.info("***** ROUND " + nbTours);
 
@@ -93,22 +93,18 @@ public class Plateau {
                 }
             } else if (currentCard.IsCreature() == false) {
                 logger.info(current.GetName() + " pioche la carte " + currentCard.GetRitual().GetName());
-                if(currentCard.GetRitual().GetName()=="Blessing")
-                {
+                if (currentCard.GetRitual().GetName() == "Blessing") {
                     current.AltererHP(currentCard.GetRitual().GetDamage());
-                }
-                else {
+                } else {
                     opponent.AltererHP(currentCard.GetRitual().GetDamage());
                 }
             }
-
             current.getPioche().RetirerCard(currentCard);
             current.getFausse().AjouterCard(currentCard);
 
             ChangeCurrent();
             AjouterTour();
-        }
-        else{
+        } else {
             logger.info("\n");
             logger.info("******************************");
             logger.info("THE WINNER IS " + getWinner() + " !!!");
