@@ -65,8 +65,8 @@ public class Player {
         return energy;
     }
 
-    public void addEnergy(int energy){
-        this.energy-=energy;
+    public void addEnergy(int energy) {
+        this.energy -= energy;
     }
 
 }
