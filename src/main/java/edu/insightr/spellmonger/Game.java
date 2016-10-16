@@ -58,7 +58,7 @@ public class Game extends Application {
     private void drawPlayer2() {
         plateau.Jeu();
         hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
-        energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
+        energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
