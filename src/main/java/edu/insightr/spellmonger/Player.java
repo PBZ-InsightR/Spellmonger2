@@ -3,13 +3,11 @@ package edu.insightr.spellmonger;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Nass on 26/09/2016.
- */
 public class Player {
     private String name;
     private int lifePoints;
     private List<Creature> listeCreature; //Liste des créatures du joueur
+    private List<Card> main;
     private Deck pioche;
     private Deck fausse;
     private int energy;
@@ -18,21 +16,22 @@ public class Player {
         this.name = name;
         this.lifePoints = lifePoints;
         this.listeCreature = new ArrayList<>(0);
+        this.main=new ArrayList<>(0);
         pioche = new Deck(40);
         fausse = new Deck(0);
         this.energy = energy;
     }
 
-    public String GetName() {
+    public String getName() {
         return this.name;
     }
 
 
-    public int GetLifePoints() {
+    public int getLifePoints() {
         return this.lifePoints;
     }
 
-    public List<Creature> GetListeCreature() {
+    public List<Creature> getListeCreature() {
         return this.listeCreature;
     }
 
@@ -44,7 +43,7 @@ public class Player {
         return fausse;
     }
 
-    public boolean IsAlive() {
+    public boolean isAlive() {
         boolean isAlive = true;
         if (this.lifePoints <= 0) {
             isAlive = false;
@@ -52,7 +51,7 @@ public class Player {
         return isAlive;
     }
 
-    public void AltererHP(int dmg) {
+    public void altererHP(int dmg) {
         this.lifePoints -= dmg;
     }
 
@@ -65,8 +64,8 @@ public class Player {
         return energy;
     }
 
-    public void addEnergy(int energy) {
-        this.energy -= energy;
+    public void removeEnergy(int energy){
+        this.energy-=energy;
     }
 
 }

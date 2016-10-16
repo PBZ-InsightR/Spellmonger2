@@ -21,14 +21,14 @@ public class SpellmongerApp {
 
 
         /*SpellmongerApp app = new SpellmongerApp("Alice", "Bob", 20);
-        app.pioche.InitDeck();
+        app.pioche.initDeck();
 
         Player currentPlayer = app.p1;
         Player opponent = app.p2;
         int roundCounter = 1;
         String winner = "";
 
-        while (app.p1.IsAlive() == true && app.p2.IsAlive() == true) {
+        while (app.p1.isAlive() == true && app.p2.isAlive() == true) {
             logger.info("\n");
             logger.info("***** ROUND " + roundCounter);
 
@@ -37,48 +37,48 @@ public class SpellmongerApp {
             //Tirer une carte du deck du joueur courant
             Card currentCard = app.pioche.drawCard();
             if (currentCard.IsCreature() == true) {
-                logger.info("Le joueur pioche la carte " + currentCard.GetCreature().GetName());
+                logger.info("Le joueur pioche la carte " + currentCard.GetCreature().getName());
                 //Appliquer dégats
-                if (opponent.GetListeCreature().size() != 0) {
+                if (opponent.getListeCreature().size() != 0) {
                     //on applique les damages a la derniere carte de l'opponent
-                    opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).AlterePV(currentCard.GetCreature().GetDamage());
+                    opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(currentCard.GetCreature().GetDamage());
                     //si la creature de l'adversaire est morte on la supprime
-                    if (!opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).IsAlive()) {
-                        opponent.GetListeCreature().remove(opponent.GetListeCreature().size() - 1);
+                    if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
+                        opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
                     }
                     //on ajoute la creature piocher a la liste de cartes du current player
-                    currentPlayer.GetListeCreature().add(currentCard.GetCreature());
+                    currentPlayer.getListeCreature().add(currentCard.GetCreature());
 
                 } else {
-                    opponent.AltererHP(currentCard.GetCreature().GetDamage());
+                    opponent.altererHP(currentCard.GetCreature().GetDamage());
                     //on ajoute la creature piocher a la liste de cartes du current player
-                    currentPlayer.GetListeCreature().add(currentCard.GetCreature());
+                    currentPlayer.getListeCreature().add(currentCard.GetCreature());
                 }
             } else if (currentCard.IsCreature() == false) {
-                logger.info(currentPlayer.GetName() + " pioche la carte " + currentCard.GetRitual().GetName());
-                if (opponent.GetListeCreature().size() != 0) {
+                logger.info(currentPlayer.getName() + " pioche la carte " + currentCard.GetRitual().getName());
+                if (opponent.getListeCreature().size() != 0) {
 
                     //on applique les damages a la derniere carte de l'opponent
-                    opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).AlterePV(currentCard.GetRitual().GetDamage());
+                    opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(currentCard.GetRitual().GetDamage());
                     //si la creature de l'adversaire est morte on la supprime
-                    if (!opponent.GetListeCreature().get(opponent.GetListeCreature().size() - 1).IsAlive()) {
-                        opponent.GetListeCreature().remove(opponent.GetListeCreature().size() - 1);
+                    if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
+                        opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
                     }
                 } else {
-                    opponent.AltererHP(currentCard.GetRitual().GetDamage());
+                    opponent.altererHP(currentCard.GetRitual().GetDamage());
                 }
 
             }
 
-            app.pioche.RetirerCard(currentCard);
-            app.fausse.AjouterCard(currentCard);
+            app.pioche.retirerCard(currentCard);
+            app.fausse.ajouterCard(currentCard);
 
 
-            if (currentPlayer.IsAlive() == false) {
-                winner = opponent.GetName();
+            if (currentPlayer.isAlive() == false) {
+                winner = opponent.getName();
             }
-            if (opponent.IsAlive() == false) {
-                winner = currentPlayer.GetName();
+            if (opponent.isAlive() == false) {
+                winner = currentPlayer.getName();
             }
 
             Player temp = currentPlayer;

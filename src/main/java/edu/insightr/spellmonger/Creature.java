@@ -1,64 +1,75 @@
 package edu.insightr.spellmonger;
 
-/**
- * Created by Walidey on 21/09/2016.
- */
-public class Creature {
-
-    private int damage;
+public class Creature extends Card {
     private String capacity;
     private String name;
     private int PV;
 
-
-
-    public Creature(String animal){
-        if (animal == "Eagle") {
-            this.damage = 1;
-            this.capacity = "Flying";
-            this.PV = 1;
-            name = "Eagle";
-        } else if (animal == "Wolf") {
-            this.damage = 2;
-            this.PV=2;
-            this.capacity = "None";
-            name="Wolf";
-        } else if (animal == "Bear") {
-            this.damage = 3;
-            this.PV = 3;
-            this.capacity = "None";
-            name="Bear";
-
+    public Creature(String animal) {
+        super(animal);
+        switch (animal) {
+            case "Eagle":
+                this.capacity = "Flying";
+                this.PV = 1;
+                name = "Eagle";
+                break;
+            case "Wolf":
+                this.PV = 2;
+                this.capacity = "None";
+                name = "Wolf";
+                break;
+            case "Bear":
+                this.PV = 3;
+                this.capacity = "None";
+                name = "Bear";
+                break;
         }
     }
 
-    public int getPV() {return PV;}
+    public int getPV() {
+        return PV;
+    }
 
-    public String getCapacity() {return capacity;}
+    public String getCapacity() {
+        return capacity;
+    }
 
-    public boolean IsAlive()    {
+    public boolean isAlive() {
         boolean resultat = false;
-        if(this.PV >= 0)
+        if (this.PV >= 0) {
             resultat = true;
-
-
-    return resultat;
+        }
+        return resultat;
 
     }
 
-    public String toString(){
-        return "La créature "+this.name+"a"+this.PV+"point de vie"+"(capacité :"+ this.capacity+")"+ " fait "+this.damage+" points de dégat";
+    public String toString() {
+        return "La créature " + this.name + "a" + this.PV + "point de vie" + "(capacité :" + this.capacity + ")" + " fait " + getDamage() + " points de dégat";
     }
 
-    public void AlterePV(int damage) {
+    public void alterePV(int damage) {
         this.PV -= damage;
     }
 
-    public String GetName() {
-        return name;
+    @Override
+    public int getDamage() {
+        int damage = 0;
+        switch (this.name) {
+            case "Eagle":
+                damage = 1;
+                break;
+            case "Wolf":
+                damage = 2;
+                break;
+            case "Bear":
+                damage = 3;
+                break;
+        }
+        return damage;
     }
 
-    public int GetDamage(){
-        return damage;
+    @Override
+    public String getName() {
+        return this.name;
     }
 }
