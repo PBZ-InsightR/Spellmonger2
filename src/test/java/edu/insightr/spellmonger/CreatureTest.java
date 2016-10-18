@@ -19,4 +19,45 @@ public class CreatureTest {
         eagle.alterePV(1);
         Assert.assertEquals(0, eagle.getPV());
     }
+
+    @Test
+    public void getDamage() throws  Exception {
+
+        Creature eag1 = new Creature("Eagle");
+        Creature w1 = new Creature("Wolf");
+        Creature b1 = new Creature("Bear");
+
+        Assert.assertEquals(3, b1.getDamage());
+        Assert.assertEquals(2, w1.getDamage());
+        Assert.assertEquals(1, eag1.getDamage());
+    }
+
+    @Test
+    public void getName() throws  Exception {
+
+        Creature eag1 = new Creature("Eagle");
+        Assert.assertEquals("Eagle",eag1.getName() );
+
+        Creature w1 = new Creature("Wolf");
+        Assert.assertEquals("Wolf",w1.getName() );
+
+        Creature f1 = new Creature("Fox");
+        Assert.assertEquals("Fox",f1.getName() );
+    }
+
+    @Test
+    public void getCapacity() throws  Exception {
+
+        Creature eag1 = new Creature("Eagle");
+        Assert.assertEquals("Flying",eag1.getCapacity() );
+
+        Creature w1 = new Creature("Wolf");
+        Assert.assertEquals("None",w1.getCapacity() );
+
+        Creature f1 = new Creature("Fox");
+        Assert.assertEquals("None",f1.getCapacity() );
+
+        Creature b1 = new Creature("Bear");
+        Assert.assertEquals("None",b1.getCapacity() );
+    }
 }
