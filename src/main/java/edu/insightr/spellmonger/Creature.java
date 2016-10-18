@@ -41,7 +41,7 @@ public class Creature extends Card {
 
     public boolean isAlive() {
         boolean resultat = false;
-        if (this.PV >= 0) {
+        if (this.PV > 0) {
             resultat = true;
         }
         return resultat;

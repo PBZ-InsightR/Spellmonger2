@@ -8,6 +8,7 @@ public class CreatureTest {
     public void isAlive() throws Exception {
         Creature eagle = new Creature("Eagle");
         Assert.assertEquals(true, eagle.isAlive());
+        Assert.assertEquals(1, eagle.getPV());
         eagle.alterePV(1);
         Assert.assertEquals(false, eagle.isAlive());
     }
