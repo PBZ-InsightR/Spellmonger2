@@ -2,11 +2,21 @@ package edu.insightr.spellmonger;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.omg.CORBA.Current;
 
 
 public class PlateauTest {
+
     @Test
     public void isThereAWinner() throws Exception {
+
+        String player1 = "p1";
+        String player2 = "p2";
+        /*Player p1 = new Player("p1",5,3);
+        Player p2 = new Player("p1",5,3);*/
+        Plateau plateau = new Plateau(player1,player2,5,3 );
+        plateau.isThereAWinner();
+
 
     }
 
@@ -30,6 +40,29 @@ public class PlateauTest {
         Assert.assertEquals(bob,p.getCurrent());
     }
 
+    @Test
+    public void getWinner() throws Exception {
+        //Player p1 = new Player("p1",5,3);
+        Plateau plateau = new Plateau("p1","p2",5,3 );
+
+        Assert.assertEquals(null,plateau.getWinner());
+
+
+
+    }
+
+    @Test
+    public void printWinner() throws  Exception{
+        Player p1 = new Player("p1",5,3);
+        Plateau plateau = new Plateau("p1","p2",5,3 );
+        plateau.printWinner();
+
+    }
+
+    @Test
+    public void getNbTours() throws  Exception{
+
+    }
 
 
 }
