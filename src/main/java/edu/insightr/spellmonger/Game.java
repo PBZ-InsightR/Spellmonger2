@@ -3,7 +3,9 @@ package edu.insightr.spellmonger;
 import java.io.IOException;
 import java.net.URL;
 
+
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +16,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent;
+import com.sun.javafx.geom.Shape;
+import javafx.scene.shape.Rectangle;
 
 public class Game extends Application {
 
@@ -72,5 +77,35 @@ public class Game extends Application {
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
+    }
+
+    @FXML
+    public void playCard() {
+      //  plateau.Jeu();
+        hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+        energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
+        nomPlayer2.setText("Bob");
+        buttonPlayer1.setDisable(false);
+        buttonPlayer2.setDisable(true);
+    }
+
+
+    // a tester
+    @FXML
+    public void playCard2() {
+        final Rectangle rect = new Rectangle();
+        rect.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+                energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
+                nomPlayer2.setText("Bob");
+                buttonPlayer1.setDisable(false);
+                buttonPlayer2.setDisable(true);
+
+            }
+        });
+
     }
 }

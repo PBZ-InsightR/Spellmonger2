@@ -5,46 +5,41 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by meo-v on 19/10/2016.
- */
+
 public class EnchantmentTest {
+
     @Test
     public void vaultOverburn() throws Exception {
-        Enchantment e1 = new Enchantment("Vault overclocking");
-        e1.VaultOverburn();
-        //Assert.assertEquals(true, e1.VaultOverburn() );
+            Enchantment e1 = new Enchantment("Vault overclocking");
+	    e1.VaultOverburn();
+	    //Assert.assertEquals(true, e1.VaultOverburn() );
 
-
+    }
+			            
+				        
+    @Test
+    public final void testEnchantmentGetName() {
+        Enchantment e = new Enchantment("Vault overclocking");
+        assertEquals("Vault overclocking", e.getName());
     }
 
     @Test
-    public void getName() throws Exception {
-        Enchantment e1 = new Enchantment("Vault overclocking");
-        Assert.assertEquals("Vault overclocking",e1.getName());
-
+    public final void testEnchantmentGetDamage() {
+        Enchantment e = new Enchantment("Vault overclocking");
+        assertEquals(0.0, e.getDamage(), 0.01);
     }
 
     @Test
-    public void getEnergy() throws Exception {
-        Enchantment e1 = new Enchantment("Vault overclocking");
-        Assert.assertEquals(1, e1.getEnergy());
-
+    public final void testEnchantmentGetEnergy() {
+        Enchantment e = new Enchantment("Vault overclocking");
+        assertEquals(1.0, e.getEnergy(), 0.01);
     }
 
     @Test
-    public void getEnergyCost() throws Exception {
-        Enchantment e1 = new Enchantment("Vault overclocking");
-        Assert.assertEquals(3, e1.getEnergyCost());
-
+    public final void testEnchantmentGetEnergyCost() {
+        Enchantment e = new Enchantment("Vault overclocking");
+        assertEquals(3.0, e.getEnergyCost(), 0.01);
     }
-
-    @Test
-    public void getDamage() throws Exception {
-        Enchantment e1 = new Enchantment("Vault overclocking");
-        Assert.assertEquals(0, e1.getDamage());
-
-    }
-
 
 }
+
