@@ -23,6 +23,11 @@ public class Creature extends Card {
                 this.capacity = "None";
                 name = "Bear";
                 break;
+            case "Fox":
+                this.PV=1;
+                this.capacity="None";
+                this.name="Fox";
+                break;
         }
     }
 

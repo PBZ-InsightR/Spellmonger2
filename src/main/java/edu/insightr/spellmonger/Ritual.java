@@ -8,9 +8,6 @@ public class Ritual extends Card {
     public Ritual(String ritualName) {
         super(ritualName);
         this.ritualName = ritualName;
-        if (ritualName.equals("Energy drain")) {
-            this.energy = 2;
-        }
     }
 
     public String getName() {
@@ -45,7 +42,7 @@ public class Ritual extends Card {
         if (ritualName.equals("Blessing"))
             damage = -3;
         if (ritualName.equals("Energy drain")) {
-            damage = 0;
+            damage = 2;
         }
         return damage;
     }

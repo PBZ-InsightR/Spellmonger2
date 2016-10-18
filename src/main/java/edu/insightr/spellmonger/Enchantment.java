@@ -1,14 +1,12 @@
 package edu.insightr.spellmonger;
 
-/**
- * Created by Dorian on 18/10/2016.
- */
 import java.util.Random;
 
 public class Enchantment extends Card {
     private int energy;
     private int energyCost;
     private String enchantmentName;
+
     public Enchantment(String enchantmentName)
     {
         super(enchantmentName);

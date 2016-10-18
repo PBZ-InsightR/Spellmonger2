@@ -9,6 +9,7 @@ public class Card {
         damage = 0;
     }
 
+
     public String toString() {
         return "type= ";
     }

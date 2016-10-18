@@ -22,7 +22,7 @@ public class Deck {
     public List<Card> initDeck() {
         Card carte;
         for (int i = 0; i < 40; i++) {
-            nbRand = rand.nextInt(6);
+            nbRand = rand.nextInt(8);
             switch (nbRand) {
                 case 0:
                     carte = new Card("Curse");
@@ -48,6 +48,13 @@ public class Deck {
                     carte = new Card("Eagle");
                     cardPool.add(carte);
                     break;
+                case 6:
+                    carte = new Card("Fox");
+                    cardPool.add(carte);
+                    break;
+                case 7:
+                    carte =new Card("Vault overclocking");
+                    cardPool.add(carte);
             }
         }
         return cardPool;
