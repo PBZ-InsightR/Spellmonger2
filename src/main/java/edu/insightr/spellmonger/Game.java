@@ -11,7 +11,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
 public class Game extends Application {
 
@@ -32,12 +34,18 @@ public class Game extends Application {
         primaryStage.show();
     }
 
+
+
     public static void main(String[] args) {
         launch(args);
     }
 
+
+
     @FXML
     private Label hpPlayer1, hpPlayer2, nomPlayer1, nomPlayer2, energyPlayer1, energyPlayer2;
+    private Label creature1p1,creature2p1,creature3p1,creature4p1,creature5p1,creature6p1;
+    private Label creature1p2,creature2p2,creature3p2,creature4p2,creature5p2,creature6p2;
     @FXML
     private Button buttonPlayer1, buttonPlayer2;
 
