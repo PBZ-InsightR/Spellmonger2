@@ -8,8 +8,12 @@ public class DeckTest {
     @Test
     public void isEmpty() throws Exception {
         Deck d = new Deck(0);
+        //d.initDeck();
+        Assert.assertEquals(0,d.getCardPool().size() );
         Assert.assertEquals(true, d.isEmpty());
-        Deck d2 = new Deck(40);
+        Deck d2 = new Deck(20);
+        d2.initDeck();
+        //Assert.assertEquals(20,d2.getCardPool().size() );
         Assert.assertEquals(false, d2.isEmpty());
     }
 
