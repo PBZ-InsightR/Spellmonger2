@@ -4,6 +4,7 @@ public class Creature extends Card {
     private String capacity;
     private String name;
     private int PV;
+    private int energy;
 
     public Creature(String animal) {
         super(animal);
@@ -12,27 +13,35 @@ public class Creature extends Card {
                 this.capacity = "Flying";
                 this.PV = 1;
                 name = "Eagle";
+                this.energy = 1;
                 break;
             case "Wolf":
                 this.PV = 2;
                 this.capacity = "None";
                 name = "Wolf";
+                this.energy = 2;
                 break;
             case "Bear":
                 this.PV = 3;
                 this.capacity = "None";
                 name = "Bear";
+                this.energy = 3;
                 break;
             case "Fox":
                 this.PV=1;
                 this.capacity="None";
                 this.name="Fox";
+                this.energy = 1;
                 break;
         }
     }
 
     public int getPV() {
         return PV;
+    }
+
+    public int getEnergy() {
+        return energy;
     }
 
     public String getCapacity() {

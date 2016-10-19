@@ -25,6 +25,8 @@ public class TestRitual {
         Assert.assertEquals(-3.0, r.getDamage(), 0.01);
         r = new Ritual("Energy drain");
         Assert.assertEquals(2.0, r.getDamage(), 0.01);
+        Assert.assertEquals(2.0, r.getDamage(), 0.01);
+
     }
 
     @Test
@@ -35,5 +37,7 @@ public class TestRitual {
         Assert.assertEquals(0.0, r.getEnergy(), 0.01);
         r = new Ritual("Energy drain");
         Assert.assertEquals(0.0, r.getEnergy(), 0.01);
+        Assert.assertEquals(0.0, r.getEnergy(), 0.01);
+
     }
 }
