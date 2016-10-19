@@ -68,4 +68,13 @@ public class Player {
         this.energy-=energy;
     }
 
+    public boolean hasEnoughEnergy (Ritual card){
+        boolean vrai = true;
+
+        if (energy<card.getEnergy()){
+            vrai = false;
+        }
+       return vrai;
+    }
+
 }

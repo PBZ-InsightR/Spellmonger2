@@ -16,7 +16,8 @@ public class SpellmongerApp {
 
     public static void main(String[] args) {
         Plateau p = new Plateau("Alice","Bob",20,0);
-
+        Card carteClique=new Creature("Wolf");
+        p.tourParTour(carteClique);
 
 
 
