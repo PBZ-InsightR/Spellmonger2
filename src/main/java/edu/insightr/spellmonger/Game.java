@@ -65,6 +65,7 @@ public class Game extends Application {
         nomPlayer1.setText("Alice");
         buttonPlayer1.setDisable(true);
         buttonPlayer2.setDisable(false);
+
     }
 
     @FXML
@@ -94,7 +95,7 @@ public class Game extends Application {
 
     @FXML
     public void playCard() {
-      //  plateau.Jeu();
+       //plateau.Jeu();
         hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer2.setText("Bob");
@@ -107,10 +108,13 @@ public class Game extends Application {
     @FXML
     public void playCard2() {
         final Rectangle rect = new Rectangle();
-        rect.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        rect.setOnMouseClicked(new EventHandler<MouseEvent>()
+
+        {
 
             @Override
-            public void handle(MouseEvent event) {
+            public void handle(MouseEvent event)
+            {
                 hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
                 energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
                 nomPlayer2.setText("Bob");
