@@ -78,6 +78,9 @@ public class Creature extends Card {
             case "Bear":
                 damage = 3;
                 break;
+            case "Fox":
+                damage=1;
+                break;
         }
         return damage;
     }
