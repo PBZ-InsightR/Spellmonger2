@@ -24,6 +24,10 @@ public class Plateau {
         return current;
     }
 
+    public Player getOpponent() {
+        return opponent;
+    }
+
     public String getWinner() {
         return winner;
     }
@@ -62,6 +66,8 @@ public class Plateau {
                 Creature currentCreature = (Creature) currentCard;
                 //on ajoute la creature piochée a la liste de cartes du current player
                 current.getListeCreature().add(currentCreature);
+                logger.info("degat");
+                logger.info(opponent.getLifePoints());
             }
         } else if (!current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
             int indexCreature = 0;
@@ -78,6 +84,7 @@ public class Plateau {
             while (indexCreature < current.getListeCreature().size()) {
                 opponent.altererHP(current.getListeCreature().get(indexCreature).getDamage());
                 indexCreature++;
+
             }
         } else {
             int indexCreature = 0;
@@ -91,6 +98,7 @@ public class Plateau {
                 //on ajoute la creature piochée a la liste de cartes du current player
                 current.getListeCreature().add(currentCreature);
             }
+
             while (indexCreature < current.getListeCreature().size() && !opponent.getListeCreature().isEmpty()) {
                 opponent.getListeCreature().get(opponent.getListeCreature().size() - indexCreature).alterePV(current.getListeCreature().get(indexCreature).getDamage());
                 if (!opponent.getListeCreature().get(opponent.getListeCreature().size()).isAlive()) {
@@ -154,7 +162,7 @@ public void Jeu() {
                     opponent.altererHP(currentRitual.getDamage());
                 }
             }
-            
+
              //Appliquer dégats
 
                  //on applique les damages a la derniere carte de l'opponent

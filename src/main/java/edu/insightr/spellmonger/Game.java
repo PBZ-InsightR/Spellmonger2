@@ -5,6 +5,9 @@ import java.net.URL;
 
 
 import javafx.application.Application;
+import javafx.beans.Observable;
+import javafx.beans.property.*;
+import javafx.beans.value.ObservableStringValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +24,8 @@ import com.sun.javafx.geom.Shape;
 import javafx.scene.shape.Rectangle;
 
 public class Game extends Application {
-
+    private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
+    private Label hpPlayer1=new Label(), hpPlayer2=new Label(), nomPlayer1=new Label(), nomPlayer2=new Label(), energyPlayer1=new Label(), energyPlayer2=new Label();
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -37,6 +41,13 @@ public class Game extends Application {
         primaryStage.setResizable(false);
         primaryStage.sizeToScene();
         primaryStage.show();
+        IntegerProperty hpPlayer1Property=new SimpleIntegerProperty(plateau.getCurrent().getLifePoints());
+
+        hpPlayer1.textProperty().bind(hpPlayer1Property.asString());
+        IntegerProperty hpPlayer2Property=new SimpleIntegerProperty(plateau.getOpponent().getLifePoints());
+
+
+        hpPlayer2.textProperty().bind(hpPlayer2Property.asString());
     }
 
 
@@ -48,35 +59,42 @@ public class Game extends Application {
 
 
     @FXML
-    private Label hpPlayer1, hpPlayer2, nomPlayer1, nomPlayer2, energyPlayer1, energyPlayer2;
+   // private Label hpPlayer1, hpPlayer2, nomPlayer1, nomPlayer2, energyPlayer1, energyPlayer2;
     private Label creature1p1,creature2p1,creature3p1,creature4p1,creature5p1,creature6p1;
     private Label creature1p2,creature2p2,creature3p2,creature4p2,creature5p2,creature6p2;
     @FXML
     private Button buttonPlayer1, buttonPlayer2;
 
-    private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
 
+    //private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
+
+
+    /*StringProperty S=new ObservableStringValue();
+
+    hpPlayer1.setText("").bind(plateau.getCurrent().getLifePoints());
+    hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));*/
 
     @FXML
     private void drawPlayer1() {
-        Card carteChoosen=new Card("Wolf");
+        Card carteChoosen=new Creature("Wolf");
         plateau.tour(carteChoosen);
-        hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+        /*hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer1.setText("Alice");
         buttonPlayer1.setDisable(true);
-        buttonPlayer2.setDisable(false);
+        buttonPlayer2.setDisable(false);*/
+
     }
 
     @FXML
     private void drawPlayer2() {
-        Card carteChoosen=new Card("Wolf");
+        Card carteChoosen=new Creature("Wolf");
         plateau.tour(carteChoosen);
-        hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+        /*hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
-        buttonPlayer2.setDisable(true);
+        buttonPlayer2.setDisable(true);*/
     }
 
     @FXML
