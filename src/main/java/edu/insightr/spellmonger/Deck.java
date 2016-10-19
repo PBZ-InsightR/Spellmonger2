@@ -25,35 +25,35 @@ public class Deck {
             nbRand = rand.nextInt(8);
             switch (nbRand) {
                 case 0:
-                    carte = new Card("Curse");
+                    carte = new Ritual("Curse");
                     cardPool.add(carte);
                     break;
                 case 1:
-                    carte = new Card("Blessing");
+                    carte = new Ritual("Blessing");
                     cardPool.add(carte);
                     break;
                 case 2:
-                    carte = new Card("Energy Drain");
+                    carte = new Ritual("Energy Drain");
                     cardPool.add(carte);
                     break;
                 case 3:
-                    carte = new Card("Bear");
+                    carte = new Creature("Bear");
                     cardPool.add(carte);
                     break;
                 case 4:
-                    carte = new Card("Wolf");
+                    carte = new Creature("Wolf");
                     cardPool.add(carte);
                     break;
                 case 5:
-                    carte = new Card("Eagle");
+                    carte = new Creature("Eagle");
                     cardPool.add(carte);
                     break;
                 case 6:
-                    carte = new Card("Fox");
+                    carte = new Creature("Fox");
                     cardPool.add(carte);
                     break;
                 case 7:
-                    carte =new Card("Vault overclocking");
+                    carte =new Enchantment("Vault overclocking");
                     cardPool.add(carte);
             }
         }

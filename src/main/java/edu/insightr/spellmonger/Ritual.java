@@ -15,6 +15,12 @@ public class Ritual extends Card {
     }
 
     public int getEnergy() {
+
+        int energy = 0;
+
+        if (ritualName.equals("Energy drain")) {
+            energy = 2;
+        }
         return energy;
     }
 
@@ -42,7 +48,7 @@ public class Ritual extends Card {
         if (ritualName.equals("Blessing"))
             damage = -3;
         if (ritualName.equals("Energy drain")) {
-            damage = 2;
+            damage = 0;
         }
         return damage;
     }

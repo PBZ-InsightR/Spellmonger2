@@ -15,8 +15,8 @@ public class Player {
     public Player(String name, int lifePoints, int energy) {
         this.name = name;
         this.lifePoints = lifePoints;
-        this.listeCreature = new ArrayList<>(0);
-        this.main=new ArrayList<>(0);
+        this.listeCreature = new ArrayList<>();
+        this.main=new ArrayList<>();
         pioche = new Deck(40);
         fausse = new Deck(0);
         this.energy = energy;
