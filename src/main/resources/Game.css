@@ -25,3 +25,6 @@
     -fx-opacity: 1.5;
 }
 
+.split-pane {
+    -fx-background-color: green;
+}
