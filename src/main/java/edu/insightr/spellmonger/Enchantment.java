@@ -17,7 +17,7 @@ public class Enchantment extends Card {
             this.energyCost=3;
         }
     }
-    public boolean VaultOverburn()
+    public boolean vaultOverburn()
     {
         int nbRand;
         Random rand = new Random();
@@ -54,7 +54,7 @@ public class Enchantment extends Card {
         String message = "";
         switch (enchantmentName) {
             case "Vault overclocking":
-                if(VaultOverburn()==true)
+                if(vaultOverburn()==true)
                 {
                     message = "Vault overburn and is empty";
                     break;

@@ -1,6 +1,5 @@
 package edu.insightr.spellmonger;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,8 +10,8 @@ public class EnchantmentTest {
     @Test
     public void vaultOverburn() throws Exception {
             Enchantment e1 = new Enchantment("Vault overclocking");
-	    e1.VaultOverburn();
-	    //Assert.assertEquals(true, e1.VaultOverburn() );
+	    e1.vaultOverburn();
+	    //Assert.assertEquals(true, e1.vaultOverburn() );
 
     }
 			            

@@ -1,10 +1,13 @@
 package edu.insightr.spellmonger;
 
+import java.util.Enumeration;
+
+
 public class Creature extends Card {
+    //private EnumCard enumCard;
     private String capacity;
     private String name;
     private int PV;
-    private int energy;
 
     public Creature(String animal) {
         super(animal);
@@ -13,25 +16,21 @@ public class Creature extends Card {
                 this.capacity = "Flying";
                 this.PV = 1;
                 name = "Eagle";
-                this.energy = 1;
                 break;
             case "Wolf":
                 this.PV = 2;
                 this.capacity = "None";
                 name = "Wolf";
-                this.energy = 2;
                 break;
             case "Bear":
                 this.PV = 3;
                 this.capacity = "None";
                 name = "Bear";
-                this.energy = 3;
                 break;
             case "Fox":
-                this.PV=1;
-                this.capacity="None";
-                this.name="Fox";
-                this.energy = 1;
+                this.PV = 1;
+                this.capacity = "None";
+                this.name = "Fox";
                 break;
         }
     }
@@ -40,25 +39,21 @@ public class Creature extends Card {
         return PV;
     }
 
-    public int getEnergy() {
-        return energy;
-    }
-
     public String getCapacity() {
         return capacity;
     }
 
     public boolean isAlive() {
-        boolean resultat = false;
+        boolean result= false;
         if (this.PV > 0) {
-            resultat = true;
+            result = true;
         }
-        return resultat;
+        return result;
 
     }
 
     public String toString() {
-        return "La créature " + this.name + "a" + this.PV + "point de vie" + "(capacité :" + this.capacity + ")" + " fait " + getDamage() + " points de dégat";
+        return "La créature " + this.name + "a" + this.PV + "point de vie" + "(capacité :" + this.capacity + ")" + " fait " + getDamage() + " points de dégats";
     }
 
     public void alterePV(int damage) {
@@ -79,10 +74,30 @@ public class Creature extends Card {
                 damage = 3;
                 break;
             case "Fox":
-                damage=1;
+                damage = 1;
                 break;
         }
         return damage;
+    }
+
+    @Override
+    public int getEnergyCost() {
+        int energy = 0;
+        switch (this.name) {
+            case "Eagle":
+                energy = 1;
+                break;
+            case "Wolf":
+                energy = 2;
+                break;
+            case "Bear":
+                energy = 3;
+                break;
+            case "Fox":
+                energy = 1;
+                break;
+        }
+        return energy;
     }
 
     @Override

@@ -5,17 +5,18 @@ import java.util.List;
 import java.util.Random;
 
 public class Deck {
-    public List<Card> getCardPool() {
-        return cardPool;
-    }
     private List<Card> cardPool;
     private static Random rand;
     private int nbRand;
 
-    public Deck(int nombreDeCartes) {
+    public Deck(int numberCards) {
         rand = new Random();
         nbRand = 0;
-        cardPool = new ArrayList<>(nombreDeCartes);
+        cardPool = new ArrayList<>(numberCards);
+    }
+
+    public List<Card> getCardPool() {
+        return cardPool;
     }
 
     // Initialisation aléatoire du deck
@@ -33,7 +34,7 @@ public class Deck {
                     cardPool.add(carte);
                     break;
                 case 2:
-                    carte = new Ritual("Energy Drain");
+                    carte = new Ritual("Energy drain");
                     cardPool.add(carte);
                     break;
                 case 3:
@@ -53,7 +54,7 @@ public class Deck {
                     cardPool.add(carte);
                     break;
                 case 7:
-                    carte =new Enchantment("Vault overclocking");
+                    carte = new Enchantment("Vault overclocking");
                     cardPool.add(carte);
             }
         }
