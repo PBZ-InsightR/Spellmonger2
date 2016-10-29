@@ -65,15 +65,15 @@ public class CreatureTest {
     public void getEnergy() throws  Exception {
 
         Creature eag1 = new Creature("Eagle");
-        Assert.assertEquals(1,eag1.getEnergy() );
+        Assert.assertEquals(1.0,eag1.getEnergyCost(), 0.1 );
 
         Creature w1 = new Creature("Wolf");
-        Assert.assertEquals(2,w1.getEnergy() );
+        Assert.assertEquals(2.0,w1.getEnergyCost() ,0.1 );
 
         Creature f1 = new Creature("Fox");
-        Assert.assertEquals(1,f1.getEnergy() );
+        Assert.assertEquals(1.0,f1.getEnergyCost(), 0.1 );
 
         Creature b1 = new Creature("Bear");
-        Assert.assertEquals(3,b1.getEnergy() );
+        Assert.assertEquals(3.0,b1.getEnergyCost(),0.1 );
     }
 }
