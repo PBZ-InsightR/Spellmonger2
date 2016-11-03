@@ -60,4 +60,20 @@ public class CreatureTest {
         Creature b1 = new Creature("Bear");
         Assert.assertEquals("None",b1.getCapacity() );
     }
+
+    @Test
+    public void getEnergy() throws  Exception {
+
+        Creature eag1 = new Creature("Eagle");
+        Assert.assertEquals(1,eag1.getEnergy() );
+
+        Creature w1 = new Creature("Wolf");
+        Assert.assertEquals(2,w1.getEnergy() );
+
+        Creature f1 = new Creature("Fox");
+        Assert.assertEquals(1,f1.getEnergy() );
+
+        Creature b1 = new Creature("Bear");
+        Assert.assertEquals(3,b1.getEnergy() );
+    }
 }
