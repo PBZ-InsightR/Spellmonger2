@@ -7,7 +7,7 @@ public class Player {
     private String name;
     private int lifePoints;
     private List<Creature> listeCreature; //Liste des créatures du joueur
-    private List<Card> main;
+    private List<Card> main; //main du joueur
     private Deck pioche;
     private Deck fausse;
     private int energy;
@@ -15,8 +15,8 @@ public class Player {
     public Player(String name, int lifePoints, int energy) {
         this.name = name;
         this.lifePoints = lifePoints;
-        this.listeCreature = new ArrayList<>();
-        this.main=new ArrayList<>();
+        this.listeCreature = new ArrayList<>(0);
+        this.main = new ArrayList<>(0);
         pioche = new Deck(40);
         fausse = new Deck(0);
         this.energy = energy;
@@ -43,6 +43,18 @@ public class Player {
         return fausse;
     }
 
+    public List<Card> getMain() {
+        return main;
+    }
+
+    public void addCardToMain(Card cardToAdd){
+        this.main.add(cardToAdd);
+    }
+
+    public void removeCardFromMain(Card cardToRemove){
+        this.main.remove(cardToRemove);
+    }
+
     public boolean isAlive() {
         boolean isAlive = true;
         if (this.lifePoints <= 0) {
@@ -55,26 +67,21 @@ public class Player {
         this.lifePoints -= dmg;
     }
 
-    public String toString() {
-        return "Le joueur " + this.name + " a " + this.lifePoints + " points de vie";
-    }
+
 
 
     public int getEnergy() {
         return energy;
     }
 
-    public void removeEnergy(int energy){
-        this.energy-=energy;
+    public void removeEnergy(int energy) {
+        this.energy -= energy;
     }
 
-    public boolean hasEnoughEnergy (Ritual card){
-        boolean vrai = true;
-
-        if (energy<card.getEnergy()){
-            vrai = false;
-        }
-       return vrai;
+    @Override
+    public String toString() {
+        return "Le joueur " + this.name + " a " + this.lifePoints + " points de vie";
     }
+
 
 }
