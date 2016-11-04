@@ -13,10 +13,8 @@ public class EnchantmentTest {
             Enchantment e1 = new Enchantment("Vault overclocking");
 	    e1.VaultOverburn();
 	    //Assert.assertEquals(true, e1.VaultOverburn() );
-
     }
-			            
-				        
+
     @Test
     public final void testEnchantmentGetName() {
         Enchantment e = new Enchantment("Vault overclocking");

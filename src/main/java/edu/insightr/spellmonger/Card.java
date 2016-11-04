@@ -3,6 +3,7 @@ package edu.insightr.spellmonger;
 public class Card {
     private String name;
     private int damage;
+    private int energy;
 
     public Card(String name) {
         this.name = name;
@@ -20,5 +21,8 @@ public class Card {
 
     public String getName() {
         return name;
+    }
+    public int getEnergy() {
+        return this.energy;
     }
 }

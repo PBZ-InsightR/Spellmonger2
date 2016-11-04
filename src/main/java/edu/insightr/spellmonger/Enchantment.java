@@ -32,13 +32,17 @@ public class Enchantment extends Card {
         }
 
     }
+
     public String getName() {return enchantmentName;}
+
     public int getEnergy() {
         return energy;
     }
+
     public int getEnergyCost() {
         return energyCost;
     }
+
     @Override
     public int getDamage()
     {
