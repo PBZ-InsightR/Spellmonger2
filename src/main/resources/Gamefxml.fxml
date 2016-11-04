@@ -53,16 +53,8 @@
                     <items>
                         <Pane>
                             <children>
-                                <Button fx:id="buttonPlayer2" layoutX="459.0" layoutY="34.0" mnemonicParsing="false"
-                                        onAction="#drawPlayer2" prefHeight="80.0" prefWidth="80.0" text="Draw"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="639.0"
-                                           layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="259.0"
-                                           layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="118.0"
-                                       prefWidth="100.0" text="Deck"/>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="639.0" layoutY="118.0"
-                                       prefWidth="100.0" text="Discard"/>
+                                <Button fx:id="buttonPlayer2" layoutX="836.0" layoutY="34.0" mnemonicParsing="false"
+                                        onAction="#drawPlayer2" prefHeight="80.0" prefWidth="80.0" text="Deck"/>
                             </children>
                         </Pane>
                     </items>
@@ -127,16 +119,8 @@
                     <items>
                         <Pane>
                             <children>
-                                <Button fx:id="buttonPlayer1" layoutX="459.0" layoutY="34.0" mnemonicParsing="false"
-                                        onAction="#drawPlayer1" prefHeight="80.0" prefWidth="80.0" text="Draw"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="259.0"
-                                           layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="639.0"
-                                           layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="14.0"
-                                       prefWidth="100.0" text="Deck"/>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="639.0" layoutY="14.0"
-                                       prefWidth="100.0" text="Discard"/>
+                                <Button fx:id="buttonPlayer1" layoutX="836.0" layoutY="34.0" mnemonicParsing="false"
+                                        onAction="#drawPlayer1" prefHeight="80.0" prefWidth="80.0" text="Deck"/>
                             </children>
                         </Pane>
                     </items>
