@@ -11,7 +11,7 @@ public class EnchantmentTest {
     public void vaultOverburn() throws Exception {
             Enchantment e1 = new Enchantment("Vault overclocking");
 
-	    e1.VaultOverburn();
+	    e1.vaultOverburn();
 	    //Assert.assertEquals(true, e1.VaultOverburn() );
 
 	    e1.vaultOverburn();

@@ -30,6 +30,7 @@ public class Card {
 
     public int getEnergy() {
         return this.energy;
+    }
 
 
     public int getEnergyCost() {
