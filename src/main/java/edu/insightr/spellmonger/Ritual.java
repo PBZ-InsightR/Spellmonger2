@@ -2,7 +2,6 @@ package edu.insightr.spellmonger;
 
 public class Ritual extends Card {
     private String name;
-    private int energy;
 
 
     public Ritual(String ritualName) {
@@ -11,15 +10,12 @@ public class Ritual extends Card {
         {
             case "Curse":
                 this.name = "Curse";
-                this.energy = 1;
                 break;
             case "Energy drain":
                 this.name = "Energy drain";
-                this.energy =1;
                 break;
             case "Blessing":
                 this.name = "Blessing";
-                this.energy =1;
                 break;
         }
 
@@ -30,10 +26,10 @@ public class Ritual extends Card {
         return this.name;
     }
 
-    @Override
+    /*@Override
     public int getEnergy() {
         return this.energy;
-    }
+    }*/
 
     public String toString() {
         String message = "";
@@ -67,5 +63,23 @@ public class Ritual extends Card {
         }
 
         return damage;
+    }
+
+    @Override
+    public int getEnergyCost(){
+        int energy = 0;
+        switch (this.name) {
+            case "Curse":
+                energy = 3;
+                break;
+            case "Blessing":
+                energy = 3;
+                break;
+            case "Energy drain":
+                energy = 2;
+                break;
+        }
+
+        return energy;
     }
 }
