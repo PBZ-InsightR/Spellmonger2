@@ -64,6 +64,7 @@ public class Plateau {
 
 
     public void tourParTour() {
+        // TODO : duplicate code is not possible !
 
         while (!isThereAWinner()) {
             Card currentCard = current.getPioche().drawCard();

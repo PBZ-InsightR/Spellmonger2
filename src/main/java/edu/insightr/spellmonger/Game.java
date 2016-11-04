@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 public class Game extends Application {
+    // TODO : be carful to split View, Model and Controller
 
     @Override
     public void start(Stage primaryStage) {
