@@ -23,8 +23,19 @@
 .label {
     -fx-font-family: "Roboto Condensed";
     -fx-opacity: 1.5;
+
 }
 
-.split-pane {
-    -fx-background-color: "#E0FFFF";
+
+
+#panePlateau2 {
+    -fx-opacity: 0.3;
+
 }
+
+#panePlateau1{
+    -fx-opacity : 0.3
+}
+
+
+
