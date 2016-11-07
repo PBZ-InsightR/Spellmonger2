@@ -4,6 +4,8 @@ import java.util.Enumeration;
 
 
 public class Creature extends Card {
+    // TODO : avoid using Strings as key, prefer enums
+
     //private EnumCard enumCard;
     private String capacity;
     private String name;

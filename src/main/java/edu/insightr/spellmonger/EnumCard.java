@@ -10,6 +10,7 @@ public enum EnumCard {
     FOX("Fox"),
     VAULTO("Vault Overclocking");
 
+    // TODO : code indentation/organization problem
 
     private String name = "";
 

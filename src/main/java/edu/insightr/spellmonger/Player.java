@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+    // TODO : don't keep unused code
+
     private String name;
     private int lifePoints;
     private List<Creature> listeCreature; //Liste des créatures du joueur

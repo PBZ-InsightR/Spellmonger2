@@ -10,12 +10,16 @@ public class EnchantmentTest {
     @Test
     public void vaultOverburn() throws Exception {
             Enchantment e1 = new Enchantment("Vault overclocking");
+
+	    e1.vaultOverburn();
+	    //Assert.assertEquals(true, e1.VaultOverburn() );
+
 	    e1.vaultOverburn();
 	    //Assert.assertEquals(true, e1.vaultOverburn() );
 
+
     }
-			            
-				        
+
     @Test
     public final void testEnchantmentGetName() {
         Enchantment e = new Enchantment("Vault overclocking");
