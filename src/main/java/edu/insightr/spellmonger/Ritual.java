@@ -3,6 +3,7 @@ package edu.insightr.spellmonger;
 public class Ritual extends Card {
     private String name;
 
+    // TODO : don't use String as key, prefer enums
 
     public Ritual(String ritualName) {
         super(ritualName);

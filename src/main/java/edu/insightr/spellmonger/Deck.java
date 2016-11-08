@@ -19,6 +19,7 @@ public class Deck {
         return cardPool;
     }
 
+    // TODO : avoid french in code, prefer english for naming and comments
     // Initialisation aléatoire du deck
     public List<Card> initDeck() {
         Card carte;
