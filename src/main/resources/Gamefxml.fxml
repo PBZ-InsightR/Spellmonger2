@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="anchor" prefHeight="600.0" prefWidth="1200.0" stylesheets="@Game.css"
             xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1"
@@ -51,92 +54,78 @@
                 </SplitPane>
                 <SplitPane layoutX="200.0" prefHeight="150.0" prefWidth="1000.0">
                     <items>
-                        <Pane>
+                        <Pane fx:id="panePlayer1">
                             <children>
-                                <Button fx:id="buttonPlayer2" layoutX="459.0" layoutY="34.0" mnemonicParsing="false"
-                                        onAction="#drawPlayer2" prefHeight="80.0" prefWidth="80.0" text="Draw"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="639.0"
-                                           layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="259.0"
-                                           layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="118.0"
-                                       prefWidth="100.0" text="Deck"/>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="639.0" layoutY="118.0"
-                                       prefWidth="100.0" text="Discard"/>
+                                <Button fx:id="buttonPlayer" layoutX="836.0" layoutY="34.0" mnemonicParsing="false"
+                                        onAction="#drawPlayer1" onMouseClicked="#test1" prefHeight="80.0" prefWidth="80.0" text="Deck"/>
                             </children>
                         </Pane>
                     </items>
                 </SplitPane>
                 <SplitPane layoutY="150.0" prefHeight="150.0" prefWidth="1200.0">
                     <items>
-                        <Pane>
+                        <Pane fx:id="panePlateau1">
                             <children>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="30.0"
-                                           layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature1p1" alignment="CENTER" layoutX="-20.0" layoutY="60.0"
-                                       prefWidth="200.0" text="creature1" textAlignment="CENTER"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="230.0"
-                                           layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature2p1" alignment="CENTER" layoutX="180.0" layoutY="60.0"
-                                       prefWidth="200.0" text="creature2" textAlignment="CENTER"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="430.0"
-                                           layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature3p1" alignment="CENTER" layoutX="380.0" layoutY="60.0"
-                                       prefWidth="200.0" text="creature3" textAlignment="CENTER"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="630.0"
-                                           layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature4p1" alignment="CENTER" layoutX="580.0" layoutY="60.0"
-                                       prefWidth="200.0" text="creature4" textAlignment="CENTER"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="830.0"
-                                           layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature5p1" alignment="CENTER" layoutX="780.0" layoutY="60.0"
-                                       prefWidth="200.0" text="creature5" textAlignment="CENTER"/>
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="279.0" layoutY="-1.0" scaleX="1.4">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="452.0" layoutY="-1.0" scaleX="1.4">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView  fitHeight="148.0" fitWidth="73.0"  layoutX="622.0" layoutY="-1.0" scaleX="1.4">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="789.0" layoutY="-1.0" scaleX="1.4">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
+
                             </children>
                         </Pane>
                     </items>
                 </SplitPane>
                 <SplitPane layoutY="300.0" prefHeight="150.0" prefWidth="1200.0">
                     <items>
-                        <Pane>
+
+                        <Pane fx:id="panePlateau2">
                             <children>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="30.0"
-                                           layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature1p2" alignment="CENTER" layoutX="-20.0" layoutY="70.0"
-                                       prefWidth="200.0" text="creature1" textAlignment="CENTER"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="230.0"
-                                           layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature2p2" alignment="CENTER" layoutX="180.0" layoutY="70.0"
-                                       prefWidth="200.0" text="creature2" textAlignment="CENTER"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="430.0"
-                                           layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature3p2" alignment="CENTER" layoutX="380.0" layoutY="70.0"
-                                       prefWidth="200.0" text="creature3" textAlignment="CENTER"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="630.0"
-                                           layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature4p2" alignment="CENTER" layoutX="580.0" layoutY="70.0"
-                                       prefWidth="200.0" text="creature4" textAlignment="CENTER"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="830.0"
-                                           layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label fx:id="creature5p2" alignment="CENTER" layoutX="780.0" layoutY="70.0"
-                                       prefWidth="200.0" text="creature5" textAlignment="CENTER"/>
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="280.0" layoutY="-1.0" scaleX="1.4">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="452.0" layoutY="-1.0" scaleX="1.4">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="622.0" layoutY="-1.0" scaleX="1.4">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="789.0" layoutY="-1.0" scaleX="1.4">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
                             </children>
                         </Pane>
                     </items>
                 </SplitPane>
                 <SplitPane layoutX="200.0" layoutY="450.0" prefHeight="150.0" prefWidth="1000.0">
                     <items>
-                        <Pane>
+                        <Pane fx:id="panePlayer2">
                             <children>
-                                <Button fx:id="buttonPlayer1" layoutX="459.0" layoutY="34.0" mnemonicParsing="false"
-                                        onAction="#drawPlayer1" prefHeight="80.0" prefWidth="80.0" text="Draw"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="259.0"
-                                           layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="639.0"
-                                           layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="100.0"/>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="14.0"
-                                       prefWidth="100.0" text="Deck"/>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="639.0" layoutY="14.0"
-                                       prefWidth="100.0" text="Discard"/>
+                                <Button fx:id="buttonPlayer1" layoutX="836.0" layoutY="34.0" mnemonicParsing="false"
+                                        onAction="#drawPlayer1" prefHeight="80.0" prefWidth="80.0" text="Deck"/>
                             </children>
                         </Pane>
                     </items>
@@ -179,8 +168,8 @@
                         </Pane>
                     </items>
                 </SplitPane>
-                <Button layoutX="1036.0" layoutY="275.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0"
-                        text="Passer le tour" onAction="#passerTour"/>
+                <Button layoutX="1036.0" layoutY="275.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0"
+                        text="Passer" onAction="#passerTour"/>
             </children>
         </Pane>
     </children>

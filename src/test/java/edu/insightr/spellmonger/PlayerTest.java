@@ -28,4 +28,10 @@ public class PlayerTest {
         Assert.assertEquals(3,p.getLifePoints());
     }
 
+    @Test
+    public void getName() throws Exception{
+        Player p = new Player("p",1,0);
+        Assert.assertEquals("p",p.getName());
+    }
+
 }

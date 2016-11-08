@@ -3,6 +3,7 @@ package edu.insightr.spellmonger;
 import java.util.Random;
 
 public class Enchantment extends Card {
+    // TODO : have a look on warnings !!!
     private int energy;
     private int energyCost;
     private String enchantmentName;
@@ -32,13 +33,17 @@ public class Enchantment extends Card {
         }
 
     }
+
     public String getName() {return enchantmentName;}
+
     public int getEnergy() {
         return energy;
     }
+
     public int getEnergyCost() {
         return energyCost;
     }
+
     @Override
     public int getDamage()
     {
