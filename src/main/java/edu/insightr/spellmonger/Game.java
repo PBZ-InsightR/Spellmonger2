@@ -23,28 +23,7 @@ import javafx.scene.paint.Color;
 public class Game extends Stage {
     // TODO : be careful to split View, Model and Controller
 
-    /*
-     @Override
-     public void start(Stage primaryStage) {
-         try {
-             final URL url = getClass().getResource("/Gamefxml.fxml");
-             final FXMLLoader fxmlLoader = new FXMLLoader(url);
-             final AnchorPane root = (AnchorPane) fxmlLoader.load();
-             final Scene scene = new Scene(root, 1200, 600);
-             primaryStage.setScene(scene);
-         } catch (IOException ex) {
-             System.err.println("Erreur" + ex);
-         }
-         primaryStage.setTitle("Card Game");
-         primaryStage.setResizable(false);
-         primaryStage.sizeToScene();
-         primaryStage.show();
-     }
 
-     public static void main(String[] args) {
-         launch(args);
-     }
- */
     SwitchScene application;
 
     public Game(SwitchScene application) {
