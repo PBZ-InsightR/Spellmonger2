@@ -1,10 +1,9 @@
 package cucumberjava;
 
-import cucumber.api.PendingException;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java8.Th;
 import edu.insightr.spellmonger.Card;
 import edu.insightr.spellmonger.Creature;
 import edu.insightr.spellmonger.Plateau;
@@ -30,42 +29,43 @@ public class PlateauSteps {
     }
 
     @Given("^current hand is empty$")
-    public void current_hand_is_empty() throws Throwable{
+    public void current_hand_is_empty() throws Throwable {
         Assert.assertTrue(p.getCurrent().getMain().isEmpty());
     }
+
     @Given("^p1 board is empty$")
-    public void p1_board_is_empty() throws Throwable{
-        if(!p.getCurrent().getName().equals("p1"))
-        {
+    public void p1_board_is_empty() throws Throwable {
+        if (!p.getCurrent().getName().equals("p1")) {
             p.changeCurrent();
         }
 
         Assert.assertTrue(p.getCurrent().getListeCreature().isEmpty());
 
     }
+
     @Given("^p2 board is empty$")
-    public void p2_board_is_empty() throws Throwable{
-        if(!p.getCurrent().getName().equals("p2"))
-        {
+    public void p2_board_is_empty() throws Throwable {
+        if (!p.getCurrent().getName().equals("p2")) {
             p.changeCurrent();
         }
 
         Assert.assertTrue(p.getCurrent().getListeCreature().isEmpty());
 
     }
+
     @Given("^p1 cardChoosen is a bear$")
-    public void p1_cardChoosen_is_a_bear() throws Throwable{
-        cardChoosen=new Creature("Bear");
+    public void p1_cardChoosen_is_a_bear() throws Throwable {
+        cardChoosen = new Creature("Bear");
     }
 
     @When("^InitMain is called$")
-    public void InitMain_is_called() throws Throwable{
+    public void InitMain_is_called() throws Throwable {
         p.InitMain();
     }
 
     @When("^Pioche is called$")
-    public void Pioche_is_called() throws Throwable{
-        nombreDeCartes=p.getCurrent().getMain().size();
+    public void Pioche_is_called() throws Throwable {
+        nombreDeCartes = p.getCurrent().getMain().size();
         p.Pioche();
     }
 
@@ -84,29 +84,30 @@ public class PlateauSteps {
     }
 
     @When("^p1 beat p2$")
-    public void p1_beat_p2() throws Throwable{
+    public void p1_beat_p2() throws Throwable {
         p.changeCurrent();
         p.getCurrent().altererHP(21);
     }
 
     @When("^bataille is called$")
-    public void bataille_is_called() throws Throwable{
-        if(!p.getCurrent().getName().equals("p1"))
-        {
+    public void bataille_is_called() throws Throwable {
+        if (!p.getCurrent().getName().equals("p1")) {
             p.changeCurrent();
         }
-        p2Hp=p.getOpponent().getLifePoints();
+        p2Hp = p.getOpponent().getLifePoints();
         p.bataille(cardChoosen);
     }
 
     @Then("^current hand is composed of 3 cards$")
-    public void current_hand_is_composed_of_3_cards() throws Throwable{
-        Assert.assertTrue(p.getCurrent().getMain().size()==3);
+    public void current_hand_is_composed_of_3_cards() throws Throwable {
+        Assert.assertTrue(p.getCurrent().getMain().size() == 3);
     }
+
     @Then("^the card is add in current hand$")
-    public void the_card_is_add_in_current_hand() throws Throwable{
-        Assert.assertTrue(nombreDeCartes+1==p.getCurrent().getMain().size());
+    public void the_card_is_add_in_current_hand() throws Throwable {
+        Assert.assertTrue(nombreDeCartes + 1 == p.getCurrent().getMain().size());
     }
+
     @Then("^a winner exists$")
     public void a_winner_exists() throws Throwable {
         Assert.assertTrue(success);
@@ -118,23 +119,23 @@ public class PlateauSteps {
     }
 
     @Then("^getCurrent return the current player$")
-    public void getCurrent_return_the_current_player() throws Throwable{
+    public void getCurrent_return_the_current_player() throws Throwable {
         p.getCurrent().getName().equals("p1");
     }
+
     @Then("^getWinner return the name of the player winning$")
-    public void getWinner_return_the_name_of_the_player_winning() throws Throwable{
+    public void getWinner_return_the_name_of_the_player_winning() throws Throwable {
         p.isThereAWinner();
         Assert.assertTrue(p.getWinner().equals("p1"));
     }
 
     @Then("^p2 loose 3 hp$")
-    public void p2_loose_3_hp() throws Throwable{
-        if(!p.getCurrent().getName().equals("p2"))
-        {
+    public void p2_loose_3_hp() throws Throwable {
+        if (!p.getCurrent().getName().equals("p2")) {
             p.changeCurrent();
         }
 
-        Assert.assertTrue(p2Hp-3==p.getCurrent().getLifePoints());
+        Assert.assertTrue(p2Hp - 3 == p.getCurrent().getLifePoints());
     }
 
 }
