@@ -125,7 +125,7 @@
                         <Pane fx:id="panePlayer2">
                             <children>
                                 <Button fx:id="buttonPlayer2" layoutX="836.0" layoutY="34.0" mnemonicParsing="false"
-                                        onAction="#drawPlayer2" prefHeight="80.0" prefWidth="80.0" text="Deck"/>
+                                        onAction="#drawPlayer2" onMouseClicked="#test2" prefHeight="80.0" prefWidth="80.0" text="Deck"/>
                             </children>
                         </Pane>
                     </items>

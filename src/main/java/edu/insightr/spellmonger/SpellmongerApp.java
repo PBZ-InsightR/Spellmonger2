@@ -16,7 +16,7 @@ public class SpellmongerApp {
     }
 
     public static void main(String[] args) {
-        Plateau p = new Plateau("Alice","Bob",20,0);
+        Plateau p = new Plateau("Alice", "Bob", 20, 0);
         p.Jeu();
     }
 }
