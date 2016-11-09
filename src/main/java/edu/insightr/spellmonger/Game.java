@@ -16,20 +16,19 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 
 public class Game extends Application {
-    // TODO : be carful to split View, Model and Controller
+    // TODO : be careful to split View, Model and Controller
 
     @Override
     public void start(Stage primaryStage) {
         try {
             final URL url = getClass().getResource("/Gamefxml.fxml");
             final FXMLLoader fxmlLoader = new FXMLLoader(url);
-            final AnchorPane root = (AnchorPane) fxmlLoader.load();
+            final AnchorPane root = fxmlLoader.load(url);
             final Scene scene = new Scene(root, 1200, 600);
             primaryStage.setScene(scene);
         } catch (IOException ex) {
@@ -70,7 +69,6 @@ public class Game extends Application {
     private int pos4P2 = 0;
     private int pos5P2 = 0;
     private Image img = new Image("/carte.jpg");
-    //private Card carteChoosen=new Card("Wolf");
 
     @FXML
     private void drawPlayer1() {
@@ -126,7 +124,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau1 < 700) {
                         rect1P1.setLayoutX(xRectPlateau1);
-                        rect1P1.setLayoutY(0);
                         rect1P1.setStroke(Color.BLACK);
                         rect1P1.setStrokeType(StrokeType.INSIDE);
                         rect1P1.setFill(new ImagePattern(img));
@@ -150,7 +147,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau1 < 700) {
                         rect2P1.setLayoutX(xRectPlateau1 - 125);
-                        rect2P1.setLayoutY(0);
                         rect2P1.setStroke(Color.BLACK);
                         rect2P1.setStrokeType(StrokeType.INSIDE);
                         rect2P1.setFill(new ImagePattern(img));
@@ -174,7 +170,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau1 < 700) {
                         rect3P1.setLayoutX(xRectPlateau1 - 250);
-                        rect3P1.setLayoutY(0);
                         rect3P1.setStroke(Color.BLACK);
                         rect3P1.setStrokeType(StrokeType.INSIDE);
                         rect3P1.setFill(new ImagePattern(img));
@@ -198,7 +193,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau1 < 700) {
                         rect4P1.setLayoutX(xRectPlateau1 - 375);
-                        rect4P1.setLayoutY(0);
                         rect4P1.setStroke(Color.BLACK);
                         rect4P1.setStrokeType(StrokeType.INSIDE);
                         rect4P1.setFill(new ImagePattern(img));
@@ -222,7 +216,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau1 < 700) {
                         rect5P1.setLayoutX(xRectPlateau1 - 500);
-                        rect5P1.setLayoutY(0);
                         rect5P1.setStroke(Color.BLACK);
                         rect5P1.setStrokeType(StrokeType.INSIDE);
                         rect5P1.setFill(new ImagePattern(img));
@@ -252,7 +245,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau2 < 700) {
                         rect1P2.setLayoutX(xRectPlateau2);
-                        rect1P2.setLayoutY(0);
                         rect1P2.setStroke(Color.BLACK);
                         rect1P2.setStrokeType(StrokeType.INSIDE);
                         rect1P2.setFill(new ImagePattern(img));
@@ -276,7 +268,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau2 < 700) {
                         rect2P2.setLayoutX(xRectPlateau2 - 125);
-                        rect2P2.setLayoutY(0);
                         rect2P2.setStroke(Color.BLACK);
                         rect2P2.setStrokeType(StrokeType.INSIDE);
                         rect2P2.setFill(new ImagePattern(img));
@@ -300,7 +291,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau2 < 700) {
                         rect3P2.setLayoutX(xRectPlateau2 - 250);
-                        rect3P2.setLayoutY(0);
                         rect3P2.setStroke(Color.BLACK);
                         rect3P2.setStrokeType(StrokeType.INSIDE);
                         rect3P2.setFill(new ImagePattern(img));
@@ -324,7 +314,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau2 < 700) {
                         rect4P2.setLayoutX(xRectPlateau2 - 375);
-                        rect4P2.setLayoutY(0);
                         rect4P2.setStroke(Color.BLACK);
                         rect4P2.setStrokeType(StrokeType.INSIDE);
                         rect4P2.setFill(new ImagePattern(img));
@@ -348,7 +337,6 @@ public class Game extends Application {
                 public void handle(MouseEvent me) {
                     if (xRectPlateau2 < 700) {
                         rect5P2.setLayoutX(xRectPlateau2 - 500);
-                        rect5P2.setLayoutY(0);
                         rect5P2.setStroke(Color.BLACK);
                         rect5P2.setStrokeType(StrokeType.INSIDE);
                         rect5P2.setFill(new ImagePattern(img));

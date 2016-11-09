@@ -27,8 +27,9 @@
 }
 
 .rectangle {
-    height:100px;
-    width:100px;
+    -fx-height:100px;
+    -fx-width:100px;
+
 }
 
 
