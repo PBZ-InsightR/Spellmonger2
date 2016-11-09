@@ -29,7 +29,6 @@ public class Log extends Stage {
         this.application = application;
     }
 
-
     public void init(){
         btn.setOnAction(event -> {
            // System.out.println("play OK");

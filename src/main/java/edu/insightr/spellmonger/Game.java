@@ -21,7 +21,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 
 public class Game extends Stage {
-    // TODO : be careful to split View, Model and Controller
 
 
     SwitchScene application;
