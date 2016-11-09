@@ -12,7 +12,7 @@ public class Card {
    public Card(String name) {
         this.name = name;
         energyCost=0;
-        damage = 0;
+        damage = 2;
     }
 
 
