@@ -1,6 +1,7 @@
 package edu.insightr.spellmonger;
 
 import org.apache.log4j.Logger;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,8 +19,7 @@ public class Plateau {
         this.opponent.getPioche().initDeck();
     }
 
-    public void InitMain()
-    {
+    public void InitMain() {
         Card carte;
         for (int i = 0; i < 3; i++) {
             int nbRand;
@@ -61,23 +61,20 @@ public class Plateau {
         }
     }
 
-    public void Pioche()
-    {
+    public void Pioche() {
         Card currentCard = current.getPioche().drawCard();
         current.getMain().add(currentCard);
     }
 
-    public Card ChoixCarte()
-    {
+    public Card ChoixCarte() {
         Scanner sc = new Scanner(System.in);
         int tailleMain = current.getMain().size();
         logger.info("Quelle carte jouer ?");
-        for (int i=0;i<tailleMain;i++)
-        {
+        for (int i = 0; i < tailleMain; i++) {
             logger.info(i + ". " + current.getMain().get(i).getName());
         }
         int str = sc.nextInt();
-        Card carteChoisi= current.getMain().get(str);
+        Card carteChoisi = current.getMain().get(str);
         current.getMain().remove(str);
         return carteChoisi;
     }
@@ -89,6 +86,7 @@ public class Plateau {
     public Player getCurrent() {
         return current;
     }
+
     public Player getOpponent() {
         return opponent;
     }
@@ -245,12 +243,10 @@ public class Plateau {
 
 
     }
-    public void Jeu()
-    {
-        while(!isThereAWinner())
-        {
-            if (nbTours==1 || nbTours==2)
-            {
+
+    public void Jeu() {
+        while (!isThereAWinner()) {
+            if (nbTours == 1 || nbTours == 2) {
                 InitMain();
             }
             Pioche();

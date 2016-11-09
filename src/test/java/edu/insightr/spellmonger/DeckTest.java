@@ -9,7 +9,7 @@ public class DeckTest {
     public void isEmpty() throws Exception {
         Deck d = new Deck(0);
         //d.initDeck();
-        Assert.assertEquals(0,d.getCardPool().size() );
+        Assert.assertEquals(0, d.getCardPool().size());
         Assert.assertEquals(true, d.isEmpty());
         Deck d2 = new Deck(20);
         d2.initDeck();
