@@ -10,8 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -67,6 +69,7 @@ public class Game extends Application {
     private int pos3P2 = 0;
     private int pos4P2 = 0;
     private int pos5P2 = 0;
+    private Image img = new Image("/carte.jpg");
     //private Card carteChoosen=new Card("Wolf");
 
     @FXML
@@ -114,7 +117,7 @@ public class Game extends Application {
             Rectangle rect1P1 = new Rectangle(200, 30, 100, 100);
             rect1P1.setStroke(Color.BLACK);
             rect1P1.setStrokeType(StrokeType.INSIDE);
-            rect1P1.setFill(Color.WHITE);
+            rect1P1.setFill(new ImagePattern(img));
             panePlayer1.getChildren().add(rect1P1);
             pos1P1 = 1;
             rect1P1.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -126,7 +129,7 @@ public class Game extends Application {
                         rect1P1.setLayoutY(0);
                         rect1P1.setStroke(Color.BLACK);
                         rect1P1.setStrokeType(StrokeType.INSIDE);
-                        rect1P1.setFill(Color.WHITE);
+                        rect1P1.setFill(new ImagePattern(img));
                         panePlateau1.getChildren().add(rect1P1);
                         xRectPlateau1 += 150;
                         pos1P1 = 0;
@@ -138,7 +141,7 @@ public class Game extends Application {
             Rectangle rect2P1 = new Rectangle(325, 30, 100, 100);
             rect2P1.setStroke(Color.BLACK);
             rect2P1.setStrokeType(StrokeType.INSIDE);
-            rect2P1.setFill(Color.WHITE);
+            rect2P1.setFill(new ImagePattern(img));
             panePlayer1.getChildren().add(rect2P1);
             pos2P1 = 1;
             rect2P1.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -150,7 +153,7 @@ public class Game extends Application {
                         rect2P1.setLayoutY(0);
                         rect2P1.setStroke(Color.BLACK);
                         rect2P1.setStrokeType(StrokeType.INSIDE);
-                        rect2P1.setFill(Color.WHITE);
+                        rect2P1.setFill(new ImagePattern(img));
                         panePlateau1.getChildren().add(rect2P1);
                         xRectPlateau1 += 150;
                         pos2P1 = 0;
@@ -162,7 +165,7 @@ public class Game extends Application {
             Rectangle rect3P1 = new Rectangle(450, 30, 100, 100);
             rect3P1.setStroke(Color.BLACK);
             rect3P1.setStrokeType(StrokeType.INSIDE);
-            rect3P1.setFill(Color.WHITE);
+            rect3P1.setFill(new ImagePattern(img));
             panePlayer1.getChildren().add(rect3P1);
             pos3P1 = 1;
             rect3P1.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -174,7 +177,7 @@ public class Game extends Application {
                         rect3P1.setLayoutY(0);
                         rect3P1.setStroke(Color.BLACK);
                         rect3P1.setStrokeType(StrokeType.INSIDE);
-                        rect3P1.setFill(Color.WHITE);
+                        rect3P1.setFill(new ImagePattern(img));
                         panePlateau1.getChildren().add(rect3P1);
                         xRectPlateau1 += 150;
                         pos3P1 = 0;
@@ -186,7 +189,7 @@ public class Game extends Application {
             Rectangle rect4P1 = new Rectangle(575, 30, 100, 100);
             rect4P1.setStroke(Color.BLACK);
             rect4P1.setStrokeType(StrokeType.INSIDE);
-            rect4P1.setFill(Color.WHITE);
+            rect4P1.setFill(new ImagePattern(img));
             panePlayer1.getChildren().add(rect4P1);
             pos4P1 = 1;
             rect4P1.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -198,7 +201,7 @@ public class Game extends Application {
                         rect4P1.setLayoutY(0);
                         rect4P1.setStroke(Color.BLACK);
                         rect4P1.setStrokeType(StrokeType.INSIDE);
-                        rect4P1.setFill(Color.WHITE);
+                        rect4P1.setFill(new ImagePattern(img));
                         panePlateau1.getChildren().add(rect4P1);
                         xRectPlateau1 += 150;
                         pos4P1 = 0;
@@ -210,7 +213,7 @@ public class Game extends Application {
             Rectangle rect5P1 = new Rectangle(700, 30, 100, 100);
             rect5P1.setStroke(Color.BLACK);
             rect5P1.setStrokeType(StrokeType.INSIDE);
-            rect5P1.setFill(Color.WHITE);
+            rect5P1.setFill(new ImagePattern(img));
             panePlayer1.getChildren().add(rect5P1);
             pos5P1 = 1;
             rect5P1.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -222,7 +225,7 @@ public class Game extends Application {
                         rect5P1.setLayoutY(0);
                         rect5P1.setStroke(Color.BLACK);
                         rect5P1.setStrokeType(StrokeType.INSIDE);
-                        rect5P1.setFill(Color.WHITE);
+                        rect5P1.setFill(new ImagePattern(img));
                         panePlateau1.getChildren().add(rect5P1);
                         xRectPlateau1 += 150;
                         pos5P1 = 0;
@@ -240,7 +243,7 @@ public class Game extends Application {
             Rectangle rect1P2 = new Rectangle(200, 30, 100, 100);
             rect1P2.setStroke(Color.BLACK);
             rect1P2.setStrokeType(StrokeType.INSIDE);
-            rect1P2.setFill(Color.WHITE);
+            rect1P2.setFill(new ImagePattern(img));
             panePlayer2.getChildren().add(rect1P2);
             pos1P2 = 1;
             rect1P2.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -252,7 +255,7 @@ public class Game extends Application {
                         rect1P2.setLayoutY(0);
                         rect1P2.setStroke(Color.BLACK);
                         rect1P2.setStrokeType(StrokeType.INSIDE);
-                        rect1P2.setFill(Color.WHITE);
+                        rect1P2.setFill(new ImagePattern(img));
                         panePlateau2.getChildren().add(rect1P2);
                         xRectPlateau2 += 150;
                         pos1P2 = 0;
@@ -264,7 +267,7 @@ public class Game extends Application {
             Rectangle rect2P2 = new Rectangle(325, 30, 100, 100);
             rect2P2.setStroke(Color.BLACK);
             rect2P2.setStrokeType(StrokeType.INSIDE);
-            rect2P2.setFill(Color.WHITE);
+            rect2P2.setFill(new ImagePattern(img));
             panePlayer2.getChildren().add(rect2P2);
             pos2P2 = 1;
             rect2P2.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -276,7 +279,7 @@ public class Game extends Application {
                         rect2P2.setLayoutY(0);
                         rect2P2.setStroke(Color.BLACK);
                         rect2P2.setStrokeType(StrokeType.INSIDE);
-                        rect2P2.setFill(Color.WHITE);
+                        rect2P2.setFill(new ImagePattern(img));
                         panePlateau2.getChildren().add(rect2P2);
                         xRectPlateau2 += 150;
                         pos2P2 = 0;
@@ -288,7 +291,7 @@ public class Game extends Application {
             Rectangle rect3P2 = new Rectangle(450, 30, 100, 100);
             rect3P2.setStroke(Color.BLACK);
             rect3P2.setStrokeType(StrokeType.INSIDE);
-            rect3P2.setFill(Color.WHITE);
+            rect3P2.setFill(new ImagePattern(img));
             panePlayer2.getChildren().add(rect3P2);
             pos3P2 = 1;
             rect3P2.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -300,7 +303,7 @@ public class Game extends Application {
                         rect3P2.setLayoutY(0);
                         rect3P2.setStroke(Color.BLACK);
                         rect3P2.setStrokeType(StrokeType.INSIDE);
-                        rect3P2.setFill(Color.WHITE);
+                        rect3P2.setFill(new ImagePattern(img));
                         panePlateau2.getChildren().add(rect3P2);
                         xRectPlateau2 += 150;
                         pos3P2 = 0;
@@ -312,7 +315,7 @@ public class Game extends Application {
             Rectangle rect4P2 = new Rectangle(575, 30, 100, 100);
             rect4P2.setStroke(Color.BLACK);
             rect4P2.setStrokeType(StrokeType.INSIDE);
-            rect4P2.setFill(Color.WHITE);
+            rect4P2.setFill(new ImagePattern(img));
             panePlayer2.getChildren().add(rect4P2);
             pos4P2 = 1;
             rect4P2.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -324,7 +327,7 @@ public class Game extends Application {
                         rect4P2.setLayoutY(0);
                         rect4P2.setStroke(Color.BLACK);
                         rect4P2.setStrokeType(StrokeType.INSIDE);
-                        rect4P2.setFill(Color.WHITE);
+                        rect4P2.setFill(new ImagePattern(img));
                         panePlateau2.getChildren().add(rect4P2);
                         xRectPlateau2 += 150;
                         pos4P2 = 0;
@@ -336,7 +339,7 @@ public class Game extends Application {
             Rectangle rect5P2 = new Rectangle(700, 30, 100, 100);
             rect5P2.setStroke(Color.BLACK);
             rect5P2.setStrokeType(StrokeType.INSIDE);
-            rect5P2.setFill(Color.WHITE);
+            rect5P2.setFill(new ImagePattern(img));
             panePlayer2.getChildren().add(rect5P2);
             pos5P2 = 1;
             rect5P2.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -348,7 +351,7 @@ public class Game extends Application {
                         rect5P2.setLayoutY(0);
                         rect5P2.setStroke(Color.BLACK);
                         rect5P2.setStrokeType(StrokeType.INSIDE);
-                        rect5P2.setFill(Color.WHITE);
+                        rect5P2.setFill(new ImagePattern(img));
                         panePlateau2.getChildren().add(rect5P2);
                         xRectPlateau2 += 150;
                         pos5P2 = 0;
