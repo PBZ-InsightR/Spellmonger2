@@ -74,7 +74,7 @@ public class Plateau {
         logger.info("Quelle carte jouer ?");
         for (int i=0;i<tailleMain;i++)
         {
-            logger.info(i + ". " + current.getMain().get(i));
+            logger.info(i + ". " + current.getMain().get(i).getName());
         }
         int str = sc.nextInt();
         Card carteChoisi= current.getMain().get(str);
