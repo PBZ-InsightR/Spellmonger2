@@ -20,38 +20,28 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-public class Log extends VBox {
-    @FXML private Text actiontarget;
-    @FXML private PasswordField passwordPF;
-    @FXML private TextField usernameTF;
-    @FXML private Button connectBtn;
+public class Log extends Stage {
+    SwitchScene application;
+    @FXML
+    public Button btn;
 
-        public Log(){
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Log.fxml"));
-            fxmlLoader.setRoot(this);
-            fxmlLoader.setController(this);
+    public Log(SwitchScene application) {
+        this.application = application;
+    }
+
+    public void init(){
+        btn.setOnAction(event -> {
+           // System.out.println("play OK");
+            application.login.hide();
+
             try {
-                fxmlLoader.load();
-            } catch (IOException exception) {
-                throw new RuntimeException(exception);
+                application.startSecond();
+                //application.play.show();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            connectBtn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent t) {
-                    if ((passwordPF.getText().equals("0000")) || (usernameTF.getCharacters().toString().equals("Karim"))) {
-                        actiontarget.setText("Vous êtes connectés !!!");
-                        new Game();
-                    } else {
-                        actiontarget.setText("Identifiants erronés !!!");
-                    }
 
-                }//end action
-            });
-        }
-
-
-
-
-
+        });
+    }
 
 }

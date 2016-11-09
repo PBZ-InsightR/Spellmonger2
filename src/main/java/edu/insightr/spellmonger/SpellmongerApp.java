@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-
+/*
 public class SpellmongerApp {
 
     public SpellmongerApp(String name1, String name2, int lifePoints) {
@@ -20,3 +20,4 @@ public class SpellmongerApp {
         p.Jeu();
     }
 }
+*/
