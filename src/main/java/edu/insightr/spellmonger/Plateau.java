@@ -1,6 +1,8 @@
 package edu.insightr.spellmonger;
 
 import org.apache.log4j.Logger;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Plateau {
     private Player current, opponent;
@@ -16,12 +18,79 @@ public class Plateau {
         this.opponent.getPioche().initDeck();
     }
 
+    public void InitMain()
+    {
+        Card carte;
+        for (int i = 0; i < 3; i++) {
+            int nbRand;
+            Random rand = new Random();
+            nbRand = rand.nextInt(8);
+            switch (nbRand) {
+                case 0:
+                    carte = new Ritual("Curse");
+                    current.getMain().add(carte);
+                    break;
+                case 1:
+                    carte = new Ritual("Blessing");
+                    current.getMain().add(carte);
+                    break;
+                case 2:
+                    carte = new Ritual("Energy drain");
+                    current.getMain().add(carte);
+                    break;
+                case 3:
+                    carte = new Creature("Bear");
+                    current.getMain().add(carte);
+                    break;
+                case 4:
+                    carte = new Creature("Wolf");
+                    current.getMain().add(carte);
+                    break;
+                case 5:
+                    carte = new Creature("Eagle");
+                    current.getMain().add(carte);
+                    break;
+                case 6:
+                    carte = new Creature("Fox");
+                    current.getMain().add(carte);
+                    break;
+                case 7:
+                    carte = new Enchantment("Vault overclocking");
+                    current.getMain().add(carte);
+            }
+        }
+    }
+
+    public void Pioche()
+    {
+        Card currentCard = current.getPioche().drawCard();
+        current.getMain().add(currentCard);
+    }
+
+    public Card ChoixCarte()
+    {
+        Scanner sc = new Scanner(System.in);
+        int tailleMain = current.getMain().size();
+        logger.info("Quelle carte jouer ?");
+        for (int i=0;i<tailleMain;i++)
+        {
+            logger.info(i + ". " + current.getMain().get(i).getName());
+        }
+        int str = sc.nextInt();
+        Card carteChoisi= current.getMain().get(str);
+        current.getMain().remove(str);
+        return carteChoisi;
+    }
+
     public int getNbTours() {
         return nbTours;
     }
 
     public Player getCurrent() {
         return current;
+    }
+    public Player getOpponent() {
+        return opponent;
     }
 
     public String getWinner() {
@@ -63,8 +132,6 @@ public class Plateau {
     }
 
 
-
-
     public void bataille(Card carteChoisi) {
 
 
@@ -82,7 +149,7 @@ public class Plateau {
             logger.info("les damages sont " + currentCard.getDamage());
             if (currentCard instanceof Creature) {
                 Creature currentCreature = (Creature) currentCard;
-                //on ajoute la creature piochée a la liste de cartes du current player
+                //on ajoute la creature piochée à la liste de cartes du current player
                 current.getListeCreature().add(currentCreature);
 
             }
@@ -178,6 +245,24 @@ public class Plateau {
 
 
     }
+    public void Jeu()
+    {
+        while(!isThereAWinner())
+        {
+            if (nbTours==1 || nbTours==2)
+            {
+                InitMain();
+            }
+            Pioche();
+            Card carteChoisi = ChoixCarte();
+            bataille(carteChoisi);
+        }
+        logger.info("\n");
+        logger.info("******************************");
+        logger.info("THE WINNER IS " + getWinner() + " !!!");
+        logger.info("******************************");
+    }
 }
+
 
 
