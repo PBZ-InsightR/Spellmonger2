@@ -22,7 +22,6 @@ import javafx.scene.paint.Color;
 
 public class Game extends Stage {
 
-
     SwitchScene application;
 
     public Game(SwitchScene application) {
