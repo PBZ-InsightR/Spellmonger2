@@ -1,8 +1,5 @@
 package edu.insightr.spellmonger;
 
-import java.util.Enumeration;
-
-
 public class Creature extends Card {
     // TODO : avoid using Strings as key, prefer enums
 
@@ -10,6 +7,17 @@ public class Creature extends Card {
     private String capacity;
     private String name;
     private int PV;
+
+    /*public enum EnumCard {
+        CURSE,
+        BLESSING,
+        ENERFYDRAIN,
+        WOLF,
+        BEAR,
+        EAGLE,
+        FOX,
+        VAULTO;
+    }*/
 
     public Creature(String animal) {
         super(animal);
@@ -46,12 +54,11 @@ public class Creature extends Card {
     }
 
     public boolean isAlive() {
-        boolean result= false;
+        boolean result = false;
         if (this.PV > 0) {
             result = true;
         }
         return result;
-
     }
 
     public String toString() {
@@ -64,6 +71,7 @@ public class Creature extends Card {
 
     @Override
     public int getDamage() {
+        // TODO : no duplication code !
         int damage = 0;
         switch (this.name) {
             case "Eagle":
