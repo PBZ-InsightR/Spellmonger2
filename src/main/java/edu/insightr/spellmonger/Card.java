@@ -17,7 +17,7 @@ public class Card {
 
 
     public String toString() {
-        return "La carte "+this.name+" fait "+ this.damage +" dommages et coute "+this.energyCost+" énergie";
+        return "La carte "+this.name+" commet "+ this.damage +" dommages et coûte "+this.energyCost+" énergie";
     }
 
     public int getDamage() {
@@ -32,9 +32,7 @@ public class Card {
         return this.energy;
     }
 
-
     public int getEnergyCost() {
         return energyCost;
-
     }
 }
