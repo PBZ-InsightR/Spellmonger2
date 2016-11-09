@@ -2,24 +2,26 @@ package edu.insightr.spellmonger;
 
 public class Ritual extends Card {
     private String name;
+    private int energy;
 
     // TODO : don't use String as key, prefer enums
 
     public Ritual(String ritualName) {
         super(ritualName);
-        switch(ritualName)
-        {
+        switch (ritualName) {
             case "Curse":
                 this.name = "Curse";
+                this.energy = 1;
                 break;
             case "Energy drain":
                 this.name = "Energy drain";
+                this.energy = 1;
                 break;
             case "Blessing":
                 this.name = "Blessing";
+                this.energy = 1;
                 break;
         }
-
     }
 
     @Override
@@ -30,7 +32,8 @@ public class Ritual extends Card {
     /*@Override
     public int getEnergy() {
         return this.energy;
-    }*/
+    }
+    */
 
     public String toString() {
         String message = "";
@@ -62,25 +65,6 @@ public class Ritual extends Card {
                 damage = 2;
                 break;
         }
-
         return damage;
-    }
-
-    @Override
-    public int getEnergyCost(){
-        int energy = 0;
-        switch (this.name) {
-            case "Curse":
-                energy = 3;
-                break;
-            case "Blessing":
-                energy = 3;
-                break;
-            case "Energy drain":
-                energy = 2;
-                break;
-        }
-
-        return energy;
     }
 }

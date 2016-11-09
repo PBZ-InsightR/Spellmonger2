@@ -1,8 +1,5 @@
 package edu.insightr.spellmonger;
 
-import java.util.Enumeration;
-
-
 public class Creature extends Card {
     // TODO : avoid using Strings as key, prefer enums
 
@@ -46,12 +43,11 @@ public class Creature extends Card {
     }
 
     public boolean isAlive() {
-        boolean result= false;
+        boolean result = false;
         if (this.PV > 0) {
             result = true;
         }
         return result;
-
     }
 
     public String toString() {

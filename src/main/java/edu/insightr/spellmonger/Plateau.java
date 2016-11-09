@@ -66,7 +66,7 @@ public class Plateau {
     public void tourParTour() {
         // TODO : duplicate code is not possible !
 
-        if(!isThereAWinner()) {
+        if (!isThereAWinner()) {
             Card currentCard = current.getPioche().drawCard();
             logger.info("\n");
             logger.info("***** ROUND " + nbTours);
@@ -171,14 +171,9 @@ public class Plateau {
             changeCurrent();
             ajouterTour();
 
+        } else {
+            printWinner();
         }
-        else {
-            logger.info("\n");
-            logger.info("******************************");
-            logger.info("THE WINNER IS " + getWinner() + " !!!");
-            logger.info("******************************");
-        }
-
     }
 
 }
