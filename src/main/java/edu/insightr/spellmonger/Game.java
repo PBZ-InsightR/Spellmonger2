@@ -114,6 +114,8 @@ public class Game extends Application {
     @FXML
     //lorsque l'on clique sur le bouton deck, place une carte dans la main du joueur1
     public void test1() {
+        // TODO : no code duplication
+        // TODO : prefer CSS for decoration
         if(pos1P1==0)
         {
             //Initialise un rectangle dans la main du joueur 1 en position 1

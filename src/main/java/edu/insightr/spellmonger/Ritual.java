@@ -5,7 +5,6 @@ public class Ritual extends Card {
     private int energy;
 
     // TODO : don't use String as key, prefer enums
-
     public Ritual(String ritualName) {
         super(ritualName);
         switch (ritualName) {
