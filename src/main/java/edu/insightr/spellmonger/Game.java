@@ -24,7 +24,8 @@ public class Game extends Stage {
 
     SwitchScene application;
 
-    public Game(SwitchScene application) {
+    public Game(SwitchScene application)
+    {
         this.application = application;
     }
 
