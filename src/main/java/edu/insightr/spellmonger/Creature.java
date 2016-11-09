@@ -8,6 +8,17 @@ public class Creature extends Card {
     private String name;
     private int PV;
 
+    /*public enum EnumCard {
+        CURSE,
+        BLESSING,
+        ENERFYDRAIN,
+        WOLF,
+        BEAR,
+        EAGLE,
+        FOX,
+        VAULTO;
+    }*/
+
     public Creature(String animal) {
         super(animal);
         switch (animal) {

@@ -124,8 +124,6 @@ public class Game extends Application {
                     if (xRectPlateau1 < 700) {
                         rect1P1.setLayoutX(xRectPlateau1);
                         rect1P1.setLayoutY(0);
-                        rect1P1.setHeight(100);
-                        rect1P1.setWidth(100);
                         rect1P1.setStroke(Color.BLACK);
                         rect1P1.setStrokeType(StrokeType.INSIDE);
                         rect1P1.setFill(Color.WHITE);
@@ -150,8 +148,6 @@ public class Game extends Application {
                     if (xRectPlateau1 < 700) {
                         rect2P1.setLayoutX(xRectPlateau1 - 125);
                         rect2P1.setLayoutY(0);
-                        rect2P1.setHeight(100);
-                        rect2P1.setWidth(100);
                         rect2P1.setStroke(Color.BLACK);
                         rect2P1.setStrokeType(StrokeType.INSIDE);
                         rect2P1.setFill(Color.WHITE);
@@ -176,8 +172,6 @@ public class Game extends Application {
                     if (xRectPlateau1 < 700) {
                         rect3P1.setLayoutX(xRectPlateau1 - 250);
                         rect3P1.setLayoutY(0);
-                        rect3P1.setHeight(100);
-                        rect3P1.setWidth(100);
                         rect3P1.setStroke(Color.BLACK);
                         rect3P1.setStrokeType(StrokeType.INSIDE);
                         rect3P1.setFill(Color.WHITE);
@@ -202,8 +196,6 @@ public class Game extends Application {
                     if (xRectPlateau1 < 700) {
                         rect4P1.setLayoutX(xRectPlateau1 - 375);
                         rect4P1.setLayoutY(0);
-                        rect4P1.setHeight(100);
-                        rect4P1.setWidth(100);
                         rect4P1.setStroke(Color.BLACK);
                         rect4P1.setStrokeType(StrokeType.INSIDE);
                         rect4P1.setFill(Color.WHITE);
@@ -228,8 +220,6 @@ public class Game extends Application {
                     if (xRectPlateau1 < 700) {
                         rect5P1.setLayoutX(xRectPlateau1 - 500);
                         rect5P1.setLayoutY(0);
-                        rect5P1.setHeight(100);
-                        rect5P1.setWidth(100);
                         rect5P1.setStroke(Color.BLACK);
                         rect5P1.setStrokeType(StrokeType.INSIDE);
                         rect5P1.setFill(Color.WHITE);
@@ -260,8 +250,6 @@ public class Game extends Application {
                     if (xRectPlateau2 < 700) {
                         rect1P2.setLayoutX(xRectPlateau2);
                         rect1P2.setLayoutY(0);
-                        rect1P2.setHeight(100);
-                        rect1P2.setWidth(100);
                         rect1P2.setStroke(Color.BLACK);
                         rect1P2.setStrokeType(StrokeType.INSIDE);
                         rect1P2.setFill(Color.WHITE);
@@ -286,8 +274,6 @@ public class Game extends Application {
                     if (xRectPlateau2 < 700) {
                         rect2P2.setLayoutX(xRectPlateau2 - 125);
                         rect2P2.setLayoutY(0);
-                        rect2P2.setHeight(100);
-                        rect2P2.setWidth(100);
                         rect2P2.setStroke(Color.BLACK);
                         rect2P2.setStrokeType(StrokeType.INSIDE);
                         rect2P2.setFill(Color.WHITE);
@@ -312,8 +298,6 @@ public class Game extends Application {
                     if (xRectPlateau2 < 700) {
                         rect3P2.setLayoutX(xRectPlateau2 - 250);
                         rect3P2.setLayoutY(0);
-                        rect3P2.setHeight(100);
-                        rect3P2.setWidth(100);
                         rect3P2.setStroke(Color.BLACK);
                         rect3P2.setStrokeType(StrokeType.INSIDE);
                         rect3P2.setFill(Color.WHITE);
@@ -338,8 +322,6 @@ public class Game extends Application {
                     if (xRectPlateau2 < 700) {
                         rect4P2.setLayoutX(xRectPlateau2 - 375);
                         rect4P2.setLayoutY(0);
-                        rect4P2.setHeight(100);
-                        rect4P2.setWidth(100);
                         rect4P2.setStroke(Color.BLACK);
                         rect4P2.setStrokeType(StrokeType.INSIDE);
                         rect4P2.setFill(Color.WHITE);
@@ -364,8 +346,6 @@ public class Game extends Application {
                     if (xRectPlateau2 < 700) {
                         rect5P2.setLayoutX(xRectPlateau2 - 500);
                         rect5P2.setLayoutY(0);
-                        rect5P2.setHeight(100);
-                        rect5P2.setWidth(100);
                         rect5P2.setStroke(Color.BLACK);
                         rect5P2.setStrokeType(StrokeType.INSIDE);
                         rect5P2.setFill(Color.WHITE);
