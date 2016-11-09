@@ -22,6 +22,7 @@ import java.net.URL;
 
 public class Log extends Stage {
     SwitchScene application;
+    
     @FXML
     public Button btn;
 
