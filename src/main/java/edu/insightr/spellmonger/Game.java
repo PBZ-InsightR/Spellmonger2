@@ -77,7 +77,6 @@ public class Game extends Application {
     @FXML
     private void drawPlayer1() {
         Card carteChoosen=new Card("Wolf");
-        //plateau.bataille(carteChoosen);
         plateau.bataille(carteChoosen);
         hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));

@@ -149,7 +149,7 @@ public class Plateau {
             logger.info("les damages sont " + currentCard.getDamage());
             if (currentCard instanceof Creature) {
                 Creature currentCreature = (Creature) currentCard;
-                //on ajoute la creature piochée a la liste de cartes du current player
+                //on ajoute la creature piochée à la liste de cartes du current player
                 current.getListeCreature().add(currentCreature);
 
             }
