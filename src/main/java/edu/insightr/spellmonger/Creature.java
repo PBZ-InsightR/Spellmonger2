@@ -64,6 +64,7 @@ public class Creature extends Card {
 
     @Override
     public int getDamage() {
+        // TODO : no duplication code !
         int damage = 0;
         switch (this.name) {
             case "Eagle":
