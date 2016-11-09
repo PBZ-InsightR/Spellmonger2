@@ -76,7 +76,9 @@ public class Game extends Application {
 
     @FXML
     private void drawPlayer1() {
-        plateau.tourParTour();
+        Card carteChoosen=new Card("Wolf");
+        //plateau.bataille(carteChoosen);
+        plateau.bataille(carteChoosen);
         hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer1.setText("Alice");
@@ -87,8 +89,8 @@ public class Game extends Application {
 
     @FXML
     private void drawPlayer2() {
-        //Card carteChoosen=new Card("Wolf");
-        plateau.tourParTour();
+        Card carteChoosen=new Card("Wolf");
+        plateau.bataille(carteChoosen);
         hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer2.setText("Bob");
