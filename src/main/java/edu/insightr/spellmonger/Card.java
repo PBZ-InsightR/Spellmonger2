@@ -3,12 +3,10 @@ package edu.insightr.spellmonger;
 public class Card {
     private String name;
     private int damage;
-
     private int energy;
-
     private int energyCost;
 
-
+    
    public Card(String name) {
         this.name = name;
         energyCost=0;
