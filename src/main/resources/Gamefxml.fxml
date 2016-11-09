@@ -92,7 +92,7 @@
                         </Pane>
                     </items>
                 </SplitPane>
-                <SplitPane layoutY="300.0" prefHeight="150.0" prefWidth="1200.0">
+                <SplitPane layoutY="300.0" prefHeight="150.0" prefWidth="1200.0"> 
                     <items>
                         <Pane fx:id="panePlateau2">
                             <children>
