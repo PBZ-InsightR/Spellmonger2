@@ -66,26 +66,26 @@
                     <items>
                         <Pane fx:id="panePlateau1">
                             <children>
-                                <!--<ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="279.0" layoutY="-1.0" scaleX="1.4">
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="279.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="452.0" layoutY="-1.0" scaleX="1.4">
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="452.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView  fitHeight="148.0" fitWidth="73.0"  layoutX="622.0" layoutY="-1.0" scaleX="1.4">
+                                <ImageView  fitHeight="148.0" fitWidth="73.0"  layoutX="625.0" layoutY="-1.0" scaleX="1.4" opacity="0.3" >
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="789.0" layoutY="-1.0" scaleX="1.4">
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
-                                </ImageView>-->
+                                </ImageView>
 
                             </children>
                         </Pane>
@@ -95,26 +95,26 @@
                     <items>
                         <Pane fx:id="panePlateau2">
                             <children>
-                                <!--<ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="280.0" layoutY="-1.0" scaleX="1.4">
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="279.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="452.0" layoutY="-1.0" scaleX="1.4">
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="452.0" layoutY="-1.0" scaleX="1.4" opacity="0.3" >
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="622.0" layoutY="-1.0" scaleX="1.4">
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="625.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="789.0" layoutY="-1.0" scaleX="1.4">
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
-                                </ImageView>-->
+                                </ImageView>
                             </children>
                         </Pane>
                     </items>
