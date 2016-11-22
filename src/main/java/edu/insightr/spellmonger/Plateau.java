@@ -1,7 +1,6 @@
 package edu.insightr.spellmonger;
 
 import org.apache.log4j.Logger;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,7 +18,8 @@ public class Plateau {
         this.opponent.getPioche().initDeck();
     }
 
-    public void InitMain() {
+    public void InitMain()
+    {
         Card carte;
         for (int i = 0; i < 3; i++) {
             int nbRand;
@@ -61,23 +61,41 @@ public class Plateau {
         }
     }
 
-    public void Pioche() {
+    public void Pioche()
+    {
         Card currentCard = current.getPioche().drawCard();
         current.getMain().add(currentCard);
+        current.getPioche().retirerCard(currentCard);
     }
 
-    public Card ChoixCarte() {
+    public Card ChoixCarte()
+    {
+        Card carteChoisi = new Card("None");
         Scanner sc = new Scanner(System.in);
         int tailleMain = current.getMain().size();
         logger.info("Quelle carte jouer ?");
-        for (int i = 0; i < tailleMain; i++) {
+        for (int i=0;i<tailleMain;i++)
+        {
             logger.info(i + ". " + current.getMain().get(i).getName());
         }
+        logger.info(current.getMain().size() + ". Passer son tour");
         int str = sc.nextInt();
-        Card carteChoisi = current.getMain().get(str);
-        current.getMain().remove(str);
-        return carteChoisi;
+        if(str == current.getMain().size())
+        {
+            return carteChoisi;
+        }
+        else {
+            if (current.getMain().get(str).getEnergyCost() > current.getEnergy()) {
+                logger.info("Impossible de jouer cette carte");
+                ChoixCarte();
+            }
+            current.removeEnergy(current.getMain().get(str).getEnergyCost());
+            carteChoisi = current.getMain().get(str);
+            current.getMain().remove(str);
+            return carteChoisi;
+        }
     }
+
 
     public int getNbTours() {
         return nbTours;
@@ -86,7 +104,6 @@ public class Plateau {
     public Player getCurrent() {
         return current;
     }
-
     public Player getOpponent() {
         return opponent;
     }
@@ -137,7 +154,7 @@ public class Plateau {
         logger.info("\n");
         logger.info("***** ROUND " + nbTours);
         logger.info(current.toString() + " et " + opponent.toString());
-        logger.info("Le joueur " + current.getName() + " pioche la carte " + currentCard.getName());
+        logger.info("Le joueur " + current.getName() + " joue la carte " + currentCard.getName());
         logger.info("Liste des créatures:");
         for (Creature c : current.getListeCreature()) {
             logger.info(c.getName());
@@ -243,15 +260,60 @@ public class Plateau {
 
 
     }
+    public void bataille() {
 
-    public void Jeu() {
-        while (!isThereAWinner()) {
+        logger.info("\n");
+        logger.info("***** ROUND " + nbTours);
+        logger.info(current.toString() + " et " + opponent.toString());
+        logger.info("Liste des créatures:");
+        for (Creature c : current.getListeCreature()) {
+            logger.info(c.getName());
+        }
+
+         if (!current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
+            int indexCreature = 0;
+            while (indexCreature < current.getListeCreature().size()) {
+                opponent.altererHP(current.getListeCreature().get(indexCreature).getDamage());
+                indexCreature++;
+            }
+        } else if (!current.getListeCreature().isEmpty() && !opponent.getListeCreature().isEmpty()) {
+            int indexCreature = 0;
+            while (indexCreature < current.getListeCreature().size() && !opponent.getListeCreature().isEmpty()) {
+                opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(current.getListeCreature().get(indexCreature).getDamage());
+                if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
+                    opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
+                }
+                indexCreature++;
+            }
+            if (opponent.getListeCreature().isEmpty() && indexCreature < current.getListeCreature().size() - 1) {
+                while (indexCreature < current.getListeCreature().size() - 1) {
+                    opponent.altererHP(current.getListeCreature().get(indexCreature).getDamage());
+                    indexCreature++;
+                }
+            }
+        }
+
+        changeCurrent();
+        ajouterTour();
+
+
+    }
+    public void Jeu()
+    {
+
+        while(!isThereAWinner()) {
             if (nbTours == 1 || nbTours == 2) {
                 InitMain();
             }
+            current.addEnergy();
+            logger.info(current.getName() + " à " + current.getEnergy() + " énergie");
             Pioche();
             Card carteChoisi = ChoixCarte();
-            bataille(carteChoisi);
+            if (carteChoisi.getName()==("None")) {
+                bataille();
+            } else {
+                bataille(carteChoisi);
+            }
         }
         logger.info("\n");
         logger.info("******************************");

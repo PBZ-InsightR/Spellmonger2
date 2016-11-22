@@ -2,6 +2,7 @@ package edu.insightr.spellmonger;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -37,6 +38,11 @@ public class Game extends Stage {
     private Pane panePlayer1, panePlateau1, panePlayer2, panePlateau2;
 
     private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
+    private Deck deck = new Deck(40);
+    private List<Card> jeu1 = deck.initDeck();
+    private List<Card> jeu2 = deck.initDeck();
+    private Deck deck1 = new Deck(jeu1);
+    private Deck deck2 = new Deck(jeu2);
     private int xRectPlateau1 = 65;
     private int xRectPlateau2 = 65;
     private int pos1P1 = 0;
@@ -53,10 +59,11 @@ public class Game extends Stage {
 
     @FXML
     private void drawPlayer1() {
-        Card carteChoosen = new Card("Wolf");
+        Card carteChoosen =  deck1.drawCard();
         plateau.bataille(carteChoosen);
         hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
+        deck1.retirerCard(carteChoosen);
         nomPlayer1.setText("Alice");
         buttonPlayer1.setDisable(true);
         buttonPlayer2.setDisable(false);
@@ -64,10 +71,11 @@ public class Game extends Stage {
 
     @FXML
     private void drawPlayer2() {
-        Card carteChoosen = new Card("Wolf");
+        Card carteChoosen =  deck2.drawCard();
         plateau.bataille(carteChoosen);
         hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
+        deck2.retirerCard(carteChoosen);
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);

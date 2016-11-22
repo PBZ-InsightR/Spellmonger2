@@ -57,6 +57,9 @@ public class Player {
         this.main.remove(cardToRemove);
     }
 
+    public void addEnergy(){this.energy = this.energy+1;}
+
+
     public boolean isAlive() {
         boolean isAlive = true;
         if (this.lifePoints <= 0) {
