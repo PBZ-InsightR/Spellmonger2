@@ -4,17 +4,19 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by meo-v on 18/10/2016.
- */
 public class GameTest {
     @Test
-    public void start() throws Exception {
+    public void test1() throws Exception {
 
     }
 
     @Test
-    public void main() throws Exception {
+    public void test2() throws Exception {
+
+    }
+
+    @Test
+    public void playCard() throws Exception {
 
     }
 

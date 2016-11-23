@@ -29,15 +29,4 @@ public class TestRitual {
 
     }
 
-    @Test
-    public void GetEnergy() {
-        Ritual r = new Ritual("Curse");
-        Assert.assertEquals(3.0, r.getEnergyCost(), 0.01);
-        r = new Ritual("Blessing");
-        Assert.assertEquals(3.0, r.getEnergyCost(), 0.01);
-        r = new Ritual("Energy drain");
-        Assert.assertEquals(2.0, r.getEnergyCost(), 0.01);
-
-
-    }
 }
