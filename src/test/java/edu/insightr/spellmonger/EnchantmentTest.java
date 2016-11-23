@@ -9,13 +9,13 @@ public class EnchantmentTest {
 
     @Test
     public void vaultOverburn() throws Exception {
-            Enchantment e1 = new Enchantment("Vault overclocking");
+        Enchantment e1 = new Enchantment("Vault overclocking");
 
-	    e1.vaultOverburn();
-	    //Assert.assertEquals(true, e1.VaultOverburn() );
+        e1.vaultOverburn();
+        //Assert.assertEquals(true, e1.VaultOverburn() );
 
-	    e1.vaultOverburn();
-	    //Assert.assertEquals(true, e1.vaultOverburn() );
+        e1.vaultOverburn();
+        //Assert.assertEquals(true, e1.vaultOverburn() );
 
 
     }

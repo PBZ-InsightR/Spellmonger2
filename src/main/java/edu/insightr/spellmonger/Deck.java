@@ -14,6 +14,9 @@ public class Deck {
         nbRand = 0;
         cardPool = new ArrayList<>(numberCards);
     }
+    public Deck (List<Card> cardPool) {
+        this.cardPool=cardPool;
+    }
 
     public List<Card> getCardPool() {
         return cardPool;

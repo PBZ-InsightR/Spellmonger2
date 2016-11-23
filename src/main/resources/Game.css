@@ -26,16 +26,13 @@
 
 }
 
+.rectangle {
+    -fx-height:148px;
+    -fx-width:100px;
 
-
-#panePlateau2 {
-    -fx-opacity: 0.3;
 
 }
 
-#panePlateau1{
-    -fx-opacity : 0.3
-}
 
 
 

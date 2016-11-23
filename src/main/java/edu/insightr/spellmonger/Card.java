@@ -6,16 +6,14 @@ public class Card {
     private int energy;
     private int energyCost;
 
-    
-   public Card(String name) {
+    public Card(String name) {
         this.name = name;
-        energyCost=0;
+        energyCost = 0;
         damage = 0;
     }
 
-
     public String toString() {
-        return "La carte "+this.name+" commet "+ this.damage +" dommages et coûte "+this.energyCost+" énergie";
+        return "La carte " + this.name + " fait " + this.damage + " dommages et coute " + this.energyCost + " énergie";
     }
 
     public int getDamage() {
@@ -32,5 +30,6 @@ public class Card {
 
     public int getEnergyCost() {
         return energyCost;
+
     }
 }

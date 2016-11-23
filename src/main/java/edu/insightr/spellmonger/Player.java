@@ -49,13 +49,16 @@ public class Player {
         return main;
     }
 
-    public void addCardToMain(Card cardToAdd){
+    public void addCardToMain(Card cardToAdd) {
         this.main.add(cardToAdd);
     }
 
-    public void removeCardFromMain(Card cardToRemove){
+    public void removeCardFromMain(Card cardToRemove) {
         this.main.remove(cardToRemove);
     }
+
+    public void addEnergy(){this.energy = this.energy+1;}
+
 
     public boolean isAlive() {
         boolean isAlive = true;
@@ -68,9 +71,6 @@ public class Player {
     public void altererHP(int dmg) {
         this.lifePoints -= dmg;
     }
-
-
-
 
     public int getEnergy() {
         return energy;

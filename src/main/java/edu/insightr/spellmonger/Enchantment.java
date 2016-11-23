@@ -8,33 +8,29 @@ public class Enchantment extends Card {
     private int energyCost;
     private String enchantmentName;
 
-    public Enchantment(String enchantmentName)
-    {
+    public Enchantment(String enchantmentName) {
         super(enchantmentName);
-        this.enchantmentName=enchantmentName;
-        if (enchantmentName.equals("Vault overclocking"))
-        {
-            this.energy=1;
-            this.energyCost=3;
+        this.enchantmentName = enchantmentName;
+        if (enchantmentName.equals("Vault overclocking")) {
+            this.energy = 1;
+            this.energyCost = 3;
         }
     }
-    public boolean vaultOverburn()
-    {
+
+    public boolean vaultOverburn() {
         int nbRand;
         Random rand = new Random();
         nbRand = rand.nextInt(3);
-        if(nbRand==0)
-        {
+        if (nbRand == 0) {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
-
     }
 
-    public String getName() {return enchantmentName;}
+    public String getName() {
+        return enchantmentName;
+    }
 
     public int getEnergy() {
         return energy;
@@ -45,11 +41,9 @@ public class Enchantment extends Card {
     }
 
     @Override
-    public int getDamage()
-    {
-        int damage =0;
-        if (enchantmentName.equals("Vault overclocking"))
-        {
+    public int getDamage() {
+        int damage = 0;
+        if (enchantmentName.equals("Vault overclocking")) {
             damage = 0;
         }
         return damage;
@@ -59,13 +53,10 @@ public class Enchantment extends Card {
         String message = "";
         switch (enchantmentName) {
             case "Vault overclocking":
-                if(vaultOverburn()==true)
-                {
+                if (vaultOverburn()) {
                     message = "Vault overburn and is empty";
                     break;
-                }
-                else
-                {
+                } else {
                     message = "L'enchantement fait " + getEnergy() + " points d'énergie";
                     break;
                 }

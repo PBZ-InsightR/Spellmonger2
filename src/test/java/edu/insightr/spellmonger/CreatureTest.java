@@ -21,7 +21,7 @@ public class CreatureTest {
     }
 
     @Test
-    public void getDamage() throws  Exception {
+    public void getDamage() throws Exception {
 
         Creature eag1 = new Creature("Eagle");
         Creature w1 = new Creature("Wolf");
@@ -33,47 +33,47 @@ public class CreatureTest {
     }
 
     @Test
-    public void getName() throws  Exception {
+    public void getName() throws Exception {
 
         Creature eag1 = new Creature("Eagle");
-        Assert.assertEquals("Eagle",eag1.getName() );
+        Assert.assertEquals("Eagle", eag1.getName());
 
         Creature w1 = new Creature("Wolf");
-        Assert.assertEquals("Wolf",w1.getName() );
+        Assert.assertEquals("Wolf", w1.getName());
 
         Creature f1 = new Creature("Fox");
-        Assert.assertEquals("Fox",f1.getName() );
+        Assert.assertEquals("Fox", f1.getName());
     }
 
     @Test
-    public void getCapacity() throws  Exception {
+    public void getCapacity() throws Exception {
 
         Creature eag1 = new Creature("Eagle");
-        Assert.assertEquals("Flying",eag1.getCapacity() );
+        Assert.assertEquals("Flying", eag1.getCapacity());
 
         Creature w1 = new Creature("Wolf");
-        Assert.assertEquals("None",w1.getCapacity() );
+        Assert.assertEquals("None", w1.getCapacity());
 
         Creature f1 = new Creature("Fox");
-        Assert.assertEquals("None",f1.getCapacity() );
+        Assert.assertEquals("None", f1.getCapacity());
 
         Creature b1 = new Creature("Bear");
-        Assert.assertEquals("None",b1.getCapacity() );
+        Assert.assertEquals("None", b1.getCapacity());
     }
 
     @Test
-    public void getEnergy() throws  Exception {
+    public void getEnergy() throws Exception {
 
         Creature eag1 = new Creature("Eagle");
-        Assert.assertEquals(1.0,eag1.getEnergyCost(), 0.1 );
+        Assert.assertEquals(1.0, eag1.getEnergyCost(), 0.1);
 
         Creature w1 = new Creature("Wolf");
-        Assert.assertEquals(2.0,w1.getEnergyCost() ,0.1 );
+        Assert.assertEquals(2.0, w1.getEnergyCost(), 0.1);
 
         Creature f1 = new Creature("Fox");
-        Assert.assertEquals(1.0,f1.getEnergyCost(), 0.1 );
+        Assert.assertEquals(1.0, f1.getEnergyCost(), 0.1);
 
         Creature b1 = new Creature("Bear");
-        Assert.assertEquals(3.0,b1.getEnergyCost(),0.1 );
+        Assert.assertEquals(3.0, b1.getEnergyCost(), 0.1);
     }
 }
