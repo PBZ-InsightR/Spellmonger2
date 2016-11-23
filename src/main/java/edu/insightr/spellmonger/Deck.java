@@ -8,57 +8,76 @@ public class Deck {
     private List<Card> cardPool;
     private static Random rand;
     private int nbRand;
+    private int nbCards;
+
+    final private int nbEagle = 5;
+    final private int nbFox = 10;
+    final private int nbWolf = 10;
+    final private int nbBear = 5;
+
+    final private int nbCurse = 3;
+    final private int nbEnergyDrain = 3;
+    final private int nbBlessing = 3;
+
+    final private int nbEnchantment = 1;
 
     public Deck(int numberCards) {
-        rand = new Random();
-        nbRand = 0;
-        cardPool = new ArrayList<>(numberCards);
+        this.rand = new Random();
+        this.nbRand = 0;
+        this.nbCards = numberCards;
+        this.cardPool = new ArrayList<>(this.nbCards);
     }
 
     public List<Card> getCardPool() {
-        return cardPool;
+        return this.cardPool;
     }
 
     // Initialisation aléatoire du deck
     public List<Card> initDeck() {
-        Card carte;
-        for (int i = 0; i < 40; i++) {
-            nbRand = rand.nextInt(8);
-            switch (nbRand) {
-                case 0:
-                    carte = new Ritual("Curse");
-                    cardPool.add(carte);
-                    break;
-                case 1:
-                    carte = new Ritual("Blessing");
-                    cardPool.add(carte);
-                    break;
-                case 2:
-                    carte = new Ritual("Energy drain");
-                    cardPool.add(carte);
-                    break;
-                case 3:
-                    carte = new Creature("Bear");
-                    cardPool.add(carte);
-                    break;
-                case 4:
-                    carte = new Creature("Wolf");
-                    cardPool.add(carte);
-                    break;
-                case 5:
-                    carte = new Creature("Eagle");
-                    cardPool.add(carte);
-                    break;
-                case 6:
-                    carte = new Creature("Fox");
-                    cardPool.add(carte);
-                    break;
-                case 7:
-                    carte = new Enchantment("Vault overclocking");
-                    cardPool.add(carte);
-            }
+        List<Card> temp = new ArrayList<>(this.nbCards);
+        //Ajout Creatures
+        for(int i=0;i<nbEagle;i++){
+            temp.add(new Creature("Eagle"));
         }
+        for(int i=0;i<nbFox;i++){
+            temp.add(new Creature("Fox"));
+        }
+        for(int i=0;i<nbWolf;i++){
+            temp.add(new Creature("Wolf"));
+        }
+        for(int i=0;i<nbBear;i++){
+            temp.add(new Creature("Bear"));
+        }
+
+        //Ajout Rituels
+        for(int i=0;i<nbCurse;i++){
+            temp.add(new Ritual("Curse"));
+        }
+        for(int i=0;i<nbEnergyDrain;i++){
+            temp.add(new Ritual("Energy drain"));
+        }
+        for(int i=0;i<nbBlessing;i++){
+            temp.add(new Ritual("Blessing"));
+        }
+
+        //Ajout Enchantment
+        for(int i=0;i<nbEnchantment;i++){
+            temp.add(new Enchantment("Vault Overclocking"));
+        }
+
+        this.mixDeck(temp);
         return cardPool;
+    }
+
+    private void mixDeck(List<Card> temp) {
+        this.cardPool.removeAll(this.cardPool);
+        int i = 0;
+        while (i < 40){
+            this.nbRand = rand.nextInt(40-i);
+            this.cardPool.add(temp.get(this.nbRand));
+            temp.remove(this.nbRand);
+            i++;
+        }
     }
 
     public void ajouterCard(Card carte) {

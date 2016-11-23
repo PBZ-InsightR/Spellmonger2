@@ -26,7 +26,6 @@ public class Player {
         return this.name;
     }
 
-
     public int getLifePoints() {
         return this.lifePoints;
     }
@@ -67,9 +66,6 @@ public class Player {
         this.lifePoints -= dmg;
     }
 
-
-
-
     public int getEnergy() {
         return energy;
     }
@@ -82,6 +78,4 @@ public class Player {
     public String toString() {
         return "Le joueur " + this.name + " a " + this.lifePoints + " points de vie";
     }
-
-
 }

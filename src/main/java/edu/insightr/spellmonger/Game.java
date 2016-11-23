@@ -36,13 +36,9 @@ public class Game extends Application {
         primaryStage.show();
     }
 
-
-
     public static void main(String[] args) {
         launch(args);
     }
-
-
 
     @FXML
     private Label hpPlayer1, hpPlayer2, nomPlayer1, nomPlayer2, energyPlayer1, energyPlayer2;
@@ -54,7 +50,6 @@ public class Game extends Application {
     private Button buttonPlayer1, buttonPlayer2, buttonPasserTour;
 
     private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
-
 
     @FXML
     private void drawPlayer1() {
@@ -101,7 +96,6 @@ public class Game extends Application {
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
     }
-
 
     // a tester
     @FXML

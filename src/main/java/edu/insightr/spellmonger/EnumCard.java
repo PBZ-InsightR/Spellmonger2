@@ -10,22 +10,15 @@ public enum EnumCard {
     FOX("Fox"),
     VAULTO("Vault Overclocking");
 
-
     private String name = "";
-
 
     //Constructeur
 
     EnumCard(String name) {
-
         this.name = name;
-
     }
 
-
     public String toString() {
-
         return name;
-
     }
 }

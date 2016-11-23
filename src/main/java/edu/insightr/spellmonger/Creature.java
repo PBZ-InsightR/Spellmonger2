@@ -6,41 +6,48 @@ import java.util.Enumeration;
 public class Creature extends Card {
     //private EnumCard enumCard;
     private String capacity;
-    private String name;
     private int PV;
 
     public Creature(String animal) {
         super(animal);
         switch (animal) {
             case "Eagle":
-                this.capacity = "Flying";
+                this.name = "Eagle";
                 this.PV = 1;
-                name = "Eagle";
+                this.damage = 1;
+                this.energyCost = 1;
+                this.capacity = "Flying";
                 break;
             case "Wolf":
+                this.name = "Wolf";
                 this.PV = 2;
+                this.damage = 2;
+                this.energyCost = 2;
                 this.capacity = "None";
-                name = "Wolf";
                 break;
             case "Bear":
+                this.name = "Bear";
                 this.PV = 3;
+                this.damage = 3;
+                this.energyCost = 3;
                 this.capacity = "None";
-                name = "Bear";
                 break;
             case "Fox":
-                this.PV = 1;
-                this.capacity = "None";
                 this.name = "Fox";
+                this.PV = 1;
+                this.damage = 1;
+                this.energyCost = 1;
+                this.capacity = "None";
                 break;
         }
     }
 
     public int getPV() {
-        return PV;
+        return this.PV;
     }
 
     public String getCapacity() {
-        return capacity;
+        return this.capacity;
     }
 
     public boolean isAlive() {
@@ -49,11 +56,6 @@ public class Creature extends Card {
             result = true;
         }
         return result;
-
-    }
-
-    public String toString() {
-        return "La créature " + this.name + "a" + this.PV + "point de vie" + "(capacité :" + this.capacity + ")" + " fait " + getDamage() + " points de dégats";
     }
 
     public void alterePV(int damage) {
@@ -62,46 +64,20 @@ public class Creature extends Card {
 
     @Override
     public int getDamage() {
-        int damage = 0;
-        switch (this.name) {
-            case "Eagle":
-                damage = 1;
-                break;
-            case "Wolf":
-                damage = 2;
-                break;
-            case "Bear":
-                damage = 3;
-                break;
-            case "Fox":
-                damage = 1;
-                break;
-        }
-        return damage;
+        return this.damage;
     }
 
     @Override
     public int getEnergyCost() {
-        int energy = 0;
-        switch (this.name) {
-            case "Eagle":
-                energy = 1;
-                break;
-            case "Wolf":
-                energy = 2;
-                break;
-            case "Bear":
-                energy = 3;
-                break;
-            case "Fox":
-                energy = 1;
-                break;
-        }
-        return energy;
+        return this.energyCost;
     }
 
     @Override
     public String getName() {
         return this.name;
+    }
+
+    public String toString() {
+        return "La créature " + this.name + "a" + this.PV + "point de vie" + "(capacité :" + this.capacity + ")" + " fait " + getDamage() + " points de dégats";
     }
 }

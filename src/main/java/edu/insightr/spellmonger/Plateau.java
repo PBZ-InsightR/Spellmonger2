@@ -62,9 +62,8 @@ public class Plateau {
         logger.info("******************************");
     }
 
-
     public void tourParTour() {
-
+        /*
         while (!isThereAWinner()) {
             Card currentCard = current.getPioche().drawCard();
             logger.info("\n");
@@ -174,8 +173,7 @@ public class Plateau {
         logger.info("\n");
         logger.info("******************************");
         logger.info("THE WINNER IS " + getWinner() + " !!!");
-        logger.info("******************************");
-
+        logger.info("******************************");*/
     }
 
 }

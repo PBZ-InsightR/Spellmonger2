@@ -1,8 +1,8 @@
 package edu.insightr.spellmonger;
 
 public class Ritual extends Card {
-    private String name;
 
+    private int gain;
 
     public Ritual(String ritualName) {
         super(ritualName);
@@ -10,26 +10,41 @@ public class Ritual extends Card {
         {
             case "Curse":
                 this.name = "Curse";
+                this.damage = 0;
+                this.gain = 3;
                 break;
             case "Energy drain":
                 this.name = "Energy drain";
+                this.damage = 3;
+                this.gain = 0;
                 break;
             case "Blessing":
                 this.name = "Blessing";
+                this.damage = 2;
+                this.gain = 2;
                 break;
         }
+        this.energyCost = 1;
+    }
 
+    public int getGain() {
+        return this.gain;
+    }
+
+    @Override
+    public int getDamage() {
+        return this.damage;
+    }
+
+    @Override
+    public int getEnergyCost() {
+        return this.energyCost;
     }
 
     @Override
     public String getName() {
         return this.name;
     }
-
-    /*@Override
-    public int getEnergy() {
-        return this.energy;
-    }*/
 
     public String toString() {
         String message = "";
@@ -41,45 +56,9 @@ public class Ritual extends Card {
                 message = "Le rituel soigne" + getDamage() + " points de vie";
                 break;
             case "Energy drain":
-                message = "Le rituel vous donne" + getDamage() + " points de vie et enlève" + getDamage() + " points de vie à l'adversaire";
+                message = "Le rituel vous donne" + getGain() + " points de vie et enlève" + getDamage() + " points de vie à l'adversaire";
                 break;
         }
         return message;
-    }
-
-    @Override
-    public int getDamage() {
-        int damage = 0;
-        switch (this.name) {
-            case "Curse":
-                damage = 3;
-                break;
-            case "Blessing":
-                damage = -3;
-                break;
-            case "Energy drain":
-                damage = 2;
-                break;
-        }
-
-        return damage;
-    }
-
-    @Override
-    public int getEnergyCost(){
-        int energy = 0;
-        switch (this.name) {
-            case "Curse":
-                energy = 3;
-                break;
-            case "Blessing":
-                energy = 3;
-                break;
-            case "Energy drain":
-                energy = 2;
-                break;
-        }
-
-        return energy;
     }
 }

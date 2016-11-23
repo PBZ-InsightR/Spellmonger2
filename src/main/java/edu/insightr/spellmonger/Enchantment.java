@@ -4,66 +4,52 @@ import java.util.Random;
 
 public class Enchantment extends Card {
     private int energy;
-    private int energyCost;
-    private String enchantmentName;
 
-    public Enchantment(String enchantmentName)
-    {
+    public Enchantment(String enchantmentName) {
         super(enchantmentName);
-        this.enchantmentName=enchantmentName;
-        if (enchantmentName.equals("Vault overclocking"))
-        {
-            this.energy=1;
-            this.energyCost=3;
+        switch(enchantmentName) {
+            case "Vault overclocking":
+                this.energyCost = 3;
+                this.damage = 0;
+                this.energy = 1;
+                break;
         }
     }
-    public boolean vaultOverburn()
-    {
+
+    public boolean vaultOverburn() {
         int nbRand;
         Random rand = new Random();
         nbRand = rand.nextInt(3);
-        if(nbRand==0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
+        if(nbRand==0) return true;
+        return false;
     }
-    public String getName() {return enchantmentName;}
+
     public int getEnergy() {
         return energy;
     }
-    public int getEnergyCost() {
-        return energyCost;
-    }
+
     @Override
-    public int getDamage()
-    {
-        int damage =0;
-        if (enchantmentName.equals("Vault overclocking"))
-        {
-            damage = 0;
-        }
-        return damage;
+    public int getDamage() {
+        return this.damage;
+    }
+
+    @Override
+    public int getEnergyCost() {
+        return this.energyCost;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     public String toString() {
         String message = "";
-        switch (enchantmentName) {
+        switch (this.name) {
             case "Vault overclocking":
-                if(vaultOverburn()==true)
-                {
-                    message = "Vault overburn and is empty";
-                    break;
-                }
-                else
-                {
-                    message = "L'enchantement fait " + getEnergy() + " points d'énergie";
-                    break;
-                }
+                if(vaultOverburn()==true) message = "Vault overburn and is empty";
+                else message = "L'enchantement donne " + getEnergy() + " points d'énergie";
+                break;
         }
         return message;
     }
