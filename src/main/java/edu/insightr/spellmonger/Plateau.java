@@ -26,7 +26,7 @@ public class Plateau {
             Random rand = new Random();
             nbRand = rand.nextInt(8);
             switch (nbRand) {
-                case 0:
+                /*case 0:
                     carte = new Ritual("Curse");
                     current.getMain().add(carte);
                     break;
@@ -56,6 +56,37 @@ public class Plateau {
                     break;
                 case 7:
                     carte = new Enchantment("Vault overclocking");
+                    current.getMain().add(carte);*/
+                case 0:
+                    carte = new Ritual(EnumCard.CURSE);
+                    current.getMain().add(carte);
+                    break;
+                case 1:
+                    carte = new Ritual(EnumCard.BLESSING);
+                    current.getMain().add(carte);
+                    break;
+                case 2:
+                    carte = new Ritual(EnumCard.ENERGYDRAIN);
+                    current.getMain().add(carte);
+                    break;
+                case 3:
+                    carte = new Creature(EnumCard.BEAR);
+                    current.getMain().add(carte);
+                    break;
+                case 4:
+                    carte = new Creature(EnumCard.WOLF);
+                    current.getMain().add(carte);
+                    break;
+                case 5:
+                    carte = new Creature(EnumCard.EAGLE);
+                    current.getMain().add(carte);
+                    break;
+                case 6:
+                    carte = new Creature(EnumCard.EAGLE);
+                    current.getMain().add(carte);
+                    break;
+                case 7:
+                    carte = new Enchantment(EnumCard.VAULTO);
                     current.getMain().add(carte);
             }
         }
@@ -70,7 +101,8 @@ public class Plateau {
 
     public Card ChoixCarte()
     {
-        Card carteChoisi = new Card("None");
+        Card carteChoisi = new Card(EnumCard.NONE);
+        //Card carteChoisi = new Card("None");
         Scanner sc = new Scanner(System.in);
         int tailleMain = current.getMain().size();
         logger.info("Quelle carte jouer ?");
@@ -195,7 +227,7 @@ public class Plateau {
                 }
 
             } else if (currentCard instanceof Enchantment) {
-                Enchantment enchant = new Enchantment("Vault overclocking");
+                Enchantment enchant = new Enchantment(EnumCard.VAULTO);
                 current.removeEnergy(enchant.getEnergyCost());
             }
 
@@ -209,7 +241,7 @@ public class Plateau {
                 }
 
             } else if (currentCard instanceof Enchantment) {
-                Enchantment enchant = new Enchantment("Vault overclocking");
+                Enchantment enchant = new Enchantment(EnumCard.VAULTO);
                 current.removeEnergy(enchant.getEnergyCost());
             } else if (currentCard instanceof Creature) {
                 Creature currentCreature = (Creature) currentCard;
@@ -230,7 +262,7 @@ public class Plateau {
                 }
 
             } else if (currentCard instanceof Enchantment) {
-                Enchantment enchant = new Enchantment("Vault overclocking");
+                Enchantment enchant = new Enchantment(EnumCard.VAULTO);
                 current.removeEnergy(enchant.getEnergyCost());
             } else if (currentCard instanceof Creature) {
                 Creature currentCreature = (Creature) currentCard;

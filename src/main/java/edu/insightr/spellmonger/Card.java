@@ -6,8 +6,13 @@ public class Card {
     private int energy;
     private int energyCost;
 
-    public Card(String name) {
+    /*public Card(String name) {
         this.name = name;
+        energyCost = 0;
+        damage = 0;
+    }*/
+
+    public Card(EnumCard enumCard) {
         energyCost = 0;
         damage = 0;
     }
@@ -30,6 +35,5 @@ public class Card {
 
     public int getEnergyCost() {
         return energyCost;
-
     }
 }

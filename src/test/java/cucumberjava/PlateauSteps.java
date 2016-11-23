@@ -6,6 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import edu.insightr.spellmonger.Card;
 import edu.insightr.spellmonger.Creature;
+import edu.insightr.spellmonger.EnumCard;
 import edu.insightr.spellmonger.Plateau;
 
 import org.junit.Assert;
@@ -55,7 +56,7 @@ public class PlateauSteps {
 
     @Given("^p1 cardChoosen is a bear$")
     public void p1_cardChoosen_is_a_bear() throws Throwable {
-        cardChoosen = new Creature("Bear");
+        cardChoosen = new Creature(EnumCard.BEAR);
     }
 
     @When("^InitMain is called$")

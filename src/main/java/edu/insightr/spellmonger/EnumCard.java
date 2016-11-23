@@ -3,12 +3,13 @@ package edu.insightr.spellmonger;
 public enum EnumCard {
     CURSE("Curse"),
     BLESSING("Blessing"),
-    ENERFYDRAIN("Energy Drain"),
+    ENERGYDRAIN("Energy Drain"),
     WOLF("Wolf"),
     BEAR("Bear"),
     EAGLE("Eagle"),
     FOX("Fox"),
-    VAULTO("Vault Overclocking");
+    VAULTO("Vault Overclocking"),
+    NONE("None");
 
     // TODO : code indentation/organization problem
 

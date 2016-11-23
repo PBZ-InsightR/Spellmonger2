@@ -5,7 +5,7 @@ public class Ritual extends Card {
     private int energy;
 
     // TODO : don't use String as key, prefer enums
-    public Ritual(String ritualName) {
+    /*public Ritual(String ritualName) {
         super(ritualName);
         switch (ritualName) {
             case "Curse":
@@ -17,6 +17,24 @@ public class Ritual extends Card {
                 this.energy = 1;
                 break;
             case "Blessing":
+                this.name = "Blessing";
+                this.energy = 1;
+                break;
+        }
+    }*/
+
+    public Ritual(EnumCard enumCard) {
+        super(enumCard);
+        switch (enumCard) {
+            case CURSE:
+                this.name = "Curse";
+                this.energy = 1;
+                break;
+            case ENERGYDRAIN:
+                this.name = "Energy drain";
+                this.energy = 1;
+                break;
+            case BLESSING:
                 this.name = "Blessing";
                 this.energy = 1;
                 break;

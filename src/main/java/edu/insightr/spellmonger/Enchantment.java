@@ -8,10 +8,19 @@ public class Enchantment extends Card {
     private int energyCost;
     private String enchantmentName;
 
-    public Enchantment(String enchantmentName) {
+    /*public Enchantment(String enchantmentName) {
         super(enchantmentName);
         this.enchantmentName = enchantmentName;
         if (enchantmentName.equals("Vault overclocking")) {
+            this.energy = 1;
+            this.energyCost = 3;
+        }
+    }*/
+
+    public Enchantment(EnumCard enumCard) {
+        super(enumCard);
+        this.enchantmentName = enchantmentName;
+        if (enumCard.equals(EnumCard.VAULTO)) {
             this.energy = 1;
             this.energyCost = 3;
         }

@@ -3,23 +3,11 @@ package edu.insightr.spellmonger;
 public class Creature extends Card {
     // TODO : avoid using Strings as key, prefer enums
 
-    //private EnumCard enumCard;
     private String capacity;
     private String name;
     private int PV;
 
-    /*public enum EnumCard {
-        CURSE,
-        BLESSING,
-        ENERFYDRAIN,
-        WOLF,
-        BEAR,
-        EAGLE,
-        FOX,
-        VAULTO;
-    }*/
-
-    public Creature(String animal) {
+    /*public Creature(String animal) {
         super(animal);
         switch (animal) {
             case "Eagle":
@@ -38,6 +26,32 @@ public class Creature extends Card {
                 name = "Bear";
                 break;
             case "Fox":
+                this.PV = 1;
+                this.capacity = "None";
+                this.name = "Fox";
+                break;
+        }
+    }*/
+
+    public Creature(EnumCard enumCard) {
+        super(enumCard);
+        switch (enumCard) {
+            case EAGLE:
+                this.capacity = "Flying";
+                this.PV = 1;
+                name = "Eagle";
+                break;
+            case WOLF:
+                this.PV = 2;
+                this.capacity = "None";
+                name = "Wolf";
+                break;
+            case BEAR:
+                this.PV = 3;
+                this.capacity = "None";
+                name = "Bear";
+                break;
+            case FOX:
                 this.PV = 1;
                 this.capacity = "None";
                 this.name = "Fox";

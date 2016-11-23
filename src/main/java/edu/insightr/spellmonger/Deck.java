@@ -29,7 +29,7 @@ public class Deck {
         for (int i = 0; i < 40; i++) {
             nbRand = rand.nextInt(8);
             switch (nbRand) {
-                case 0:
+                /*case 0:
                     carte = new Ritual("Curse");
                     cardPool.add(carte);
                     break;
@@ -59,6 +59,37 @@ public class Deck {
                     break;
                 case 7:
                     carte = new Enchantment("Vault overclocking");
+                    cardPool.add(carte);*/
+                case 0:
+                    carte = new Ritual(EnumCard.CURSE);
+                    cardPool.add(carte);
+                    break;
+                case 1:
+                    carte = new Ritual(EnumCard.BLESSING);
+                    cardPool.add(carte);
+                    break;
+                case 2:
+                    carte = new Ritual(EnumCard.ENERGYDRAIN);
+                    cardPool.add(carte);
+                    break;
+                case 3:
+                    carte = new Creature(EnumCard.BEAR);
+                    cardPool.add(carte);
+                    break;
+                case 4:
+                    carte = new Creature(EnumCard.WOLF);
+                    cardPool.add(carte);
+                    break;
+                case 5:
+                    carte = new Creature(EnumCard.EAGLE);
+                    cardPool.add(carte);
+                    break;
+                case 6:
+                    carte = new Creature(EnumCard.FOX);
+                    cardPool.add(carte);
+                    break;
+                case 7:
+                    carte = new Enchantment(EnumCard.VAULTO);
                     cardPool.add(carte);
             }
         }

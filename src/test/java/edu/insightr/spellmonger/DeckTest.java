@@ -29,7 +29,7 @@ public class DeckTest {
     public void AjouterCard() throws Exception {
         Deck d = new Deck(40);
         d.initDeck();
-        Card carte = new Card("Wolf");
+        Card carte = new Card(EnumCard.WOLF);
         d.ajouterCard(carte);
         Assert.assertEquals(d.getCardPool().get(40), carte);
     }
@@ -38,7 +38,7 @@ public class DeckTest {
     public void RetirerCard() throws Exception {
         Deck d = new Deck(40);
         d.initDeck();
-        Card carte = new Card("Wolf");
+        Card carte = new Card(EnumCard.WOLF);
         d.ajouterCard(carte);
         d.retirerCard(carte);
         Assert.assertEquals(40, d.getCardPool().size());
@@ -48,7 +48,7 @@ public class DeckTest {
     public void drawCard() throws Exception {
         Deck d = new Deck(40);
         d.initDeck();
-        Card carte = new Card("Wolf");
+        Card carte = new Card(EnumCard.WOLF);
         d.ajouterCard(carte);
         Assert.assertEquals(d.drawCard(), carte);
     }

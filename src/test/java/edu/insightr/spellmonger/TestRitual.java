@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class TestRitual {
 
-    @Test
+    /*@Test
     public void GetName() {
         Ritual r = new Ritual("Curse");
         Assert.assertEquals("Curse", r.getName());
@@ -36,6 +36,39 @@ public class TestRitual {
         r = new Ritual("Blessing");
         Assert.assertEquals(3.0, r.getEnergyCost(), 0.01);
         r = new Ritual("Energy drain");
+        Assert.assertEquals(2.0, r.getEnergyCost(), 0.01);
+
+
+    }*/
+    @Test
+    public void GetName() {
+        Ritual r = new Ritual(EnumCard.CURSE);
+        Assert.assertEquals("Curse", r.getName());
+        r = new Ritual(EnumCard.BLESSING);
+        Assert.assertEquals("Blessing", r.getName());
+        r = new Ritual(EnumCard.ENERGYDRAIN);
+        Assert.assertEquals("Energy drain", r.getName());
+    }
+
+    @Test
+    public void GetDamage() {
+        Ritual r = new Ritual(EnumCard.CURSE);
+        Assert.assertEquals(3.0, r.getDamage(), 0.01);
+        r = new Ritual(EnumCard.BLESSING);
+        Assert.assertEquals(-3.0, r.getDamage(), 0.01);
+        r = new Ritual(EnumCard.ENERGYDRAIN);
+        Assert.assertEquals(2.0, r.getDamage(), 0.01);
+
+
+    }
+
+    @Test
+    public void GetEnergy() {
+        Ritual r = new Ritual(EnumCard.CURSE);
+        Assert.assertEquals(3.0, r.getEnergyCost(), 0.01);
+        r = new Ritual(EnumCard.BLESSING);
+        Assert.assertEquals(3.0, r.getEnergyCost(), 0.01);
+        r = new Ritual(EnumCard.ENERGYDRAIN);
         Assert.assertEquals(2.0, r.getEnergyCost(), 0.01);
 
 
