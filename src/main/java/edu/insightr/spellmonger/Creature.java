@@ -7,6 +7,7 @@ public class Creature extends Card {
     private String name;
     private int PV;
 
+
     /*public Creature(String animal) {
         super(animal);
         switch (animal) {
