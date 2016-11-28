@@ -14,7 +14,6 @@ public class SwitchScene extends Application {
     Stage login;
     Stage play;
 
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         startFirst();
@@ -34,7 +33,6 @@ public class SwitchScene extends Application {
         System.out.println("ca marche");
     }
 
-
     public void startSecond() throws Exception{
         final URL url = getResource("Gamefxml.fxml");
         final FXMLLoader fxmlLoader = new FXMLLoader(url);
@@ -48,8 +46,6 @@ public class SwitchScene extends Application {
         play.sizeToScene();
         play.show();
     }
-
-
 
     public static void main(String[] args) {
         launch(args);

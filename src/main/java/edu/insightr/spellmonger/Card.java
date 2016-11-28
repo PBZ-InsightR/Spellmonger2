@@ -2,19 +2,19 @@ package edu.insightr.spellmonger;
 
 public class Card {
     private String name;
-    private int damage;
-    private int energy;
     private int energyCost;
+    private int damage;
 
-    /*public Card(String name) {
+    public Card() {
+        this.name = "NONE";
+        this.energyCost = 0;
+        this.damage = 0;
+    }
+
+    public Card(String name,int energyCost,int damage) {
         this.name = name;
-        energyCost = 0;
-        damage = 0;
-    }*/
-
-    public Card(EnumCard enumCard) {
-        energyCost = 0;
-        damage = 0;
+        this.energyCost = energyCost;
+        this.damage = damage;
     }
 
     public String toString() {
@@ -27,10 +27,6 @@ public class Card {
 
     public String getName() {
         return name;
-    }
-
-    public int getEnergy() {
-        return this.energy;
     }
 
     public int getEnergyCost() {
