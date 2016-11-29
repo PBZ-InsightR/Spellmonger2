@@ -62,25 +62,22 @@ public class Game extends Stage {
     private Image img = new Image("/carte.jpg");
 
     @FXML
-    private void drawPlayer1() {
+    private Card drawPlayer1() {
         Card carteChoosen =  deck1.drawCard();
-        plateau.bataille(carteChoosen);
-        hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
-        energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer1.setText("Alice");
         buttonPlayer1.setDisable(true);
         buttonPlayer2.setDisable(false);
+        return carteChoosen;
     }
 
+
     @FXML
-    private void drawPlayer2() {
+    private Card drawPlayer2() {
         Card carteChoosen =  deck2.drawCard();
-        plateau.bataille(carteChoosen);
-        hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
-        energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
+        return carteChoosen;
     }
 
     @FXML
@@ -128,7 +125,8 @@ public class Game extends Stage {
         Rectangle rectP1 = new Rectangle(xCarteMain1, 0, 100, 148);
         rectP1.setStroke(Color.BLACK);
         rectP1.setStrokeType(StrokeType.INSIDE);
-        rectP1.setFill(new ImagePattern(img));
+        Card carte = drawPlayer1();
+        rectP1.setFill(new ImagePattern(carte.getPicture()));
         panePlayer1.getChildren().add(rectP1);
         rectP1.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -136,7 +134,7 @@ public class Game extends Stage {
             public void handle(MouseEvent me) {
                 Rectangle rect2P1 = new Rectangle(xRectPlateau1, 0, 100, 148);
                 if (xRectPlateau1 < 800) {
-                    rect2P1.setFill(new ImagePattern(img));
+                    rect2P1.setFill(new ImagePattern(carte.getPicture()));
                     posX=rectP1.getX();
                     rectP1.setWidth(0);
                     rectP1.setHeight(0);
@@ -163,6 +161,9 @@ public class Game extends Stage {
                         pos5P1=0;
                     }
                 }
+                plateau.bataille(carte);
+                hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+                energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
             }
         });
     }
@@ -198,7 +199,8 @@ public class Game extends Stage {
         Rectangle rectP2 = new Rectangle(xCarteMain2, 0, 100, 148);
         rectP2.setStroke(Color.BLACK);
         rectP2.setStrokeType(StrokeType.INSIDE);
-        rectP2.setFill(new ImagePattern(img));
+        Card carte = drawPlayer2();
+        rectP2.setFill(new ImagePattern(carte.getPicture()));
         panePlayer2.getChildren().add(rectP2);
         rectP2.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -206,7 +208,7 @@ public class Game extends Stage {
             public void handle(MouseEvent me) {
                 Rectangle rect2P2 = new Rectangle(xRectPlateau2, 0, 100, 148);
                 if (xRectPlateau2 < 800) {
-                    rect2P2.setFill(new ImagePattern(img));
+                    rect2P2.setFill(new ImagePattern(carte.getPicture()));
                     posX2=rectP2.getX();
                     rectP2.setWidth(0);
                     rectP2.setHeight(0);
@@ -233,6 +235,9 @@ public class Game extends Stage {
                         pos5P2=0;
                     }
                 }
+                plateau.bataille(carte);
+                hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+                energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
             }
         });
     }
