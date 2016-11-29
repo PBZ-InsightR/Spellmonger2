@@ -19,10 +19,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 public class Log extends Stage {
     SwitchScene application;
-    
+    JsonRead reader = new JsonRead();
+
+
+    @FXML private Text actiontarget;
+    @FXML private PasswordField passwordPF;
+    @FXML private TextField usernameTF;
+    @FXML private Button connectBtn;
     @FXML
     public Button btn;
 
@@ -32,16 +40,26 @@ public class Log extends Stage {
 
     public void init(){
         btn.setOnAction(event -> {
-           // System.out.println("play OK");
-            application.login.hide();
 
-            try {
-                application.startSecond();
-                //application.play.show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+           String tab1[] = reader.tabLog;
+           String tab2[] = reader.tabMdp;
 
+     for(int i = 0; i < tab1.length && i < tab2.length; i++){
+             try {
+                 if ((passwordPF.getText().equals(tab2[i])) && (usernameTF.getCharacters().toString().equals(tab1[i]))) {
+                     actiontarget.setText("Vous êtes connectés !!!");
+                     application.login.hide();
+                     application.startSecond();
+                 } else {
+                     actiontarget.setText("Identifiants erronés !!!");
+                 }
+
+                 //application.play.show();
+             } catch (Exception e) {
+                 e.printStackTrace();
+             }
+
+     }
         });
     }
 
