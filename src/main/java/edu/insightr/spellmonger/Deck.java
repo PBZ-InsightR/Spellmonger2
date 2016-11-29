@@ -104,6 +104,8 @@ public class Deck {
 
     //La méthode retourne la dernière carte du paquet
     public Card drawCard() {
-        return cardPool.get(cardPool.size() - 1);
+        Card a = cardPool.get(cardPool.size() - 1);
+        cardPool.remove(cardPool.size() - 1);
+        return a;
     }
 }

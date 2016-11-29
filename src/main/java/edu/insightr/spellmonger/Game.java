@@ -67,7 +67,6 @@ public class Game extends Stage {
         plateau.bataille(carteChoosen);
         hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
-        deck1.retirerCard(carteChoosen);
         nomPlayer1.setText("Alice");
         buttonPlayer1.setDisable(true);
         buttonPlayer2.setDisable(false);
@@ -79,7 +78,6 @@ public class Game extends Stage {
         plateau.bataille(carteChoosen);
         hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
-        deck2.retirerCard(carteChoosen);
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);

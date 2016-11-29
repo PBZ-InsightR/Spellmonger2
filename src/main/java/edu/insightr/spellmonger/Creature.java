@@ -5,7 +5,7 @@ public class Creature extends Card {
     private int PV;
 
     public Creature(Creatures init) {
-        super(init.name(),init.energyCost,init.damage);
+        super(init.name(),init.energyCost,init.damage,init.picture);
         this.capacity = init.capacity;
         this.PV = init.PV;
     }
