@@ -157,7 +157,7 @@ public class Game extends Stage {
                     }
                     else if(posX==700)
                     {
-                        pos5P1=0;
+                        pos5P1 = 0;
                     }
                 }
                 plateau.bataille(carte);
