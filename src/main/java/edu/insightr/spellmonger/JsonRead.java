@@ -22,13 +22,13 @@ import static org.apache.log4j.helpers.Loader.getResource;
  * Created by Karim_Utilisateur on 10/11/2016.
  */
 public class JsonRead {
-    
+
     String login, mdp;
     String[] tabLog;
     String[] tabMdp;
     JsonRead(){
-        tabLog = new String[2];
-        tabMdp = new String[2];
+        tabLog = new String[3];
+        tabMdp = new String[3];
         try {
             this.Read();
         } catch (ParseException e) {
