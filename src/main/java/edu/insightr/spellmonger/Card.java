@@ -6,6 +6,7 @@ public class Card {
     private int damage;
     private String urlPicture;
 
+
     public Card() {
         this.name = "NONE";
         this.energyCost = 0;

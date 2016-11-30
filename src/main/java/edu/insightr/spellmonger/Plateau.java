@@ -290,10 +290,16 @@ public class Plateau {
             }
         }
 
+        //changeCurrent();
+        //ajouterTour();
+
+
+    }
+
+    public void FinTour()
+    {
         changeCurrent();
         ajouterTour();
-
-
     }
 
     public void Jeu() {

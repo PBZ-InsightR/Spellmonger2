@@ -171,6 +171,8 @@
                 </SplitPane>
                 <Button layoutX="1036.0" layoutY="275.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0"
                         text="Passer" onAction="#passerTour"/>
+                <Button layoutX="1036.0" layoutY="175.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0"
+                        text="Fin tour" onAction="#FinTour"/>
             </children>
         </Pane>
     </children>
