@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.ListIterator;
 
 public class Log extends Stage {
+
     SwitchScene application;
     JsonRead reader = new JsonRead();
 

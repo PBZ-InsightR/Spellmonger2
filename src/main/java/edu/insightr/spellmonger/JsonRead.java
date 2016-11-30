@@ -22,6 +22,7 @@ import static org.apache.log4j.helpers.Loader.getResource;
  * Created by Karim_Utilisateur on 10/11/2016.
  */
 public class JsonRead {
+    
     String login, mdp;
     String[] tabLog;
     String[] tabMdp;
