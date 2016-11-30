@@ -56,9 +56,9 @@
                     <items>
                         <Pane fx:id="panePlayer1">
                             <children>
-                                <Button fx:id="buttonPlayer1" layoutX="836.0" layoutY="34.0" mnemonicParsing="false"
-                                        onAction="#drawPlayer1" onMouseClicked="#test1" prefHeight="80.0"
-                                        prefWidth="80.0" text="Deck"/>
+                                <Button fx:id="buttonPlayer1" id="Deck" layoutX="10.0" layoutY="0.0" mnemonicParsing="false"
+                                        onAction="#drawPlayer1" onMouseClicked="#test1" prefHeight="148.0"
+                                        prefWidth="100.0"/>
                             </children>
                         </Pane>
                     </items>
@@ -87,7 +87,12 @@
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-
+                                <ImageView  fitHeight="148.0" fitWidth="73.0"  layoutX="1080.0" layoutY="0.0" scaleX="1.4" opacity="0.3">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Label id="Graveyard" text="Graveyard" prefHeight="50.0" prefWidth="100.0" layoutX="1080.0" layoutY="50.0"/>
                             </children>
                         </Pane>
                     </items>
@@ -116,6 +121,12 @@
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
+                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="1080.0" layoutY="0.0" scaleX="1.4" opacity="0.3">
+                                    <image>
+                                        <Image url="/carte.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Label id="Graveyard" text="Graveyard" prefHeight="50.0" prefWidth="100.0" layoutX="1080.0" layoutY="50.0"/>
                             </children>
                         </Pane>
                     </items>
@@ -124,9 +135,9 @@
                     <items>
                         <Pane fx:id="panePlayer2">
                             <children>
-                                <Button fx:id="buttonPlayer2" layoutX="836.0" layoutY="34.0" mnemonicParsing="false"
-                                        onAction="#drawPlayer2" onMouseClicked="#test2" prefHeight="80.0"
-                                        prefWidth="80.0" text="Deck"/>
+                                <Button fx:id="buttonPlayer2" id="Deck" layoutX="10.0" layoutY="0.0" mnemonicParsing="false"
+                                        onAction="#drawPlayer2" onMouseClicked="#test2" prefHeight="148.0"
+                                        prefWidth="100.0"/>
                             </children>
                         </Pane>
                     </items>
@@ -169,9 +180,9 @@
                         </Pane>
                     </items>
                 </SplitPane>
-                <Button layoutX="1036.0" layoutY="275.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0"
+                <Button id="Finish" layoutX="70.0" layoutY="275.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0"
                         text="Passer" onAction="#passerTour"/>
-                <Button layoutX="1036.0" layoutY="175.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0"
+                <Button id="Finish" layoutX="70.0" layoutY="175.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0"
                         text="Fin tour" onAction="#FinTour"/>
             </children>
         </Pane>
