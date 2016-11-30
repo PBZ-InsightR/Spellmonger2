@@ -70,7 +70,6 @@ public class Game extends Stage {
         return carteChoosen;
     }
 
-
     @FXML
     private Card drawPlayer2() {
         Card carteChoosen =  deck2.drawCard();
@@ -126,7 +125,7 @@ public class Game extends Stage {
         rectP1.setStroke(Color.BLACK);
         rectP1.setStrokeType(StrokeType.INSIDE);
         Card carte = drawPlayer1();
-        rectP1.setFill(new ImagePattern(carte.getPicture()));
+        rectP1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
         panePlayer1.getChildren().add(rectP1);
         rectP1.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -134,7 +133,7 @@ public class Game extends Stage {
             public void handle(MouseEvent me) {
                 Rectangle rect2P1 = new Rectangle(xRectPlateau1, 0, 100, 148);
                 if (xRectPlateau1 < 800) {
-                    rect2P1.setFill(new ImagePattern(carte.getPicture()));
+                    rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
                     posX=rectP1.getX();
                     rectP1.setWidth(0);
                     rectP1.setHeight(0);
@@ -200,7 +199,7 @@ public class Game extends Stage {
         rectP2.setStroke(Color.BLACK);
         rectP2.setStrokeType(StrokeType.INSIDE);
         Card carte = drawPlayer2();
-        rectP2.setFill(new ImagePattern(carte.getPicture()));
+        rectP2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
         panePlayer2.getChildren().add(rectP2);
         rectP2.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -208,7 +207,7 @@ public class Game extends Stage {
             public void handle(MouseEvent me) {
                 Rectangle rect2P2 = new Rectangle(xRectPlateau2, 0, 100, 148);
                 if (xRectPlateau2 < 800) {
-                    rect2P2.setFill(new ImagePattern(carte.getPicture()));
+                    rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
                     posX2=rectP2.getX();
                     rectP2.setWidth(0);
                     rectP2.setHeight(0);
