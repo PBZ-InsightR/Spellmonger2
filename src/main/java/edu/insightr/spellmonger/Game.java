@@ -52,11 +52,15 @@ public class Game extends Stage {
     private int pos3P1 = 0;
     private int pos4P1 = 0;
     private int pos5P1 = 0;
+    private int pos6P1 = 0;
+    private int pos7P1 = 0;
     private int pos1P2 = 0;
     private int pos2P2 = 0;
     private int pos3P2 = 0;
     private int pos4P2 = 0;
     private int pos5P2 = 0;
+    private int pos6P2 = 0;
+    private int pos7P2 = 0;
     private int xCarteMain1=0;
     private int xCarteMain2=0;
     private Image img = new Image("/carte.jpg");
@@ -122,6 +126,16 @@ public class Game extends Stage {
             xCarteMain1=700;
             pos5P1=1;
         }
+        else if(pos6P1==0)
+        {
+            xCarteMain1=825;
+            pos6P1=1;
+        }
+        else if(pos7P1==0)
+        {
+            xCarteMain1=950;
+            pos7P1=1;
+        }
         Rectangle rectP1 = new Rectangle(xCarteMain1, 0, 100, 148);
         rectP1.setStroke(Color.BLACK);
         rectP1.setStrokeType(StrokeType.INSIDE);
@@ -159,6 +173,14 @@ public class Game extends Stage {
                     else if(posX==700)
                     {
                         pos5P1=0;
+                    }
+                    else if(posX==825)
+                    {
+                        pos6P1=0;
+                    }
+                    else if(posX==950)
+                    {
+                        pos7P1=0;
                     }
                 }
                 plateau.bataille(carte);
