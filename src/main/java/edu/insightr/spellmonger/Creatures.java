@@ -10,13 +10,13 @@ public enum Creatures {
     public int energyCost;
     public int damage;
     public String capacity;
-    public String picture;
+    public String urlPicture;
 
-    Creatures(int PV, int energyCost, int damage, String capacity, String picture) {
+    Creatures(int PV, int energyCost, int damage, String capacity, String urlPicture) {
         this.PV = PV;
         this.energyCost = energyCost;
         this.damage = damage;
         this.capacity = capacity;
-        this.picture = picture;
+        this.urlPicture = urlPicture;
     }
 }

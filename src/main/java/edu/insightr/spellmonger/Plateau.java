@@ -266,14 +266,12 @@ public class Plateau {
         for (Creature c : current.getListeCreature()) {
             logger.info(c.getName());
         }
-
-         if (!current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
-            int indexCreature = 0;
-            while (indexCreature < current.getListeCreature().size()) {
-                opponent.altererHP(current.getListeCreature().get(indexCreature).getDamage());
-                indexCreature++;
-            }
-        } else if (!current.getListeCreature().isEmpty() && !opponent.getListeCreature().isEmpty()) {
+        if (!current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
+             for (Creature c : current.getListeCreature()) {
+                 opponent.altererHP(c.getDamage());
+             }
+        }
+        else if (!current.getListeCreature().isEmpty() && !opponent.getListeCreature().isEmpty()) {
             int indexCreature = 0;
             while (indexCreature < current.getListeCreature().size() && !opponent.getListeCreature().isEmpty()) {
                 opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(current.getListeCreature().get(indexCreature).getDamage());
@@ -289,11 +287,6 @@ public class Plateau {
                 }
             }
         }
-
-        //changeCurrent();
-        //ajouterTour();
-
-
     }
 
     public void FinTour()

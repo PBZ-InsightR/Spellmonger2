@@ -27,7 +27,7 @@ public class Game extends Stage {
     @FXML
     private Label hpPlayer1, hpPlayer2, nomPlayer1, nomPlayer2, energyPlayer1, energyPlayer2;
     @FXML
-    private Button buttonPlayer1, buttonPlayer2, buttonPasserTour;
+    private Button buttonPlayer1, buttonPlayer2, buttonPasserTour, buttonFinish1, buttonFinish2, buttonBattle1, buttonBattle2;
     @FXML
     private Pane panePlayer1, panePlateau1, panePlayer2, panePlateau2;
     private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
@@ -52,7 +52,6 @@ public class Game extends Stage {
     private int pos5P2 = 0;
     private int xCarteMain1 = 0;
     private int xCarteMain2 = 0;
-    private Image img = new Image("/carte.jpg");
     public Game(SwitchScene application) {
         this.application = application;
     }
@@ -64,11 +63,8 @@ public class Game extends Stage {
         //plateau.getCurrent().addEnergy();
         //energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         buttonPlayer1.setDisable(true);
-        buttonPlayer2.setDisable(false);
         return carteChoosen;
-
     }
-
 
     @FXML
     private Card drawPlayer2() {
@@ -76,22 +72,8 @@ public class Game extends Stage {
         nomPlayer2.setText("Bob");
         //plateau.getCurrent().addEnergy();
         //energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
-        buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
         return carteChoosen;
-    }
-
-    @FXML
-    private void passerTour() {
-        plateau.changeCurrent();
-        plateau.ajouterTour();
-        if (buttonPlayer1.isDisabled() == true) {
-            buttonPlayer1.setDisable(false);
-            buttonPlayer2.setDisable(true);
-        } else {
-            buttonPlayer1.setDisable(true);
-            buttonPlayer2.setDisable(false);
-        }
     }
 
     @FXML
@@ -213,22 +195,6 @@ public class Game extends Stage {
         });
     }
 
-    public void FinTour() {
-        if (plateau.getCurrent().getName() == "Alice") {
-            plateau.bataille();
-            hpPlayer2.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
-            plateau.getOpponent().addEnergy();
-            energyPlayer2.setText(Integer.toString(plateau.getOpponent().getEnergy()));
-        }
-        if (plateau.getCurrent().getName() == "Bob") {
-            plateau.bataille();
-            hpPlayer1.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
-            plateau.getOpponent().addEnergy();
-            energyPlayer1.setText(Integer.toString(plateau.getOpponent().getEnergy()));
-        }
-        plateau.FinTour();
-    }
-
     @FXML
     public void playCard() {
         //plateau.Jeu();
@@ -237,5 +203,47 @@ public class Game extends Stage {
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
+    }
+
+    @FXML
+    public void finishTurn1() {
+        buttonFinish1.setVisible(false);
+        buttonBattle1.setVisible(false);
+        buttonBattle2.setDisable(false);
+        buttonPlayer1.setDisable(true);
+        buttonFinish2.setVisible(true);
+        buttonBattle2.setVisible(true);
+        buttonPlayer2.setDisable(false);
+        plateau.FinTour();
+        plateau.getOpponent().addEnergy();
+        energyPlayer2.setText(Integer.toString(plateau.getOpponent().getEnergy()));
+    }
+
+    @FXML
+    public void finishTurn2() {
+        buttonFinish1.setVisible(true);
+        buttonBattle1.setVisible(true);
+        buttonBattle1.setDisable(false);
+        buttonPlayer1.setDisable(false);
+        buttonFinish2.setVisible(false);
+        buttonBattle2.setVisible(false);
+        buttonPlayer2.setDisable(true);
+        plateau.FinTour();
+        plateau.getOpponent().addEnergy();
+        energyPlayer1.setText(Integer.toString(plateau.getOpponent().getEnergy()));
+    }
+
+    @FXML
+    public void Battle1() {
+        plateau.bataille();
+        hpPlayer2.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
+        buttonBattle1.setDisable(true);
+    }
+
+    @FXML
+    public void Battle2() {
+        plateau.bataille();
+        hpPlayer1.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
+        buttonBattle2.setDisable(true);
     }
 }

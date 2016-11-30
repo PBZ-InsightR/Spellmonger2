@@ -58,7 +58,7 @@
                             <children>
                                 <Button fx:id="buttonPlayer1" id="Deck" layoutX="10.0" layoutY="0.0" mnemonicParsing="false"
                                         onAction="#drawPlayer1" onMouseClicked="#test1" prefHeight="148.0"
-                                        prefWidth="100.0"/>
+                                        prefWidth="100.0" text="Deck"/>
                             </children>
                         </Pane>
                     </items>
@@ -67,6 +67,10 @@
                     <items>
                         <Pane fx:id="panePlateau1">
                             <children>
+                                <Button fx:id="buttonFinish1" id="Finish" layoutX="50.0" layoutY="50.0" mnemonicParsing="false"
+                                        text="Finish Turn" onAction="#finishTurn1"/>
+                                <Button fx:id="buttonBattle1" id="Battle" layoutX="50.0" layoutY="80.0" mnemonicParsing="false"
+                                        text="Battle" onAction="#Battle1"/>
                                 <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="279.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
                                     <image>
                                         <Image url="/carte.jpg" />
@@ -101,6 +105,10 @@
                     <items>
                         <Pane fx:id="panePlateau2">
                             <children>
+                                <Button fx:id="buttonFinish2" id="Finish" layoutX="50.0" layoutY="50.0" mnemonicParsing="false"
+                                        text="Finish Turn" onAction="#finishTurn2"/>
+                                <Button fx:id="buttonBattle2" id="Battle" layoutX="50.0" layoutY="80.0" mnemonicParsing="false"
+                                        text="Battle" onAction="#Battle2"/>
                                 <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="279.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
                                     <image>
                                         <Image url="/carte.jpg" />
@@ -137,7 +145,7 @@
                             <children>
                                 <Button fx:id="buttonPlayer2" id="Deck" layoutX="10.0" layoutY="0.0" mnemonicParsing="false"
                                         onAction="#drawPlayer2" onMouseClicked="#test2" prefHeight="148.0"
-                                        prefWidth="100.0"/>
+                                        prefWidth="100.0" text="Deck"/>
                             </children>
                         </Pane>
                     </items>
@@ -180,10 +188,6 @@
                         </Pane>
                     </items>
                 </SplitPane>
-                <Button id="Finish" layoutX="70.0" layoutY="275.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0"
-                        text="Passer" onAction="#passerTour"/>
-                <Button id="Finish" layoutX="70.0" layoutY="175.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0"
-                        text="Fin tour" onAction="#FinTour"/>
             </children>
         </Pane>
     </children>

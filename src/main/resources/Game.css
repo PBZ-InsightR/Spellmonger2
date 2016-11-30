@@ -1,4 +1,4 @@
-#Finish {
+#Finish, #Battle {
     -fx-background-color: #cc0000;
     -fx-width:85px;
     -fx-height:85px;
@@ -37,14 +37,13 @@
     -fx-background-attachment: fixed;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
-}
-
-#Deck:hoover {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-align: center;
 }
 
 #Graveyard {
     -fx-font-size: 15px;
-    -fx-color: #DF3F3F;
     -fx-font-weight: bold;
     -fx-text-align: center;
 }

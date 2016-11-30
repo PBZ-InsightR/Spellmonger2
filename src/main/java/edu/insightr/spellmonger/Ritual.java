@@ -8,6 +8,10 @@ public class Ritual extends Card {
         this.gain = init.gain;
     }
 
+    public int getGain() {
+        return this.gain;
+    }
+
     public String toString() {
         String message = "";
         switch (this.getName()) {
