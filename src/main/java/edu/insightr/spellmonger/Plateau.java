@@ -18,8 +18,7 @@ public class Plateau {
         this.opponent.getPioche().initDeck();
     }
 
-    public void InitMain()
-    {
+    public void InitMain() {
         Card carte;
         for (int i = 0; i < 3; i++) {
             int nbRand;
@@ -27,50 +26,48 @@ public class Plateau {
             nbRand = rand.nextInt(8);
             switch (nbRand) {
                 case 0:
-                    carte = new Ritual("Curse");
+                    carte = new Ritual(Rituals.CURSE);
                     current.getMain().add(carte);
                     break;
                 case 1:
-                    carte = new Ritual("Blessing");
+                    carte = new Ritual(Rituals.BLESSING);
                     current.getMain().add(carte);
                     break;
                 case 2:
-                    carte = new Ritual("Energy drain");
+                    carte = new Ritual(Rituals.ENERGYDRAIN);
                     current.getMain().add(carte);
                     break;
                 case 3:
-                    carte = new Creature("Bear");
+                    carte = new Creature(Creatures.BEAR);
                     current.getMain().add(carte);
                     break;
                 case 4:
-                    carte = new Creature("Wolf");
+                    carte = new Creature(Creatures.WOLF);
                     current.getMain().add(carte);
                     break;
                 case 5:
-                    carte = new Creature("Eagle");
+                    carte = new Creature(Creatures.EAGLE);
                     current.getMain().add(carte);
                     break;
                 case 6:
-                    carte = new Creature("Fox");
+                    carte = new Creature(Creatures.EAGLE);
                     current.getMain().add(carte);
                     break;
                 case 7:
-                    carte = new Enchantment("Vault overclocking");
+                    carte = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
                     current.getMain().add(carte);
             }
         }
     }
 
-    public void Pioche()
-    {
+    public void Pioche() {
         Card currentCard = current.getPioche().drawCard();
         current.getMain().add(currentCard);
         current.getPioche().retirerCard(currentCard);
     }
 
-    public Card ChoixCarte()
-    {
-        Card carteChoisi = new Card("None");
+    public Card ChoixCarte() {
+        Card carteChoisi = new Card();
         Scanner sc = new Scanner(System.in);
         int tailleMain = current.getMain().size();
         logger.info("Quelle carte jouer ?");
@@ -96,7 +93,6 @@ public class Plateau {
         }
     }
 
-
     public int getNbTours() {
         return nbTours;
     }
@@ -104,6 +100,7 @@ public class Plateau {
     public Player getCurrent() {
         return current;
     }
+
     public Player getOpponent() {
         return opponent;
     }
@@ -145,7 +142,6 @@ public class Plateau {
         logger.info("THE WINNER IS " + getWinner() + " !!!");
         logger.info("******************************");
     }
-
 
     public void bataille(Card carteChoisi) {
 
@@ -195,7 +191,7 @@ public class Plateau {
                 }
 
             } else if (currentCard instanceof Enchantment) {
-                Enchantment enchant = new Enchantment("Vault overclocking");
+                Enchantment enchant = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
                 current.removeEnergy(enchant.getEnergyCost());
             }
 
@@ -209,7 +205,7 @@ public class Plateau {
                 }
 
             } else if (currentCard instanceof Enchantment) {
-                Enchantment enchant = new Enchantment("Vault overclocking");
+                Enchantment enchant = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
                 current.removeEnergy(enchant.getEnergyCost());
             } else if (currentCard instanceof Creature) {
                 Creature currentCreature = (Creature) currentCard;
@@ -230,7 +226,7 @@ public class Plateau {
                 }
 
             } else if (currentCard instanceof Enchantment) {
-                Enchantment enchant = new Enchantment("Vault overclocking");
+                Enchantment enchant = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
                 current.removeEnergy(enchant.getEnergyCost());
             } else if (currentCard instanceof Creature) {
                 Creature currentCreature = (Creature) currentCard;
@@ -260,6 +256,7 @@ public class Plateau {
 
 
     }
+
     public void bataille() {
 
         logger.info("\n");
@@ -298,8 +295,8 @@ public class Plateau {
 
 
     }
-    public void Jeu()
-    {
+
+    public void Jeu() {
 
         while(!isThereAWinner()) {
             if (nbTours == 1 || nbTours == 2) {
@@ -309,7 +306,7 @@ public class Plateau {
             logger.info(current.getName() + " à " + current.getEnergy() + " énergie");
             Pioche();
             Card carteChoisi = ChoixCarte();
-            if (carteChoisi.getName()==("None")) {
+            if (carteChoisi.getName()==("NONE")) {
                 bataille();
             } else {
                 bataille(carteChoisi);
@@ -320,6 +317,7 @@ public class Plateau {
         logger.info("THE WINNER IS " + getWinner() + " !!!");
         logger.info("******************************");
     }
+
 }
 
 

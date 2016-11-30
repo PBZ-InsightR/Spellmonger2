@@ -43,8 +43,10 @@ public class Game extends Stage {
     private List<Card> jeu2 = deck.initDeck();
     private Deck deck1 = new Deck(jeu1);
     private Deck deck2 = new Deck(jeu2);
-    private int xRectPlateau1 = 65;
-    private int xRectPlateau2 = 65;
+    private int xRectPlateau1 = 265;
+    private int xRectPlateau2 = 265;
+    private double posX;
+    private double posX2;
     private int pos1P1 = 0;
     private int pos2P1 = 0;
     private int pos3P1 = 0;
@@ -55,30 +57,27 @@ public class Game extends Stage {
     private int pos3P2 = 0;
     private int pos4P2 = 0;
     private int pos5P2 = 0;
+    private int xCarteMain1=0;
+    private int xCarteMain2=0;
     private Image img = new Image("/carte.jpg");
 
     @FXML
-    private void drawPlayer1() {
+    private Card drawPlayer1() {
         Card carteChoosen =  deck1.drawCard();
-        plateau.bataille(carteChoosen);
-        hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
-        energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
-        deck1.retirerCard(carteChoosen);
         nomPlayer1.setText("Alice");
         buttonPlayer1.setDisable(true);
         buttonPlayer2.setDisable(false);
+        return carteChoosen;
     }
 
+
     @FXML
-    private void drawPlayer2() {
+    private Card drawPlayer2() {
         Card carteChoosen =  deck2.drawCard();
-        plateau.bataille(carteChoosen);
-        hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
-        energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
-        deck2.retirerCard(carteChoosen);
         nomPlayer2.setText("Bob");
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(true);
+        return carteChoosen;
     }
 
     @FXML
@@ -97,205 +96,150 @@ public class Game extends Stage {
     @FXML
     //lorsque l'on clique sur le bouton deck, place une carte dans la main du joueur1
     public void test1() {
-        // TODO : no code duplication
         // TODO : prefer CSS for decoration
-        if (pos1P1 == 0) {
-            //Initialise un rectangle dans la main du joueur 1 en position 1
-            Rectangle rect1P1 = new Rectangle(200, -1, 100, 148);
-            rect1P1.setFill(new ImagePattern(img));
-            panePlayer1.getChildren().add(rect1P1);
-            pos1P1 = 1;
-            rect1P1.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                //Lorsqu'on clique sur la 1ère carte de la main du joueur 1, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau1 < 700) {
-                        rect1P1.setLayoutX(xRectPlateau1);
-                        rect1P1.setFill(new ImagePattern(img));
-                        panePlateau1.getChildren().add(rect1P1);
-                        xRectPlateau1 += 173;
-                        pos1P1 = 0;
-                    }
-                }
-            });
-        } else if (pos2P1 == 0) {
-            //Initialise un rectangle dans la main du joueur 1 en position 2
-            Rectangle rect2P1 = new Rectangle(325, -1, 100, 148);
-            rect2P1.setFill(new ImagePattern(img));
-            panePlayer1.getChildren().add(rect2P1);
-            pos2P1 = 1;
-            rect2P1.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                ///Lorsqu'on clique sur la 2ème carte de la main du joueur 1, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau1 < 700) {
-                        rect2P1.setLayoutX(xRectPlateau1-125);
-                        rect2P1.setFill(new ImagePattern(img));
-                        panePlateau1.getChildren().add(rect2P1);
-                        xRectPlateau1 += 173;
-                        pos2P1 = 0;
-                    }
-                }
-            });
-        } else if (pos3P1 == 0) {
-            //Initialise un rectangle dans la main du joueur 1 en position 3
-            Rectangle rect3P1 = new Rectangle(450, -1, 100, 148);
-            rect3P1.setFill(new ImagePattern(img));
-            panePlayer1.getChildren().add(rect3P1);
-            pos3P1 = 1;
-            rect3P1.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                //Lorsqu'on clique sur la 3ème carte de la main du joueur 1, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau1 < 700) {
-                        rect3P1.setLayoutX(xRectPlateau1-250);
-                        rect3P1.setFill(new ImagePattern(img));
-                        panePlateau1.getChildren().add(rect3P1);
-                        xRectPlateau1 += 173;
-                        pos3P1 = 0;
-                    }
-                }
-            });
-        } else if (pos4P1 == 0) {
-            //Initialise un rectangle dans la main du joueur 1 en position 4
-            Rectangle rect4P1 = new Rectangle(575,-1, 100, 148);
-            rect4P1.setFill(new ImagePattern(img));
-            panePlayer1.getChildren().add(rect4P1);
-            pos4P1 = 1;
-            rect4P1.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                //Lorsqu'on clique sur la 4ème carte de la main du joueur 1, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau1 < 700) {
-                        rect4P1.setLayoutX(xRectPlateau1 - 375);
-                        rect4P1.setFill(new ImagePattern(img));
-                        panePlateau1.getChildren().add(rect4P1);
-                        xRectPlateau1 += 173;
-                        pos4P1 = 0;
-                    }
-                }
-            });
-        } else if (pos5P1 == 0) {
-            //Initialise un rectangle dans la main du joueur 1 en position 5
-            Rectangle rect5P1 = new Rectangle(700,-1, 100, 148);
-            rect5P1.setFill(new ImagePattern(img));
-            panePlayer1.getChildren().add(rect5P1);
-            pos5P1 = 1;
-            rect5P1.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                //Lorsqu'on clique sur la 5ème carte de la main du joueur 1, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau1 < 700) {
-                        rect5P1.setLayoutX(xRectPlateau1 - 500);
-                        rect5P1.setFill(new ImagePattern(img));
-                        panePlateau1.getChildren().add(rect5P1);
-                        xRectPlateau1 += 173;
-                        pos5P1 = 0;
-                    }
-                }
-            });
+        if(pos1P1==0)
+        {
+            xCarteMain1=200;
+            pos1P1=1;
         }
+        else if(pos2P1==0)
+        {
+            xCarteMain1=325;
+            pos2P1=1;
+        }
+        else if(pos3P1==0)
+        {
+            xCarteMain1=450;
+            pos3P1=1;
+        }
+        else if(pos4P1==0)
+        {
+            xCarteMain1=575;
+            pos4P1=1;
+        }
+        else if(pos5P1==0)
+        {
+            xCarteMain1=700;
+            pos5P1=1;
+        }
+        Rectangle rectP1 = new Rectangle(xCarteMain1, 0, 100, 148);
+        rectP1.setStroke(Color.BLACK);
+        rectP1.setStrokeType(StrokeType.INSIDE);
+        Card carte = drawPlayer1();
+        rectP1.setFill(new ImagePattern(carte.getPicture()));
+        panePlayer1.getChildren().add(rectP1);
+        rectP1.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            //Lorsqu'on clique sur la 1ère carte de la main du joueur 1, l'ajoute au plateau
+            public void handle(MouseEvent me) {
+                Rectangle rect2P1 = new Rectangle(xRectPlateau1, 0, 100, 148);
+                if (xRectPlateau1 < 800) {
+                    rect2P1.setFill(new ImagePattern(carte.getPicture()));
+                    posX=rectP1.getX();
+                    rectP1.setWidth(0);
+                    rectP1.setHeight(0);
+                    panePlateau1.getChildren().add(rect2P1);
+                    xRectPlateau1 += 173;
+                    if(posX==200)
+                    {
+                        pos1P1=0;
+                    }
+                    else if(posX==325)
+                    {
+                        pos2P1=0;
+                    }
+                    else if(posX==450)
+                    {
+                        pos3P1=0;
+                    }
+                    else if(posX==575)
+                    {
+                        pos4P1=0;
+                    }
+                    else if(posX==700)
+                    {
+                        pos5P1=0;
+                    }
+                }
+                plateau.bataille(carte);
+                hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+                energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
+            }
+        });
     }
 
     //lorsque l'on clique sur le bouton deck, place une carte dans la main du joueur2
     @FXML
     public void test2() {
-        if (pos1P2 == 0) {
-            //Initialise un rectangle dans la main du joueur 2 en position 1
-            Rectangle rect1P2 = new Rectangle(200,-1, 100, 148);
-            rect1P2.setFill(new ImagePattern(img));
-            panePlayer2.getChildren().add(rect1P2);
-            pos1P2 = 1;
-            rect1P2.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                //Lorsqu'on clique sur la 1ère carte de la main du joueur 2, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau2 < 700) {
-                        rect1P2.setLayoutX(xRectPlateau2);
-                        rect1P2.setFill(new ImagePattern(img));
-                        panePlateau2.getChildren().add(rect1P2);
-                        xRectPlateau2 += 173;
-                        pos1P2 = 0;
-                    }
-                }
-            });
-        } else if (pos2P2 == 0) {
-            //Initialise un rectangle dans la main du joueur 2 en position 2
-            Rectangle rect2P2 = new Rectangle(325,-1, 100, 148);
-            rect2P2.setFill(new ImagePattern(img));
-            panePlayer2.getChildren().add(rect2P2);
-            pos2P2 = 1;
-            rect2P2.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                //Lorsqu'on clique sur la 2ème carte de la main du joueur 2, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau2 < 700) {
-                        rect2P2.setLayoutX(xRectPlateau2 -125);
-                        rect2P2.setFill(new ImagePattern(img));
-                        panePlateau2.getChildren().add(rect2P2);
-                        xRectPlateau2 += 173;
-                        pos2P2 = 0;
-                    }
-                }
-            });
-        } else if (pos3P2 == 0) {
-            //Initialise un rectangle dans la main du joueur 2 en position 3
-            Rectangle rect3P2 = new Rectangle(450,-1, 100, 148);
-            rect3P2.setFill(new ImagePattern(img));
-            panePlayer2.getChildren().add(rect3P2);
-            pos3P2 = 1;
-            rect3P2.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                //Lorsqu'on clique sur la 3ème carte de la main du joueur 2, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau2 < 700) {
-                        rect3P2.setLayoutX(xRectPlateau2 - 250);
-                        rect3P2.setFill(new ImagePattern(img));
-                        panePlateau2.getChildren().add(rect3P2);
-                        xRectPlateau2 += 173;
-                        pos3P2 = 0;
-                    }
-                }
-            });
-        } else if (pos4P2 == 0) {
-            //Initialise un rectangle dans la main du joueur 2 en position 4
-            Rectangle rect4P2 = new Rectangle(575,-1, 100, 148);
-            rect4P2.setFill(new ImagePattern(img));
-            panePlayer2.getChildren().add(rect4P2);
-            pos4P2 = 1;
-            rect4P2.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                //Lorsqu'on clique sur la 4ème carte de la main du joueur 2, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau2 < 700) {
-                        rect4P2.setLayoutX(xRectPlateau2 - 375);
-                        rect4P2.setFill(new ImagePattern(img));
-                        panePlateau2.getChildren().add(rect4P2);
-                        xRectPlateau2 += 173;
-                        pos4P2 = 0;
-                    }
-                }
-            });
-        } else if (pos5P2 == 0) {
-            //Initialise un rectangle dans la main du joueur 2 en position 5
-            Rectangle rect5P2 = new Rectangle(700,-1, 100, 148);
-            rect5P2.setFill(new ImagePattern(img));
-            panePlayer2.getChildren().add(rect5P2);
-            pos5P2 = 1;
-            rect5P2.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                //Lorsqu'on clique sur la 5ème carte de la main du joueur 2, l'ajoute au plateau
-                public void handle(MouseEvent me) {
-                    if (xRectPlateau2 < 700) {
-                        rect5P2.setLayoutX(xRectPlateau2 - 500);
-                        rect5P2.setFill(new ImagePattern(img));
-                        panePlateau2.getChildren().add(rect5P2);
-                        xRectPlateau2 += 150;
-                        pos5P2 = 0;
-                    }
-                }
-            });
+        if(pos1P2==0)
+        {
+            xCarteMain2=200;
+            pos1P2=1;
         }
+        else if(pos2P2==0)
+        {
+            xCarteMain2=325;
+            pos2P2=1;
+        }
+        else if(pos3P2==0)
+        {
+            xCarteMain2=450;
+            pos3P2=1;
+        }
+        else if(pos4P2==0)
+        {
+            xCarteMain2=575;
+            pos4P2=1;
+        }
+        else if(pos5P2==0)
+        {
+            xCarteMain2=700;
+            pos5P2=1;
+        }
+        Rectangle rectP2 = new Rectangle(xCarteMain2, 0, 100, 148);
+        rectP2.setStroke(Color.BLACK);
+        rectP2.setStrokeType(StrokeType.INSIDE);
+        Card carte = drawPlayer2();
+        rectP2.setFill(new ImagePattern(carte.getPicture()));
+        panePlayer2.getChildren().add(rectP2);
+        rectP2.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            //Lorsqu'on clique sur la 1ère carte de la main du joueur 1, l'ajoute au plateau
+            public void handle(MouseEvent me) {
+                Rectangle rect2P2 = new Rectangle(xRectPlateau2, 0, 100, 148);
+                if (xRectPlateau2 < 800) {
+                    rect2P2.setFill(new ImagePattern(carte.getPicture()));
+                    posX2=rectP2.getX();
+                    rectP2.setWidth(0);
+                    rectP2.setHeight(0);
+                    panePlateau2.getChildren().add(rect2P2);
+                    xRectPlateau2 += 173;
+                    if(posX2==200)
+                    {
+                        pos1P2=0;
+                    }
+                    else if(posX2==325)
+                    {
+                        pos2P2=0;
+                    }
+                    else if(posX2==450)
+                    {
+                        pos3P2=0;
+                    }
+                    else if(posX2==575)
+                    {
+                        pos4P2=0;
+                    }
+                    else if(posX2==700)
+                    {
+                        pos5P2=0;
+                    }
+                }
+                plateau.bataille(carte);
+                hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+                energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
+            }
+        });
     }
 
     @FXML
