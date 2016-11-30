@@ -1,7 +1,7 @@
 package edu.insightr.spellmonger;
 
 public enum Enchantments {
-    VAULT_OVERCLOCKING(0, 3, 1, "/carte.jpg");
+    VAULT_OVERCLOCKING(0, 3, 1, "/CarteEnchantment.jpg");
 
     public int damage;
     public int energyCost;
