@@ -9,9 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchor" prefHeight="600.0" prefWidth="1200.0" stylesheets="@Game.css"
-            xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1"
-            >
+<AnchorPane id="anchor" prefHeight="680.0" prefWidth="1200.0" stylesheets="@Game.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Pane prefHeight="600.0" prefWidth="1200.0">
             <children>
@@ -19,33 +17,29 @@
                     <items>
                         <Pane>
                             <children>
-                                <Label fx:id="nomPlayer1" alignment="CENTER" layoutY="10.0" prefWidth="200.0"
-                                       text="Joueur 1" textAlignment="CENTER">
+                                <Label fx:id="nomPlayer1" alignment="CENTER" layoutY="10.0" prefWidth="200.0" text="Joueur 1" textAlignment="CENTER">
                                     <font>
-                                        <Font size="24.0"/>
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="120.0"
-                                       text="HP :" textFill="RED">
+                                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="120.0" text="HP :" textFill="RED">
                                     <font>
-                                        <Font size="36.0"/>
+                                        <Font size="36.0" />
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="150.0"
-                                       text="Energy :" textFill="#0048ff">
+                                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="150.0" text="Energy :" textFill="#0048ff">
                                     <font>
-                                        <Font size="36.0"/>
+                                        <Font size="36.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="hpPlayer1" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0"
-                                       layoutY="40.0" text="20" textFill="RED">
+                                <Label fx:id="hpPlayer1" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="40.0" text="20" textFill="RED">
                                     <font>
-                                        <Font size="36.0"/>
+                                        <Font size="36.0" />
                                     </font>
                                 </Label>
                                 <Label fx:id="energyPlayer1" layoutX="150.0" layoutY="80.0" text="0" textFill="#0048ff">
                                     <font>
-                                        <Font size="36.0"/>
+                                        <Font size="36.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -56,9 +50,7 @@
                     <items>
                         <Pane fx:id="panePlayer1">
                             <children>
-                                <Button fx:id="buttonPlayer1" id="Deck" layoutX="10.0" layoutY="0.0" mnemonicParsing="false"
-                                        onAction="#drawPlayer1" onMouseClicked="#test1" prefHeight="148.0"
-                                        prefWidth="100.0" text="Deck"/>
+                                <Button id="Deck" fx:id="buttonPlayer1" layoutX="10.0" layoutY="0.0" mnemonicParsing="false" onAction="#drawPlayer1" onMouseClicked="#test1" prefHeight="148.0" prefWidth="100.0" text="Deck" />
                             </children>
                         </Pane>
                     </items>
@@ -67,36 +59,34 @@
                     <items>
                         <Pane fx:id="panePlateau1">
                             <children>
-                                <Button fx:id="buttonFinish1" id="Finish" layoutX="50.0" layoutY="50.0" mnemonicParsing="false"
-                                        text="Finish Turn" onAction="#finishTurn1"/>
-                                <Button fx:id="buttonBattle1" id="Battle" layoutX="50.0" layoutY="80.0" mnemonicParsing="false"
-                                        text="Battle" onAction="#Battle1"/>
-                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="279.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
+                                <Button id="Finish" fx:id="buttonFinish1" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#finishTurn1" text="Finish Turn" />
+                                <Button id="Battle" fx:id="buttonBattle1" layoutX="50.0" layoutY="80.0" mnemonicParsing="false" onAction="#Battle1" text="Battle" />
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="279.0" layoutY="-1.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="452.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="452.0" layoutY="-1.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView  fitHeight="148.0" fitWidth="73.0"  layoutX="625.0" layoutY="-1.0" scaleX="1.4" opacity="0.3" >
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="625.0" layoutY="-1.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView  fitHeight="148.0" fitWidth="73.0"  layoutX="1080.0" layoutY="0.0" scaleX="1.4" opacity="0.3">
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="1080.0" layoutY="0.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/CarteVerso.jpg" />
                                     </image>
                                 </ImageView>
-                                <Label id="Cimetiere" text="Cimetière" prefHeight="50.0" prefWidth="100.0" layoutX="1080.0" layoutY="50.0"/>
+                                <Label id="Cimetiere" layoutX="1080.0" layoutY="50.0" prefHeight="50.0" prefWidth="100.0" text="Cimetière" />
                             </children>
                         </Pane>
                     </items>
@@ -105,36 +95,34 @@
                     <items>
                         <Pane fx:id="panePlateau2">
                             <children>
-                                <Button fx:id="buttonFinish2" id="Finish" layoutX="50.0" layoutY="50.0" mnemonicParsing="false"
-                                        text="Finish Turn" onAction="#finishTurn2"/>
-                                <Button fx:id="buttonBattle2" id="Battle" layoutX="50.0" layoutY="80.0" mnemonicParsing="false"
-                                        text="Battle" onAction="#Battle2"/>
-                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="279.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
+                                <Button id="Finish" fx:id="buttonFinish2" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#finishTurn2" text="Finish Turn" />
+                                <Button id="Battle" fx:id="buttonBattle2" layoutX="50.0" layoutY="80.0" mnemonicParsing="false" onAction="#Battle2" text="Battle" />
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="279.0" layoutY="-1.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="452.0" layoutY="-1.0" scaleX="1.4" opacity="0.3" >
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="452.0" layoutY="-1.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="625.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="625.0" layoutY="-1.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0" scaleX="1.4" opacity="0.3">
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0"  layoutX="1080.0" layoutY="0.0" scaleX="1.4" opacity="0.3">
+                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="1080.0" layoutY="0.0" opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/CarteVerso.jpg" />
                                     </image>
                                 </ImageView>
-                                <Label id="Cimetiere" text="Cimetière" prefHeight="50.0" prefWidth="100.0" layoutX="1080.0" layoutY="50.0"/>
+                                <Label id="Cimetiere" layoutX="1080.0" layoutY="50.0" prefHeight="50.0" prefWidth="100.0" text="Cimetière" />
                             </children>
                         </Pane>
                     </items>
@@ -143,9 +131,7 @@
                     <items>
                         <Pane fx:id="panePlayer2">
                             <children>
-                                <Button fx:id="buttonPlayer2" id="Deck" layoutX="10.0" layoutY="0.0" mnemonicParsing="false"
-                                        onAction="#drawPlayer2" onMouseClicked="#test2" prefHeight="148.0"
-                                        prefWidth="100.0" text="Deck"/>
+                                <Button id="Deck" fx:id="buttonPlayer2" layoutX="10.0" layoutY="0.0" mnemonicParsing="false" onAction="#drawPlayer2" onMouseClicked="#test2" prefHeight="148.0" prefWidth="100.0" text="Deck" />
                             </children>
                         </Pane>
                     </items>
@@ -154,34 +140,29 @@
                     <items>
                         <Pane>
                             <children>
-                                <Label fx:id="nomPlayer2" alignment="CENTER" layoutY="10.0" prefWidth="200.0"
-                                       text="Joueur 2" textAlignment="CENTER">
+                                <Label fx:id="nomPlayer2" alignment="CENTER" layoutY="10.0" prefWidth="200.0" text="Joueur 2" textAlignment="CENTER">
                                     <font>
-                                        <Font size="24.0"/>
+                                        <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="120.0"
-                                       text="HP :" textFill="RED">
+                                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="40.0" prefWidth="120.0" text="HP :" textFill="RED">
                                     <font>
-                                        <Font size="36.0"/>
+                                        <Font size="36.0" />
                                     </font>
                                 </Label>
-                                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="150.0"
-                                       text="Energy :" textFill="#0048ff">
+                                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="80.0" prefWidth="150.0" text="Energy :" textFill="#0048ff">
                                     <font>
-                                        <Font size="36.0"/>
+                                        <Font size="36.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="hpPlayer2" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0"
-                                       layoutY="40.0" text="20" textFill="RED">
+                                <Label fx:id="hpPlayer2" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" layoutY="40.0" text="20" textFill="RED">
                                     <font>
-                                        <Font size="36.0"/>
+                                        <Font size="36.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="energyPlayer2" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0"
-                                       layoutY="80.0" text="0" textFill="#0048ff">
+                                <Label fx:id="energyPlayer2" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="80.0" text="0" textFill="#0048ff">
                                     <font>
-                                        <Font size="36.0"/>
+                                        <Font size="36.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -190,5 +171,6 @@
                 </SplitPane>
             </children>
         </Pane>
+      <Button  fx:id="btn2" layoutX="895.0" layoutY="605.0" mnemonicParsing="false" text="ScoreBoard" />
     </children>
 </AnchorPane>

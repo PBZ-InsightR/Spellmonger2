@@ -52,9 +52,27 @@ public class Game extends Stage {
     private int pos5P2 = 0;
     private int xCarteMain1 = 0;
     private int xCarteMain2 = 0;
+
     public Game(SwitchScene application) {
         this.application = application;
     }
+
+    @FXML
+    public Button btn2;
+    public void next(){
+        btn2.setOnAction(event -> {
+        application.play.hide();
+            try {
+                application.startThird();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        });
+    }
+
+
+
 
     @FXML
     private Card drawPlayer1() {
