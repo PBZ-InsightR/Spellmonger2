@@ -53,8 +53,8 @@ public class JsonRead {
                     parser.next();
                     if (parser.getString() != null) {
                         login = parser.getString();
-                        System.out.print(login);
-                        System.out.print(" : ");
+//                        System.out.print(login);
+//                        System.out.print(" : ");
                         if ((cpt < tabLog.length) && (login != null)) {
                             tabLog[cpt] = login;
                             cpt++;
@@ -66,8 +66,8 @@ public class JsonRead {
                             parser.next();
                             if (parser.getString() != null) {
                                 mdp = parser.getString();
-                                System.out.print(mdp);
-                                System.out.print(" ------- ");
+//                                System.out.print(mdp);
+//                                System.out.print(" ------- ");
                                 if ((cpt2 < tabMdp.length) && (mdp != null)) {
                                     tabMdp[cpt2] = mdp;
                                     cpt2++;
@@ -84,11 +84,11 @@ public class JsonRead {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(int i = 0; i < tabMdp.length && i < tabLog.length; i++){
-            System.out.println(i +""+ tabMdp[i]);
-            System.out.println(i +""+ tabLog[i]);
-
-        }
+//        for(int i = 0; i < tabMdp.length && i < tabLog.length; i++){
+//            System.out.println(i +""+ tabMdp[i]);
+//            System.out.println(i +""+ tabLog[i]);
+//
+//        }
 
 
     }
