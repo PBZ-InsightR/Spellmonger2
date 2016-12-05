@@ -1,8 +1,5 @@
 package edu.insightr.spellmonger;
 
-/**
- * Created by Karim_Utilisateur on 01/11/2016.
- */
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,10 +25,14 @@ public class Log extends Stage {
     JsonRead reader = new JsonRead();
 
 
-    @FXML private Text actiontarget;
-    @FXML private PasswordField passwordPF;
-    @FXML private TextField usernameTF;
-    @FXML private Button connectBtn;
+    @FXML
+    private Text actiontarget;
+    @FXML
+    private PasswordField passwordPF;
+    @FXML
+    private TextField usernameTF;
+    @FXML
+    private Button connectBtn;
     @FXML
     public Button btn;
 
@@ -39,28 +40,28 @@ public class Log extends Stage {
         this.application = application;
     }
 
-    public void init(){
+    public void init() {
         btn.setOnAction(event -> {
 
-           String tab1[] = reader.tabLog;
-           String tab2[] = reader.tabMdp;
+            String tab1[] = reader.tabLog;
+            String tab2[] = reader.tabMdp;
 
-     for(int i = 0; i < tab1.length && i < tab2.length; i++){
-             try {
-                 if ((passwordPF.getText().equals(tab2[i])) && (usernameTF.getCharacters().toString().equals(tab1[i]))) {
-                     actiontarget.setText("Vous êtes connectés !!!");
-                     application.login.hide();
-                     application.startSecond();
-                 } else {
-                     actiontarget.setText("Identifiants erronés !!!");
-                 }
+            for (int i = 0; i < tab1.length && i < tab2.length; i++) {
+                try {
+                    if ((passwordPF.getText().equals(tab2[i])) && (usernameTF.getCharacters().toString().equals(tab1[i]))) {
+                        actiontarget.setText("Vous êtes connectés !!!");
+                        application.login.hide();
+                        application.startSecond();
+                    } else {
+                        actiontarget.setText("Identifiants erronés !!!");
+                    }
 
-                 //application.play.show();
-             } catch (Exception e) {
-                 e.printStackTrace();
-             }
+                    //application.play.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-     }
+            }
         });
     }
 

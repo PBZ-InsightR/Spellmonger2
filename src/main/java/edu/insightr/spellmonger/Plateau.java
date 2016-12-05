@@ -1,6 +1,7 @@
 package edu.insightr.spellmonger;
 
 import org.apache.log4j.Logger;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -71,17 +72,14 @@ public class Plateau {
         Scanner sc = new Scanner(System.in);
         int tailleMain = current.getMain().size();
         logger.info("Quelle carte jouer ?");
-        for (int i=0;i<tailleMain;i++)
-        {
+        for (int i = 0; i < tailleMain; i++) {
             logger.info(i + ". " + current.getMain().get(i).getName());
         }
         logger.info(current.getMain().size() + ". Passer son tour");
         int str = sc.nextInt();
-        if(str == current.getMain().size())
-        {
+        if (str == current.getMain().size()) {
             return carteChoisi;
-        }
-        else {
+        } else {
             if (current.getMain().get(str).getEnergyCost() > current.getEnergy()) {
                 logger.info("Impossible de jouer cette carte");
                 ChoixCarte();
@@ -145,176 +143,151 @@ public class Plateau {
 
     public void bataille(Card carteChoisi) {
 
-
-        Card currentCard = carteChoisi;
-        logger.info("\n");
-        logger.info("***** ROUND " + nbTours);
-        logger.info(current.toString() + " et " + opponent.toString());
-        logger.info("Le joueur " + current.getName() + " joue la carte " + currentCard.getName());
-        logger.info("Liste des créatures:");
-        for (Creature c : current.getListeCreature()) {
-            logger.info(c.getName());
-        }
-        if (current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
-            opponent.altererHP(currentCard.getDamage());
-            logger.info("les damages sont " + currentCard.getDamage());
-            if (currentCard instanceof Creature) {
-                Creature currentCreature = (Creature) currentCard;
-                //on ajoute la creature piochée à la liste de cartes du current player
-                current.getListeCreature().add(currentCreature);
-
+        if (!isThereAWinner()) {
+            Card currentCard = carteChoisi;
+            logger.info("\n");
+            logger.info("***** ROUND " + nbTours);
+            logger.info(current.toString() + " et " + opponent.toString());
+            logger.info("Le joueur " + current.getName() + " joue la carte " + currentCard.getName());
+            logger.info("Liste des créatures:");
+            for (Creature c : current.getListeCreature()) {
+                logger.info(c.getName());
             }
-            if (currentCard instanceof Ritual) {
-                if (currentCard.getName().equals("Blessing")) {
-                    current.altererHP(currentCard.getDamage());
-                } else {
-                    opponent.altererHP(currentCard.getDamage());
+            if (current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
+                opponent.altererHP(currentCard.getDamage());
+                logger.info("les damages sont " + currentCard.getDamage());
+                if (currentCard instanceof Creature) {
+                    Creature currentCreature = (Creature) currentCard;
+                    //on ajoute la creature piochée à la liste de cartes du current player
+                    current.getListeCreature().add(currentCreature);
+
+                }
+                if (currentCard instanceof Ritual) {
+                    if (currentCard.getName().equals("Blessing")) {
+                        current.altererHP(currentCard.getDamage());
+                    } else {
+                        opponent.altererHP(currentCard.getDamage());
+                    }
+
+                }
+            } else if (current.getListeCreature().isEmpty() && !opponent.getListeCreature().isEmpty()) {
+                if (currentCard instanceof Creature) {
+                    Creature currentCreature = (Creature) currentCard;
+                    //on ajoute la creature piochée a la liste de cartes du current player
+                    current.getListeCreature().add(currentCreature);
+                    opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(currentCard.getDamage());
+                    if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
+                        opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
+                    }
+                    logger.info("2");
+                }
+                if (currentCard instanceof Ritual) {
+                    if (currentCard.getName().equals("Blessing")) {
+                        current.altererHP(currentCard.getDamage());
+                    } else {
+                        opponent.altererHP(currentCard.getDamage());
+                    }
+
+                } else if (currentCard instanceof Enchantment) {
+                    Enchantment enchant = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
+                    current.removeEnergy(enchant.getEnergyCost());
                 }
 
-            }
-        } else if (current.getListeCreature().isEmpty() && !opponent.getListeCreature().isEmpty()) {
-            if (currentCard instanceof Creature) {
-                Creature currentCreature = (Creature) currentCard;
-                //on ajoute la creature piochée a la liste de cartes du current player
-                current.getListeCreature().add(currentCreature);
-                opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(currentCard.getDamage());
-                if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
-                    opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
-                }
-                logger.info("2");
-            }
-            if (currentCard instanceof Ritual) {
-                if (currentCard.getName().equals("Blessing")) {
-                    current.altererHP(currentCard.getDamage());
-                } else {
-                    opponent.altererHP(currentCard.getDamage());
-                }
+            } else if (!current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
+                int indexCreature = 0;
+                if (currentCard instanceof Ritual) {
+                    if (currentCard.getName().equals("Blessing")) {
+                        current.altererHP(currentCard.getDamage());
+                    } else {
+                        opponent.altererHP(currentCard.getDamage());
+                    }
 
-            } else if (currentCard instanceof Enchantment) {
-                Enchantment enchant = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
-                current.removeEnergy(enchant.getEnergyCost());
-            }
-
-        } else if (!current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
-            int indexCreature = 0;
-            if (currentCard instanceof Ritual) {
-                if (currentCard.getName().equals("Blessing")) {
-                    current.altererHP(currentCard.getDamage());
-                } else {
-                    opponent.altererHP(currentCard.getDamage());
+                } else if (currentCard instanceof Enchantment) {
+                    Enchantment enchant = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
+                    current.removeEnergy(enchant.getEnergyCost());
+                } else if (currentCard instanceof Creature) {
+                    Creature currentCreature = (Creature) currentCard;
+                    //on ajoute la creature piochée a la liste de cartes du current player
+                    current.getListeCreature().add(currentCreature);
                 }
-
-            } else if (currentCard instanceof Enchantment) {
-                Enchantment enchant = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
-                current.removeEnergy(enchant.getEnergyCost());
-            } else if (currentCard instanceof Creature) {
-                Creature currentCreature = (Creature) currentCard;
-                //on ajoute la creature piochée a la liste de cartes du current player
-                current.getListeCreature().add(currentCreature);
-            }
-            while (indexCreature < current.getListeCreature().size()) {
-                opponent.altererHP(current.getListeCreature().get(indexCreature).getDamage());
-                indexCreature++;
-            }
-        } else {
-            int indexCreature = 0;
-            if (currentCard instanceof Ritual) {
-                if (currentCard.getName().equals("Blessing")) {
-                    current.altererHP(currentCard.getDamage());
-                } else {
-                    opponent.altererHP(currentCard.getDamage());
-                }
-
-            } else if (currentCard instanceof Enchantment) {
-                Enchantment enchant = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
-                current.removeEnergy(enchant.getEnergyCost());
-            } else if (currentCard instanceof Creature) {
-                Creature currentCreature = (Creature) currentCard;
-                //on ajoute la creature piochée a la liste de cartes du current player
-                current.getListeCreature().add(currentCreature);
-            }
-            while (indexCreature < current.getListeCreature().size() && !opponent.getListeCreature().isEmpty()) {
-                opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(current.getListeCreature().get(indexCreature).getDamage());
-                if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
-                    opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
-                }
-                indexCreature++;
-            }
-            if (opponent.getListeCreature().isEmpty() && indexCreature < current.getListeCreature().size() - 1) {
-                while (indexCreature < current.getListeCreature().size() - 1) {
+                while (indexCreature < current.getListeCreature().size()) {
                     opponent.altererHP(current.getListeCreature().get(indexCreature).getDamage());
                     indexCreature++;
                 }
+            } else {
+                int indexCreature = 0;
+                if (currentCard instanceof Ritual) {
+                    if (currentCard.getName().equals("Blessing")) {
+                        current.altererHP(currentCard.getDamage());
+                    } else {
+                        opponent.altererHP(currentCard.getDamage());
+                    }
+
+                } else if (currentCard instanceof Enchantment) {
+                    Enchantment enchant = new Enchantment(Enchantments.VAULT_OVERCLOCKING);
+                    current.removeEnergy(enchant.getEnergyCost());
+                } else if (currentCard instanceof Creature) {
+                    Creature currentCreature = (Creature) currentCard;
+                    //on ajoute la creature piochée a la liste de cartes du current player
+                    current.getListeCreature().add(currentCreature);
+                }
+                while (indexCreature < current.getListeCreature().size() && !opponent.getListeCreature().isEmpty()) {
+                    opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(current.getListeCreature().get(indexCreature).getDamage());
+                    if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
+                        opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
+                    }
+                    indexCreature++;
+                }
+                if (opponent.getListeCreature().isEmpty() && indexCreature < current.getListeCreature().size() - 1) {
+                    while (indexCreature < current.getListeCreature().size() - 1) {
+                        opponent.altererHP(current.getListeCreature().get(indexCreature).getDamage());
+                        indexCreature++;
+                    }
+                }
             }
+            current.getPioche().retirerCard(currentCard);
+            current.getFausse().ajouterCard(currentCard);
+
+            changeCurrent();
+            ajouterTour();
         }
-        current.getPioche().retirerCard(currentCard);
-        current.getFausse().ajouterCard(currentCard);
-
-
-        changeCurrent();
-        ajouterTour();
-
-
     }
 
     public void bataille() {
-
-        logger.info("\n");
-        logger.info("***** ROUND " + nbTours);
-        logger.info(current.toString() + " et " + opponent.toString());
-        logger.info("Liste des créatures:");
-        for (Creature c : current.getListeCreature()) {
-            logger.info(c.getName());
-        }
-        if (!current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
-             for (Creature c : current.getListeCreature()) {
-                 opponent.altererHP(c.getDamage());
-             }
-        }
-        else if (!current.getListeCreature().isEmpty() && !opponent.getListeCreature().isEmpty()) {
-            int indexCreature = 0;
-            while (indexCreature < current.getListeCreature().size() && !opponent.getListeCreature().isEmpty()) {
-                opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(current.getListeCreature().get(indexCreature).getDamage());
-                if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
-                    opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
-                }
-                indexCreature++;
+        if (!isThereAWinner()) {
+            logger.info("\n");
+            logger.info("***** ROUND " + nbTours);
+            logger.info(current.toString() + " et " + opponent.toString());
+            logger.info("Liste des créatures:");
+            for (Creature c : current.getListeCreature()) {
+                logger.info(c.getName());
             }
-            if (opponent.getListeCreature().isEmpty() && indexCreature < current.getListeCreature().size() - 1) {
-                while (indexCreature < current.getListeCreature().size() - 1) {
-                    opponent.altererHP(current.getListeCreature().get(indexCreature).getDamage());
+            if (!current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
+                for (Creature c : current.getListeCreature()) {
+                    opponent.altererHP(c.getDamage());
+                }
+            } else if (!current.getListeCreature().isEmpty() && !opponent.getListeCreature().isEmpty()) {
+                int indexCreature = 0;
+                while (indexCreature < current.getListeCreature().size() && !opponent.getListeCreature().isEmpty()) {
+                    opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(current.getListeCreature().get(indexCreature).getDamage());
+                    if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
+                        opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
+                    }
                     indexCreature++;
                 }
+                if (opponent.getListeCreature().isEmpty() && indexCreature < current.getListeCreature().size() - 1) {
+                    while (indexCreature < current.getListeCreature().size() - 1) {
+                        opponent.altererHP(current.getListeCreature().get(indexCreature).getDamage());
+                        indexCreature++;
+                    }
+                }
             }
         }
     }
 
-    public void FinTour()
-    {
+    public void FinTour() {
         changeCurrent();
         ajouterTour();
-    }
-
-    public void Jeu() {
-
-        while(!isThereAWinner()) {
-            if (nbTours == 1 || nbTours == 2) {
-                InitMain();
-            }
-            current.addEnergy();
-            logger.info(current.getName() + " à " + current.getEnergy() + " énergie");
-            Pioche();
-            Card carteChoisi = ChoixCarte();
-            if (carteChoisi.getName()==("NONE")) {
-                bataille();
-            } else {
-                bataille(carteChoisi);
-            }
-        }
-        logger.info("\n");
-        logger.info("******************************");
-        logger.info("THE WINNER IS " + getWinner() + " !!!");
-        logger.info("******************************");
     }
 
 }

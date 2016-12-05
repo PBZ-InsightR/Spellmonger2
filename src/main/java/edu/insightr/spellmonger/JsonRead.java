@@ -17,16 +17,13 @@ import javax.json.stream.JsonParser;
 
 import static org.apache.log4j.helpers.Loader.getResource;
 
-
-/**
- * Created by Karim_Utilisateur on 10/11/2016.
- */
 public class JsonRead {
 
     String login, mdp;
     String[] tabLog;
     String[] tabMdp;
-    JsonRead(){
+
+    JsonRead() {
         tabLog = new String[3];
         tabMdp = new String[3];
         try {
@@ -35,33 +32,34 @@ public class JsonRead {
             e.printStackTrace();
         }
     }
+
     @SuppressWarnings("unchecked")
     public void Read() throws ParseException {
         int cpt = 0;
         int cpt2 = 0;
-         URL url = getResource("participants.json");
+        URL url = getResource("participants.json");
         Object obj = null;
         try {
             try (InputStream is = url.openStream();
-                 JsonParser parser = Json.createParser(is)){
+                 JsonParser parser = Json.createParser(is)) {
                 while (parser.hasNext()) {
 
                     JsonParser.Event e = parser.next();
                     if (e == JsonParser.Event.KEY_NAME) {
 
-                if((parser.getString().equals("Login"))) {
-                    parser.next();
-                    if (parser.getString() != null) {
-                        login = parser.getString();
+                        if ((parser.getString().equals("Login"))) {
+                            parser.next();
+                            if (parser.getString() != null) {
+                                login = parser.getString();
 //                        System.out.print(login);
 //                        System.out.print(" : ");
-                        if ((cpt < tabLog.length) && (login != null)) {
-                            tabLog[cpt] = login;
-                            cpt++;
-                        }
+                                if ((cpt < tabLog.length) && (login != null)) {
+                                    tabLog[cpt] = login;
+                                    cpt++;
+                                }
 
-                    }
-                }
+                            }
+                        }
                         if ((parser.getString().equals("Mdp"))) {
                             parser.next();
                             if (parser.getString() != null) {
@@ -92,6 +90,7 @@ public class JsonRead {
 
 
     }
+
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws FileNotFoundException {
         JsonRead reader = new JsonRead();
@@ -100,7 +99,6 @@ public class JsonRead {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
 
 
     }

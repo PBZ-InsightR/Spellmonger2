@@ -28,8 +28,8 @@ public class Deck {
         cardPool = new ArrayList<>(numberCards);
     }
 
-    public Deck (List<Card> cardPool) {
-        this.cardPool=cardPool;
+    public Deck(List<Card> cardPool) {
+        this.cardPool = cardPool;
     }
 
     public List<Card> getCardPool() {
@@ -42,32 +42,32 @@ public class Deck {
         List<Card> temp = new ArrayList<>(this.nbCards);
 
         //Ajout Creatures
-        for(int i=0;i<nbEagle;i++){
+        for (int i = 0; i < nbEagle; i++) {
             temp.add(new Creature(Creatures.EAGLE));
         }
-        for(int i=0;i<nbFox;i++){
+        for (int i = 0; i < nbFox; i++) {
             temp.add(new Creature(Creatures.FOX));
         }
-        for(int i=0;i<nbWolf;i++){
+        for (int i = 0; i < nbWolf; i++) {
             temp.add(new Creature(Creatures.WOLF));
         }
-        for(int i=0;i<nbBear;i++){
+        for (int i = 0; i < nbBear; i++) {
             temp.add(new Creature(Creatures.BEAR));
         }
 
         //Ajout Rituels
-        for(int i=0;i<nbCurse;i++){
+        for (int i = 0; i < nbCurse; i++) {
             temp.add(new Ritual(Rituals.CURSE));
         }
-        for(int i=0;i<nbEnergyDrain;i++){
+        for (int i = 0; i < nbEnergyDrain; i++) {
             temp.add(new Ritual(Rituals.ENERGYDRAIN));
         }
-        for(int i=0;i<nbBlessing;i++){
+        for (int i = 0; i < nbBlessing; i++) {
             temp.add(new Ritual(Rituals.BLESSING));
         }
 
         //Ajout Enchantment
-        for(int i=0;i<nbEnchantment;i++){
+        for (int i = 0; i < nbEnchantment; i++) {
             temp.add(new Enchantment(Enchantments.VAULT_OVERCLOCKING));
         }
 
@@ -78,8 +78,8 @@ public class Deck {
     private void mixDeck(List<Card> temp) {
         this.cardPool.removeAll(this.cardPool);
         int i = 0;
-        while (i < 40){
-            this.nbRand = rand.nextInt(40-i);
+        while (i < 40) {
+            this.nbRand = rand.nextInt(40 - i);
             this.cardPool.add(temp.get(this.nbRand));
             temp.remove(this.nbRand);
             i++;

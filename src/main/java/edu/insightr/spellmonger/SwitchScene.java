@@ -16,11 +16,11 @@ public class SwitchScene extends Application {
     Stage score;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         startFirst();
     }
 
-    public void startFirst() throws Exception{
+    public void startFirst() throws Exception {
         final URL url = getResource("Log.fxml");
         final FXMLLoader fxmlLoader = new FXMLLoader(url);
         Log controller = new Log(this);
@@ -34,7 +34,7 @@ public class SwitchScene extends Application {
 //        System.out.println("ca marche");
     }
 
-    public void startSecond() throws Exception{
+    public void startSecond() throws Exception {
         final URL url = getResource("Gamefxml.fxml");
         final FXMLLoader fxmlLoader = new FXMLLoader(url);
         Game controller = new Game(this);
@@ -48,7 +48,8 @@ public class SwitchScene extends Application {
         play.show();
         controller.next();
     }
-    public void startThird() throws Exception{
+
+    public void startThird() throws Exception {
         final URL url = getResource("Scoreboard.fxml");
         final FXMLLoader fxmlLoader = new FXMLLoader(url);
         Scoreboard controller = new Scoreboard(this);
@@ -63,6 +64,7 @@ public class SwitchScene extends Application {
         controller.end();
 
     }
+
     public static void main(String[] args) {
         launch(args);
     }

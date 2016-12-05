@@ -14,7 +14,7 @@ public class Card {
         this.urlPicture = "carte.jpg";
     }
 
-    public Card(String name,int energyCost,int damage,String urlPicture) {
+    public Card(String name, int energyCost, int damage, String urlPicture) {
         this.name = name;
         this.energyCost = energyCost;
         this.damage = damage;
@@ -37,5 +37,7 @@ public class Card {
         return this.energyCost;
     }
 
-    public String getUrlPicture() { return this.urlPicture; }
+    public String getUrlPicture() {
+        return this.urlPicture;
+    }
 }

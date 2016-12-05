@@ -8,7 +8,7 @@ public enum Enchantments {
     public int energy;
     public String urlPicture;
 
-    Enchantments(  int damage, int energyCost, int energy, String urlPicture){
+    Enchantments(int damage, int energyCost, int energy, String urlPicture) {
         this.damage = damage;
         this.energyCost = energyCost;
         this.energy = energy;

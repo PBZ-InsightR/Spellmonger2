@@ -59,27 +59,22 @@ public class Game extends Stage {
 
     @FXML
     public Button btn2;
-    public void next(){
+
+    public void next() {
         btn2.setOnAction(event -> {
-        application.play.hide();
+            application.play.hide();
             try {
                 application.startThird();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         });
     }
-
-
-
 
     @FXML
     private Card drawPlayer1() {
         Card carteChoosen = deck1.drawCard();
         nomPlayer1.setText("Alice");
-        //plateau.getCurrent().addEnergy();
-        //energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         buttonPlayer1.setDisable(true);
         return carteChoosen;
     }
@@ -88,8 +83,6 @@ public class Game extends Stage {
     private Card drawPlayer2() {
         Card carteChoosen = deck2.drawCard();
         nomPlayer2.setText("Bob");
-        //plateau.getCurrent().addEnergy();
-        //energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         buttonPlayer2.setDisable(true);
         return carteChoosen;
     }
@@ -118,6 +111,8 @@ public class Game extends Stage {
         rectP1.setStroke(Color.BLACK);
         rectP1.setStrokeType(StrokeType.INSIDE);
         Card carte = drawPlayer1();
+        plateau.getCurrent().addEnergy();
+        energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
         panePlayer1.getChildren().add(rectP1);
         rectP1.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -130,6 +125,8 @@ public class Game extends Stage {
                         rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
                         Creature currentCreature = (Creature) carte;
                         plateau.getCurrent().getListeCreature().add(currentCreature);
+                    } else {
+                        rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
                     }
                     posX = rectP1.getX();
                     rectP1.setWidth(0);
@@ -177,6 +174,8 @@ public class Game extends Stage {
         rectP2.setStroke(Color.BLACK);
         rectP2.setStrokeType(StrokeType.INSIDE);
         Card carte = drawPlayer2();
+        plateau.getCurrent().addEnergy();
+        energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
         panePlayer2.getChildren().add(rectP2);
         rectP2.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -189,6 +188,8 @@ public class Game extends Stage {
                         rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
                         Creature currentCreature = (Creature) carte;
                         plateau.getCurrent().getListeCreature().add(currentCreature);
+                    } else {
+                        rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
                     }
                     posX2 = rectP2.getX();
                     rectP2.setWidth(0);
@@ -214,16 +215,6 @@ public class Game extends Stage {
     }
 
     @FXML
-    public void playCard() {
-        //plateau.Jeu();
-        hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
-        energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
-        nomPlayer2.setText("Bob");
-        buttonPlayer1.setDisable(false);
-        buttonPlayer2.setDisable(true);
-    }
-
-    @FXML
     public void finishTurn1() {
         buttonFinish1.setVisible(false);
         buttonBattle1.setVisible(false);
@@ -233,8 +224,6 @@ public class Game extends Stage {
         buttonBattle2.setVisible(true);
         buttonPlayer2.setDisable(false);
         plateau.FinTour();
-        plateau.getOpponent().addEnergy();
-        energyPlayer2.setText(Integer.toString(plateau.getOpponent().getEnergy()));
     }
 
     @FXML
@@ -247,8 +236,6 @@ public class Game extends Stage {
         buttonBattle2.setVisible(false);
         buttonPlayer2.setDisable(true);
         plateau.FinTour();
-        plateau.getOpponent().addEnergy();
-        energyPlayer1.setText(Integer.toString(plateau.getOpponent().getEnergy()));
     }
 
     @FXML
