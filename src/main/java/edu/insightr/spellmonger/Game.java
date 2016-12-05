@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -52,6 +53,7 @@ public class Game extends Stage {
     private int pos5P2 = 0;
     private int xCarteMain1 = 0;
     private int xCarteMain2 = 0;
+    private Creature currentCreature;
 
     public Game(SwitchScene application) {
         this.application = application;
@@ -120,10 +122,10 @@ public class Game extends Stage {
             //Lorsqu'on clique sur la 1ère carte de la main du joueur 1, l'ajoute au plateau
             public void handle(MouseEvent me) {
                 Rectangle rect2P1 = new Rectangle(xRectPlateau1, 0, 100, 148);
-                if (xRectPlateau1 < 800) {
+                if (xRectPlateau1 < 800 &&(plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
                     if (carte instanceof Creature) {
                         rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
-                        Creature currentCreature = (Creature) carte;
+                        currentCreature = (Creature) carte;
                         plateau.getCurrent().getListeCreature().add(currentCreature);
                     } else {
                         rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
@@ -178,15 +180,19 @@ public class Game extends Stage {
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
         panePlayer2.getChildren().add(rectP2);
+        //if (plateau.getCurrent().getEnergy() < carte.getEnergyCost()){
+            //rectP2.setOpacity(0.5);
+        //}
         rectP2.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             //Lorsqu'on clique sur la 1ère carte de la main du joueur 1, l'ajoute au plateau
             public void handle(MouseEvent me) {
                 Rectangle rect2P2 = new Rectangle(xRectPlateau2, 0, 100, 148);
-                if (xRectPlateau2 < 800) {
+                if (xRectPlateau2 < 800 && (plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
+                    //rectP2.setOpacity(1);
                     if (carte instanceof Creature) {
                         rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
-                        Creature currentCreature = (Creature) carte;
+                        currentCreature = (Creature) carte;
                         plateau.getCurrent().getListeCreature().add(currentCreature);
                     } else {
                         rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));

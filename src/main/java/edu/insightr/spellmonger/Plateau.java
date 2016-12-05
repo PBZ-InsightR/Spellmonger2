@@ -163,7 +163,7 @@ public class Plateau {
 
                 }
                 if (currentCard instanceof Ritual) {
-                    if (currentCard.getName().equals("Blessing")) {
+                    if (currentCard.equals(Rituals.BLESSING)) {
                         current.altererHP(currentCard.getDamage());
                     } else {
                         opponent.altererHP(currentCard.getDamage());
@@ -179,10 +179,9 @@ public class Plateau {
                     if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
                         opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
                     }
-                    logger.info("2");
                 }
                 if (currentCard instanceof Ritual) {
-                    if (currentCard.getName().equals("Blessing")) {
+                    if (currentCard.equals(Rituals.BLESSING)) {
                         current.altererHP(currentCard.getDamage());
                     } else {
                         opponent.altererHP(currentCard.getDamage());
@@ -196,7 +195,7 @@ public class Plateau {
             } else if (!current.getListeCreature().isEmpty() && opponent.getListeCreature().isEmpty()) {
                 int indexCreature = 0;
                 if (currentCard instanceof Ritual) {
-                    if (currentCard.getName().equals("Blessing")) {
+                    if (currentCard.equals(Rituals.BLESSING)) {
                         current.altererHP(currentCard.getDamage());
                     } else {
                         opponent.altererHP(currentCard.getDamage());
@@ -217,7 +216,7 @@ public class Plateau {
             } else {
                 int indexCreature = 0;
                 if (currentCard instanceof Ritual) {
-                    if (currentCard.getName().equals("Blessing")) {
+                    if (currentCard.equals(Rituals.BLESSING)) {
                         current.altererHP(currentCard.getDamage());
                     } else {
                         opponent.altererHP(currentCard.getDamage());
