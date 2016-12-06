@@ -90,7 +90,7 @@ public class Game extends Stage {
     }
 
     @FXML
-    //lorsque l'on clique sur le bouton deck, place une carte dans la main du joueur1
+    //lorsque l'on clique sur le bouton deck, place une carte dans la main du joueur1 
     public void test1() {
         // TODO : prefer CSS for decoration
         if (pos1P1 == 0) {
