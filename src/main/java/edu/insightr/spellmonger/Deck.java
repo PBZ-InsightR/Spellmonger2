@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Deck {
     private List<Card> cardPool;
+    private List<Card> discard;
     private static Random rand;
     private int nbRand;
     private int nbCards;
@@ -26,6 +27,7 @@ public class Deck {
         nbRand = 0;
         this.nbCards = numberCards;
         cardPool = new ArrayList<>(numberCards);
+        discard = new ArrayList<>(numberCards);
     }
 
     public Deck(List<Card> cardPool) {
@@ -84,6 +86,11 @@ public class Deck {
             temp.remove(this.nbRand);
             i++;
         }
+    }
+
+    public void ajouterDiscard(Card carte)
+    {
+        discard.add(carte);
     }
 
     public void ajouterCard(Card carte) {

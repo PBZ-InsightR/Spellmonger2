@@ -7,7 +7,7 @@ public class Enchantment extends Card {
     private int energy;
 
     public Enchantment(Enchantments init) {
-        super(init.name(), init.energyCost, init.damage, init.urlPicture);
+        super(init.name(), init.energyCost, init.damage, init.urlPicture,init.type);
         this.energy = init.energy;
     }
 

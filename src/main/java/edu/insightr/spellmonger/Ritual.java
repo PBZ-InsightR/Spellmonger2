@@ -4,7 +4,7 @@ public class Ritual extends Card {
     private int gain;
 
     public Ritual(Rituals init) {
-        super(init.name(), init.energyCost, init.damage, init.urlPicture);
+        super(init.name(), init.energyCost, init.damage, init.urlPicture, init.type);
         this.gain = init.gain;
     }
 

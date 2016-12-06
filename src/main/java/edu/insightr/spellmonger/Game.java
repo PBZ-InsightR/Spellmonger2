@@ -121,22 +121,43 @@ public class Game extends Stage {
             @Override
             //Lorsqu'on clique sur la 1ère carte de la main du joueur 1, l'ajoute au plateau
             public void handle(MouseEvent me) {
-                Rectangle rect2P1 = new Rectangle(xRectPlateau1, 0, 100, 148);
-                if (xRectPlateau1 < 800 &&(plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
-                    plateau.getCurrent().removeEnergy(carte.getEnergyCost());
-                    energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
-                    if (carte instanceof Creature) {
-                        rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
-                        currentCreature = (Creature) carte;
-                        plateau.getCurrent().getListeCreature().add(currentCreature);
-                    } else {
-                        rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                if(carte.getType()=="Creature")
+                {
+                    Rectangle rect2P1 = new Rectangle(xRectPlateau1, 0, 100, 148);
+                    if (xRectPlateau1 < 800 &&(plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
+                        if (carte instanceof Creature) {
+                            rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                            currentCreature = (Creature) carte;
+                            plateau.getCurrent().getListeCreature().add(currentCreature);
+                        } else {
+                            rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                        }
+                        posX = rectP1.getX();
+                        rectP1.setWidth(0);
+                        rectP1.setHeight(0);
+                        panePlateau1.getChildren().add(rect2P1);
+                        xRectPlateau1 += 173;
+                        if (posX == 200) {
+                            pos1P1 = 0;
+                        } else if (posX == 325) {
+                            pos2P1 = 0;
+                        } else if (posX == 450) {
+                            pos3P1 = 0;
+                        } else if (posX == 575) {
+                            pos4P1 = 0;
+                        } else if (posX == 700) {
+                            pos5P1 = 0;
+                        }
                     }
+                    //plateau.bataille(carte);
+                    //hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+                }
+                else if(carte.getType()=="Ritual" &&(plateau.getCurrent().getEnergy() >= carte.getEnergyCost()))
+                {
+                    //deck1.ajouterDiscard(carte);
                     posX = rectP1.getX();
                     rectP1.setWidth(0);
                     rectP1.setHeight(0);
-                    panePlateau1.getChildren().add(rect2P1);
-                    xRectPlateau1 += 173;
                     if (posX == 200) {
                         pos1P1 = 0;
                     } else if (posX == 325) {
@@ -149,8 +170,6 @@ public class Game extends Stage {
                         pos5P1 = 0;
                     }
                 }
-                //plateau.bataille(carte);
-                //hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
             }
         });
     }
@@ -189,37 +208,38 @@ public class Game extends Stage {
             @Override
             //Lorsqu'on clique sur la 1ère carte de la main du joueur 1, l'ajoute au plateau
             public void handle(MouseEvent me) {
-                Rectangle rect2P2 = new Rectangle(xRectPlateau2, 0, 100, 148);
-                if (xRectPlateau2 < 800 && (plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
-                    plateau.getCurrent().removeEnergy(carte.getEnergyCost());
-                    energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
-                    //rectP2.setOpacity(1);
-                    if (carte instanceof Creature) {
-                        rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
-                        currentCreature = (Creature) carte;
-                        plateau.getCurrent().getListeCreature().add(currentCreature);
-                    } else {
-                        rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                if(carte.getType()=="Creature")
+                {
+                    Rectangle rect2P2 = new Rectangle(xRectPlateau2, 0, 100, 148);
+                    if (xRectPlateau2 < 800 && (plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
+                        //rectP2.setOpacity(1);
+                        if (carte instanceof Creature) {
+                            rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                            currentCreature = (Creature) carte;
+                            plateau.getCurrent().getListeCreature().add(currentCreature);
+                        } else {
+                            rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                        }
+                        posX2 = rectP2.getX();
+                        rectP2.setWidth(0);
+                        rectP2.setHeight(0);
+                        panePlateau2.getChildren().add(rect2P2);
+                        xRectPlateau2 += 173;
+                        if (posX2 == 200) {
+                            pos1P2 = 0;
+                        } else if (posX2 == 325) {
+                            pos2P2 = 0;
+                        } else if (posX2 == 450) {
+                            pos3P2 = 0;
+                        } else if (posX2 == 575) {
+                            pos4P2 = 0;
+                        } else if (posX2 == 700) {
+                            pos5P2 = 0;
+                        }
                     }
-                    posX2 = rectP2.getX();
-                    rectP2.setWidth(0);
-                    rectP2.setHeight(0);
-                    panePlateau2.getChildren().add(rect2P2);
-                    xRectPlateau2 += 173;
-                    if (posX2 == 200) {
-                        pos1P2 = 0;
-                    } else if (posX2 == 325) {
-                        pos2P2 = 0;
-                    } else if (posX2 == 450) {
-                        pos3P2 = 0;
-                    } else if (posX2 == 575) {
-                        pos4P2 = 0;
-                    } else if (posX2 == 700) {
-                        pos5P2 = 0;
-                    }
+                    // plateau.bataille(carte);
+                    //hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
                 }
-                // plateau.bataille(carte);
-                //hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
             }
         });
     }

@@ -11,6 +11,7 @@ public enum Creatures {
     public int damage;
     public String capacity;
     public String urlPicture;
+    public String type;
 
     Creatures(int PV, int energyCost, int damage, String capacity, String urlPicture) {
         this.PV = PV;
@@ -18,5 +19,6 @@ public enum Creatures {
         this.damage = damage;
         this.capacity = capacity;
         this.urlPicture = urlPicture;
+        this.type="Creature";
     }
 }
