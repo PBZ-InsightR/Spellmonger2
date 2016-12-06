@@ -9,13 +9,11 @@ public enum Rituals {
     public int damage;
     public int gain;
     public String urlPicture;
-    public String type;
 
     Rituals(int energyCost, int damage, int gain, String urlPicture) {
         this.energyCost = energyCost;
         this.damage = damage;
         this.gain = gain;
         this.urlPicture = urlPicture;
-        this.type="Ritual";
     }
 }

@@ -7,13 +7,11 @@ public enum Enchantments {
     public int energyCost;
     public int energy;
     public String urlPicture;
-    public String type;
 
     Enchantments(int damage, int energyCost, int energy, String urlPicture) {
         this.damage = damage;
         this.energyCost = energyCost;
         this.energy = energy;
         this.urlPicture = urlPicture;
-        this.type="Enchantement";
     }
 }

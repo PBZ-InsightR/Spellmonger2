@@ -30,8 +30,9 @@ public class Deck {
         discard = new ArrayList<>(numberCards);
     }
 
-    public Deck(List<Card> cardPool) {
+    public Deck(List<Card> cardPool, List<Card> discard) {
         this.cardPool = cardPool;
+        this.discard=discard;
     }
 
     public List<Card> getCardPool() {

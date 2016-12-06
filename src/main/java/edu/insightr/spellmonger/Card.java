@@ -5,7 +5,6 @@ public class Card {
     private int energyCost;
     private int damage;
     private String urlPicture;
-    private String type;
 
 
     public Card() {
@@ -13,15 +12,13 @@ public class Card {
         this.energyCost = 0;
         this.damage = 0;
         this.urlPicture = "carte.jpg";
-        this.type="NONE";
     }
 
-    public Card(String name, int energyCost, int damage, String urlPicture, String type) {
+    public Card(String name, int energyCost, int damage, String urlPicture) {
         this.name = name;
         this.energyCost = energyCost;
         this.damage = damage;
         this.urlPicture = urlPicture;
-        this.type=type;
     }
 
     public String toString() {
@@ -44,7 +41,4 @@ public class Card {
         return this.urlPicture;
     }
 
-    public String getType() {
-        return this.type;
-    }
 }
