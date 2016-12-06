@@ -1,8 +1,10 @@
 package edu.insightr.spellmonger;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.List;
+import java.util.*;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -13,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
@@ -31,14 +34,14 @@ public class Game extends Stage {
     private Button buttonPlayer1, buttonPlayer2, buttonPasserTour, buttonFinish1, buttonFinish2, buttonBattle1, buttonBattle2;
     @FXML
     private Pane panePlayer1, panePlateau1, panePlayer2, panePlateau2;
+    @FXML
+    private ImageView Card1P1, Card2P1, Card3P1, Card4P1, CimetiereP1, Card1P2, Card2P2, Card3P2, Card4P2, CimetiereP2;
     private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
     private Deck deck = new Deck(40);
     private List<Card> jeu1 = deck.initDeck();
     private List<Card> jeu2 = deck.initDeck();
     private Deck deck1 = new Deck(jeu1);
     private Deck deck2 = new Deck(jeu2);
-    private int xRectPlateau1 = 265;
-    private int xRectPlateau2 = 265;
     private double posX;
     private double posX2;
     private int pos1P1 = 0;
@@ -121,22 +124,39 @@ public class Game extends Stage {
             @Override
             //Lorsqu'on clique sur la 1ère carte de la main du joueur 1, l'ajoute au plateau
             public void handle(MouseEvent me) {
-                Rectangle rect2P1 = new Rectangle(xRectPlateau1, 0, 100, 148);
-                if (xRectPlateau1 < 800 &&(plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
+                if (plateau.getCurrent().getEnergy() >= carte.getEnergyCost()) {
                     plateau.getCurrent().removeEnergy(carte.getEnergyCost());
                     energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
                     if (carte instanceof Creature) {
-                        rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                        switch (plateau.getCurrent().getListeCreature().size()) {
+                            case 0:
+                                Card1P1.setImage(new Image(carte.getUrlPicture()));
+                                Card1P1.setOpacity(1);
+                                break;
+                            case 1:
+                                Card2P1.setImage(new Image(carte.getUrlPicture()));
+                                Card2P1.setOpacity(1);
+                                break;
+                            case 2:
+                                Card3P1.setImage(new Image(carte.getUrlPicture()));
+                                Card3P1.setOpacity(1);
+                                break;
+                            case 3:
+                                Card4P1.setImage(new Image(carte.getUrlPicture()));
+                                Card4P1.setOpacity(1);
+                                break;
+                            default:
+                                break;
+                        }
                         currentCreature = (Creature) carte;
                         plateau.getCurrent().getListeCreature().add(currentCreature);
+                        buttonBattle1.setDisable(false);
                     } else {
-                        rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                        CimetiereP1.setImage(new Image(carte.getUrlPicture()));
                     }
-                    posX = rectP1.getX();
                     rectP1.setWidth(0);
                     rectP1.setHeight(0);
-                    panePlateau1.getChildren().add(rect2P1);
-                    xRectPlateau1 += 173;
+                    posX = rectP1.getX();
                     if (posX == 200) {
                         pos1P1 = 0;
                     } else if (posX == 325) {
@@ -149,8 +169,6 @@ public class Game extends Stage {
                         pos5P1 = 0;
                     }
                 }
-                //plateau.bataille(carte);
-                //hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
             }
         });
     }
@@ -182,30 +200,43 @@ public class Game extends Stage {
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
         panePlayer2.getChildren().add(rectP2);
-        //if (plateau.getCurrent().getEnergy() < carte.getEnergyCost()){
-            //rectP2.setOpacity(0.5);
-        //}
         rectP2.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             //Lorsqu'on clique sur la 1ère carte de la main du joueur 1, l'ajoute au plateau
             public void handle(MouseEvent me) {
-                Rectangle rect2P2 = new Rectangle(xRectPlateau2, 0, 100, 148);
-                if (xRectPlateau2 < 800 && (plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
+                if (plateau.getCurrent().getEnergy() >= carte.getEnergyCost()) {
                     plateau.getCurrent().removeEnergy(carte.getEnergyCost());
                     energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
-                    //rectP2.setOpacity(1);
                     if (carte instanceof Creature) {
-                        rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                        switch (plateau.getCurrent().getListeCreature().size()) {
+                            case 0:
+                                Card1P2.setImage(new Image(carte.getUrlPicture()));
+                                Card1P2.setOpacity(1);
+                                break;
+                            case 1:
+                                Card2P2.setImage(new Image(carte.getUrlPicture()));
+                                Card2P2.setOpacity(1);
+                                break;
+                            case 2:
+                                Card3P2.setImage(new Image(carte.getUrlPicture()));
+                                Card3P2.setOpacity(1);
+                                break;
+                            case 3:
+                                Card4P2.setImage(new Image(carte.getUrlPicture()));
+                                Card4P2.setOpacity(1);
+                                break;
+                            default:
+                                break;
+                        }
                         currentCreature = (Creature) carte;
                         plateau.getCurrent().getListeCreature().add(currentCreature);
+                        buttonBattle2.setDisable(false);
                     } else {
-                        rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
+                        CimetiereP2.setImage(new Image(carte.getUrlPicture()));
                     }
                     posX2 = rectP2.getX();
                     rectP2.setWidth(0);
                     rectP2.setHeight(0);
-                    panePlateau2.getChildren().add(rect2P2);
-                    xRectPlateau2 += 173;
                     if (posX2 == 200) {
                         pos1P2 = 0;
                     } else if (posX2 == 325) {
@@ -218,47 +249,155 @@ public class Game extends Stage {
                         pos5P2 = 0;
                     }
                 }
-                // plateau.bataille(carte);
-                //hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
             }
+            // plateau.bataille(carte);
+            //hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         });
     }
 
     @FXML
     public void finishTurn1() {
+        // Make button player 1 disable
+        buttonFinish1.setDisable(true);
+        buttonBattle1.setDisable(true);
+        buttonPlayer1.setDisable(true);
+        // Make button player 1 not visable
         buttonFinish1.setVisible(false);
         buttonBattle1.setVisible(false);
-        buttonBattle2.setDisable(false);
-        buttonPlayer1.setDisable(true);
+
+
+        // Make button player 2 not Disable
+        if(plateau.getOpponent().getListeCreature().size() > 0)buttonBattle2.setDisable(false);
+        buttonFinish2.setDisable(false);
+        buttonPlayer2.setDisable(false);
+        // Make button player 2 visable
         buttonFinish2.setVisible(true);
         buttonBattle2.setVisible(true);
-        buttonPlayer2.setDisable(false);
+
         plateau.FinTour();
     }
 
     @FXML
     public void finishTurn2() {
-        buttonFinish1.setVisible(true);
-        buttonBattle1.setVisible(true);
-        buttonBattle1.setDisable(false);
-        buttonPlayer1.setDisable(false);
+        // Make button player 2 disable
+        buttonFinish2.setDisable(true);
+        buttonBattle2.setDisable(true);
+        buttonPlayer2.setDisable(true);
+        // Make button player 2 not visable
         buttonFinish2.setVisible(false);
         buttonBattle2.setVisible(false);
-        buttonPlayer2.setDisable(true);
+
+        // Make button player 1 not Disable
+        if(plateau.getOpponent().getListeCreature().size() > 0)buttonBattle1.setDisable(false);
+        buttonFinish1.setDisable(false);
+        buttonPlayer1.setDisable(false);
+        // Make button player 1 visable
+        buttonFinish1.setVisible(true);
+        buttonBattle1.setVisible(true);
+
         plateau.FinTour();
     }
 
     @FXML
     public void Battle1() {
+        int nbCardOpponent = plateau.getOpponent().getListeCreature().size();
         plateau.bataille();
+
         hpPlayer2.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
         buttonBattle1.setDisable(true);
+        updateFieldCard1(nbCardOpponent);
     }
 
     @FXML
     public void Battle2() {
+        int nbCardOpponent = plateau.getOpponent().getListeCreature().size();
         plateau.bataille();
         hpPlayer1.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
         buttonBattle2.setDisable(true);
+        updateFieldCard2(nbCardOpponent);
+    }
+
+    @FXML
+    public void updateFieldCard1(int nbCardOpponent) {
+        if(nbCardOpponent >= 1) {
+            Card1P2.setImage(new Image("/carte.jpg"));
+            Card1P2.setOpacity(0.3);
+        }
+        if(nbCardOpponent >= 2) {
+            Card2P2.setImage(new Image("/carte.jpg"));
+            Card2P2.setOpacity(0.3);
+        }
+        if(nbCardOpponent >= 3) {
+            Card3P2.setImage(new Image("/carte.jpg"));
+            Card3P2.setOpacity(0.3);
+        }
+        if(nbCardOpponent >= 4) {
+            Card4P2.setImage(new Image("/carte.jpg"));
+            Card4P2.setOpacity(0.3);
+        }
+
+        if(plateau.getOpponent().getListeCreature().size() >= 1) {
+            Card1P2.setImage(new Image(plateau.getOpponent().getListeCreature().get(0).getUrlPicture()));
+            Card1P2.setOpacity(1);
+        }
+        if(plateau.getOpponent().getListeCreature().size() >= 2) {
+            Card1P2.setImage(new Image(plateau.getOpponent().getListeCreature().get(1).getUrlPicture()));
+            Card1P2.setOpacity(1);
+        }
+        if(plateau.getOpponent().getListeCreature().size() >= 3) {
+            Card1P2.setImage(new Image(plateau.getOpponent().getListeCreature().get(2).getUrlPicture()));
+            Card1P2.setOpacity(1);
+        }
+        if(plateau.getOpponent().getListeCreature().size() >= 4) {
+            Card1P2.setImage(new Image(plateau.getOpponent().getListeCreature().get(3).getUrlPicture()));
+            Card1P2.setOpacity(1);
+        }
+
+        if (plateau.getOpponent().getFausse().getCardPool().size() > 0){
+            CimetiereP2.setImage(new Image(plateau.getOpponent().getFausse().getCardPool().get(
+                    plateau.getOpponent().getFausse().getCardPool().size()-1).getUrlPicture()));
+        }
+    }
+
+    @FXML
+    public void updateFieldCard2(int nbCardOpponent) {
+        if(nbCardOpponent >= 1) {
+            Card1P1.setImage(new Image("/carte.jpg"));
+            Card1P1.setOpacity(0.3);
+        }
+        if(nbCardOpponent >= 2) {
+            Card2P1.setImage(new Image("/carte.jpg"));
+            Card2P1.setOpacity(0.3);
+        }
+        if(nbCardOpponent >= 3) {
+            Card3P1.setImage(new Image("/carte.jpg"));
+            Card3P1.setOpacity(0.3);
+        }
+        if(nbCardOpponent >= 4) {
+            Card4P1.setImage(new Image("/carte.jpg"));
+            Card4P1.setOpacity(0.3);
+        }
+
+        if(plateau.getOpponent().getListeCreature().size() >= 1) {
+            Card1P1.setImage(new Image(plateau.getOpponent().getListeCreature().get(0).getUrlPicture()));
+            Card1P1.setOpacity(1);
+        }
+        if(plateau.getOpponent().getListeCreature().size() >= 2) {
+            Card1P1.setImage(new Image(plateau.getOpponent().getListeCreature().get(1).getUrlPicture()));
+            Card1P1.setOpacity(1);
+        }
+        if(plateau.getOpponent().getListeCreature().size() >= 3) {
+            Card1P1.setImage(new Image(plateau.getOpponent().getListeCreature().get(2).getUrlPicture()));
+            Card1P1.setOpacity(1);
+        }
+        if(plateau.getOpponent().getListeCreature().size() >= 4) {
+            Card1P1.setImage(new Image(plateau.getOpponent().getListeCreature().get(3).getUrlPicture()));
+            Card1P1.setOpacity(1);
+        }
+
+        if (plateau.getOpponent().getFausse().getCardPool().size() > 0){
+            CimetiereP1.setImage(new Image(plateau.getOpponent().getFausse().getCardPool().get(
+                    plateau.getOpponent().getFausse().getCardPool().size()-1).getUrlPicture()));
+        }
     }
 }

@@ -270,6 +270,7 @@ public class Plateau {
                 while (indexCreature < current.getListeCreature().size() && !opponent.getListeCreature().isEmpty()) {
                     opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).alterePV(current.getListeCreature().get(indexCreature).getDamage());
                     if (!opponent.getListeCreature().get(opponent.getListeCreature().size() - 1).isAlive()) {
+                        opponent.getFausse().ajouterCard(opponent.getListeCreature().get(opponent.getListeCreature().size() - 1));
                         opponent.getListeCreature().remove(opponent.getListeCreature().size() - 1);
                     }
                     indexCreature++;

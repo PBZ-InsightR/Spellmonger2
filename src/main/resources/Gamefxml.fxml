@@ -56,7 +56,7 @@
                         <Pane fx:id="panePlayer1">
                             <children>
                                 <Button id="Deck" fx:id="buttonPlayer1" layoutX="10.0" layoutY="0.0"
-                                        mnemonicParsing="false" onAction="#drawPlayer1" onMouseClicked="#test1"
+                                        mnemonicParsing="false" onMouseClicked="#test1"
                                         prefHeight="148.0" prefWidth="100.0" text="Deck"/>
                             </children>
                         </Pane>
@@ -70,32 +70,32 @@
                                         mnemonicParsing="false" onAction="#finishTurn1" text="Finish Turn"/>
                                 <Button id="Battle" fx:id="buttonBattle1" layoutX="50.0" layoutY="80.0"
                                         mnemonicParsing="false" onAction="#Battle1" text="Battle"/>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="279.0" layoutY="-1.0"
+                                <ImageView fx:id="Card1P1" fitHeight="148.0" fitWidth="73.0" layoutX="279.0" layoutY="-1.0"
                                            opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg"/>
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="452.0" layoutY="-1.0"
+                                <ImageView fx:id="Card2P1" fitHeight="148.0" fitWidth="73.0" layoutX="452.0" layoutY="-1.0"
                                            opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg"/>
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="625.0" layoutY="-1.0"
+                                <ImageView fx:id="Card3P1" fitHeight="148.0" fitWidth="73.0" layoutX="625.0" layoutY="-1.0"
                                            opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg"/>
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0"
+                                <ImageView fx:id="Card4P1" fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0"
                                            opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg"/>
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="1080.0" layoutY="0.0"
-                                           opacity="0.3" scaleX="1.4">
+                                <ImageView fx:id="CimetiereP1" fitHeight="148.0" fitWidth="73.0" layoutX="1080.0" layoutY="0.0"
+                                           opacity="0.5" scaleX="1.4">
                                     <image>
                                         <Image url="/CarteVerso.jpg"/>
                                     </image>
@@ -114,32 +114,32 @@
                                         mnemonicParsing="false" onAction="#finishTurn2" text="Finish Turn"/>
                                 <Button id="Battle" fx:id="buttonBattle2" layoutX="50.0" layoutY="80.0"
                                         mnemonicParsing="false" onAction="#Battle2" text="Battle"/>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="279.0" layoutY="-1.0"
+                                <ImageView fx:id="Card1P2" fitHeight="148.0" fitWidth="73.0" layoutX="279.0" layoutY="-1.0"
                                            opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg"/>
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="452.0" layoutY="-1.0"
+                                <ImageView fx:id="Card2P2" fitHeight="148.0" fitWidth="73.0" layoutX="452.0" layoutY="-1.0"
                                            opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg"/>
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="625.0" layoutY="-1.0"
+                                <ImageView fx:id="Card3P2" fitHeight="148.0" fitWidth="73.0" layoutX="625.0" layoutY="-1.0"
                                            opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg"/>
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0"
+                                <ImageView fx:id="Card4P2" fitHeight="148.0" fitWidth="73.0" layoutX="798.0" layoutY="-1.0"
                                            opacity="0.3" scaleX="1.4">
                                     <image>
                                         <Image url="/carte.jpg"/>
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="148.0" fitWidth="73.0" layoutX="1080.0" layoutY="0.0"
-                                           opacity="0.3" scaleX="1.4">
+                                <ImageView fx:id="CimetiereP2" fitHeight="148.0" fitWidth="73.0" layoutX="1080.0" layoutY="0.0"
+                                           opacity="0.5" scaleX="1.4">
                                     <image>
                                         <Image url="/CarteVerso.jpg"/>
                                     </image>
@@ -155,7 +155,7 @@
                         <Pane fx:id="panePlayer2">
                             <children>
                                 <Button id="Deck" fx:id="buttonPlayer2" layoutX="10.0" layoutY="0.0"
-                                        mnemonicParsing="false" onAction="#drawPlayer2" onMouseClicked="#test2"
+                                        mnemonicParsing="false" onMouseClicked="#test2"
                                         prefHeight="148.0" prefWidth="100.0" text="Deck"/>
                             </children>
                         </Pane>
