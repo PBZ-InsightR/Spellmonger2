@@ -27,12 +27,10 @@ public class Deck {
         nbRand = 0;
         this.nbCards = numberCards;
         cardPool = new ArrayList<>(numberCards);
-        discard = new ArrayList<>(numberCards);
     }
 
-    public Deck(List<Card> cardPool, List<Card> discard) {
+    public Deck(List<Card> cardPool) {
         this.cardPool = cardPool;
-        this.discard=discard;
     }
 
     public List<Card> getCardPool() {
