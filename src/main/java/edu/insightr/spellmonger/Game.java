@@ -3,6 +3,7 @@ package edu.insightr.spellmonger;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
 
@@ -157,6 +158,7 @@ public class Game extends Stage {
                     rectP1.setWidth(0);
                     rectP1.setHeight(0);
                     posX = rectP1.getX();
+
                     if (posX == 200) {
                         pos1P1 = 0;
                     } else if (posX == 325) {
@@ -250,8 +252,6 @@ public class Game extends Stage {
                     }
                 }
             }
-            // plateau.bataille(carte);
-            //hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
         });
     }
 

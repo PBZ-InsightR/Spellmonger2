@@ -40,4 +40,5 @@ public class Card {
     public String getUrlPicture() {
         return this.urlPicture;
     }
+
 }

@@ -1,8 +1,8 @@
 package edu.insightr.spellmonger;
 
 public enum Rituals {
-    CURSE(3, 0, 3, "/CarteCurse.jpeg"),
-    BLESSING(3, 3, 0, "/CarteBlessing.jpeg"),
+    CURSE(3, 3, 0, "/CarteCurse.jpeg"),
+    BLESSING(3, 0, 3, "/CarteBlessing.jpeg"),
     ENERGYDRAIN(3, 2, 2, "/CarteEnergyDrain.jpeg");
 
     public int energyCost;
