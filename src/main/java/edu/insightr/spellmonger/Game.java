@@ -123,6 +123,8 @@ public class Game extends Stage {
             public void handle(MouseEvent me) {
                 Rectangle rect2P1 = new Rectangle(xRectPlateau1, 0, 100, 148);
                 if (xRectPlateau1 < 800 &&(plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
+                    plateau.getCurrent().removeEnergy(carte.getEnergyCost());
+                    energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
                     if (carte instanceof Creature) {
                         rect2P1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
                         currentCreature = (Creature) carte;
@@ -189,6 +191,8 @@ public class Game extends Stage {
             public void handle(MouseEvent me) {
                 Rectangle rect2P2 = new Rectangle(xRectPlateau2, 0, 100, 148);
                 if (xRectPlateau2 < 800 && (plateau.getCurrent().getEnergy() >= carte.getEnergyCost())) {
+                    plateau.getCurrent().removeEnergy(carte.getEnergyCost());
+                    energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
                     //rectP2.setOpacity(1);
                     if (carte instanceof Creature) {
                         rect2P2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
