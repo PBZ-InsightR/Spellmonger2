@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="anchor" prefHeight="680.0" prefWidth="1200.0" stylesheets="@Game.css"
-            xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
+            xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" >
     <children>
-        <Pane prefHeight="600.0" prefWidth="1200.0">
+        <Pane fx:id="paneTotal" prefHeight="600.0" prefWidth="1200.0" opacity="0.3">
             <children>
                 <SplitPane prefHeight="150.0" prefWidth="200.0">
                     <items>
@@ -202,5 +202,8 @@
             </children>
         </Pane>
         <Button fx:id="btn2" layoutX="895.0" layoutY="605.0" mnemonicParsing="false" text="ScoreBoard"/>
+        <Button fx:id="btnStart" id="btnStart" layoutX="400.0" layoutY="200.0" prefHeight="200.0" prefWidth="400.0"
+                text="Start Battle" onMouseClicked="#start" opacity="1"/>
     </children>
+
 </AnchorPane>

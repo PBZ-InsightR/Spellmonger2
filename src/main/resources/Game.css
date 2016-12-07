@@ -48,3 +48,10 @@
     -fx-font-weight: bold;
     -fx-text-align: center;
 }
+
+#btnStart {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-align: center;
+    -fx-background-color: transparent;
+}

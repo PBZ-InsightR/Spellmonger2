@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -32,9 +33,9 @@ public class Game extends Stage {
     @FXML
     private Label hpPlayer1, hpPlayer2, nomPlayer1, nomPlayer2, energyPlayer1, energyPlayer2;
     @FXML
-    private Button buttonPlayer1, buttonPlayer2, buttonPasserTour, buttonFinish1, buttonFinish2, buttonBattle1, buttonBattle2;
+    private Button buttonPlayer1, buttonPlayer2, buttonPasserTour, buttonFinish1, buttonFinish2, buttonBattle1, buttonBattle2, btnStart;
     @FXML
-    private Pane panePlayer1, panePlateau1, panePlayer2, panePlateau2;
+    private Pane panePlayer1, panePlateau1, panePlayer2, panePlateau2, paneTotal;
     @FXML
     private ImageView Card1P1, Card2P1, Card3P1, Card4P1, CimetiereP1, Card1P2, Card2P2, Card3P2, Card4P2, CimetiereP2;
     private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
@@ -78,19 +79,29 @@ public class Game extends Stage {
     }
 
     @FXML
-    private Card drawPlayer1() {
-        Card carteChoosen = deck1.drawCard();
+    public void start() {
+        btnStart.setDisable(true);
+        btnStart.setVisible(false);
+        paneTotal.setOpacity(1);
         nomPlayer1.setText("Alice");
-        buttonPlayer1.setDisable(true);
-        return carteChoosen;
+        nomPlayer2.setText("Bob");
+        buttonBattle2.setDisable(true);
+        finishTurn1();
     }
 
     @FXML
-    private Card drawPlayer2() {
-        Card carteChoosen = deck2.drawCard();
-        nomPlayer2.setText("Bob");
-        buttonPlayer2.setDisable(true);
-        return carteChoosen;
+    private Card drawPlayer() {
+        Button button = null;
+        if (plateau.getCurrent().getName() == nomPlayer1.getText()) {
+            button = buttonPlayer1;
+        }else if (plateau.getCurrent().getName() == nomPlayer2.getText()) {
+            button = buttonPlayer2;
+        }else {
+            // !PB! nom inconnu
+        }
+        Deck deck = plateau.getCurrent().getPioche();
+        button.setDisable(true);
+        return deck.drawCard();
     }
 
     @FXML
@@ -116,7 +127,7 @@ public class Game extends Stage {
         Rectangle rectP1 = new Rectangle(xCarteMain1, 0, 100, 148);
         rectP1.setStroke(Color.BLACK);
         rectP1.setStrokeType(StrokeType.INSIDE);
-        Card carte = drawPlayer1();
+        Card carte = drawPlayer();
         plateau.getCurrent().addEnergy();
         energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
@@ -197,7 +208,7 @@ public class Game extends Stage {
         Rectangle rectP2 = new Rectangle(xCarteMain2, 0, 100, 148);
         rectP2.setStroke(Color.BLACK);
         rectP2.setStrokeType(StrokeType.INSIDE);
-        Card carte = drawPlayer2();
+        Card carte = drawPlayer();
         plateau.getCurrent().addEnergy();
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
