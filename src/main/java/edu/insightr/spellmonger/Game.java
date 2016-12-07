@@ -15,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -128,6 +127,14 @@ public class Game extends Stage {
         rectP1.setStroke(Color.BLACK);
         rectP1.setStrokeType(StrokeType.INSIDE);
         Card carte = drawPlayer();
+        for(int i=0;i<plateau.refreshEnergy();i++)
+        {
+            if(plateau.getCurrent().getEnergy()<plateau.refreshEnergy())
+            {
+                plateau.getCurrent().addEnergy();
+            }
+        }
+
         plateau.getCurrent().addEnergy();
         energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
@@ -209,6 +216,13 @@ public class Game extends Stage {
         rectP2.setStroke(Color.BLACK);
         rectP2.setStrokeType(StrokeType.INSIDE);
         Card carte = drawPlayer();
+        for(int i=0;i<plateau.refreshEnergy();i++)
+        {
+            if(plateau.getCurrent().getEnergy()<plateau.refreshEnergy())
+            {
+                plateau.getCurrent().addEnergy();
+            }
+        }
         plateau.getCurrent().addEnergy();
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
