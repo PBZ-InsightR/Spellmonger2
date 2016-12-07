@@ -14,7 +14,7 @@
     <children>
         <Pane prefHeight="600.0" prefWidth="1200.0">
             <children>
-                <SplitPane prefHeight="150.0" prefWidth="200.0">
+                <SplitPane id="pane" prefHeight="150.0" prefWidth="200.0">
                     <items>
                         <Pane>
                             <children>
@@ -51,7 +51,7 @@
                         </Pane>
                     </items>
                 </SplitPane>
-                <SplitPane layoutX="200.0" prefHeight="150.0" prefWidth="1000.0">
+                <SplitPane id="pane" layoutX="200.0" prefHeight="150.0" prefWidth="1000.0">
                     <items>
                         <Pane fx:id="panePlayer1">
                             <children>
@@ -62,7 +62,7 @@
                         </Pane>
                     </items>
                 </SplitPane>
-                <SplitPane layoutY="150.0" prefHeight="150.0" prefWidth="1200.0">
+                <SplitPane id="pane" layoutY="150.0" prefHeight="150.0" prefWidth="1200.0">
                     <items>
                         <Pane fx:id="panePlateau1">
                             <children>
@@ -106,7 +106,7 @@
                         </Pane>
                     </items>
                 </SplitPane>
-                <SplitPane layoutY="300.0" prefHeight="150.0" prefWidth="1200.0">
+                <SplitPane id="pane" layoutY="300.0" prefHeight="150.0" prefWidth="1200.0">
                     <items>
                         <Pane fx:id="panePlateau2">
                             <children>
@@ -150,7 +150,7 @@
                         </Pane>
                     </items>
                 </SplitPane>
-                <SplitPane layoutX="200.0" layoutY="450.0" prefHeight="150.0" prefWidth="1000.0">
+                <SplitPane id="pane" layoutX="200.0" layoutY="450.0" prefHeight="150.0" prefWidth="1000.0">
                     <items>
                         <Pane fx:id="panePlayer2">
                             <children>
@@ -161,7 +161,7 @@
                         </Pane>
                     </items>
                 </SplitPane>
-                <SplitPane layoutY="450.0" prefHeight="150.0" prefWidth="200.0">
+                <SplitPane id="pane" layoutY="450.0" prefHeight="150.0" prefWidth="200.0">
                     <items>
                         <Pane>
                             <children>

@@ -1,13 +1,10 @@
-#Finish, #Battle {
+#Finish, #Battle, #btn2 {
     -fx-background-color: #cc0000;
     -fx-width:85px;
     -fx-height:85px;
     -fx-background:#fafafa;
-    -fx-background-radius: 50%;
     -fx-font:bold 13px Arial;
-    -fx-border-radius:50%;
     -fx-color:#555;
-    -fx-border-color: black;
 }
 
 .button:hover{
@@ -23,7 +20,6 @@
 .label {
     -fx-font-family: "Roboto Condensed";
     -fx-opacity: 1.5;
-
 }
 
 .rectangle {
@@ -47,4 +43,8 @@
     -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-text-align: center;
+}
+
+#anchor, #pane {
+    -fx-background-color: green;
 }
