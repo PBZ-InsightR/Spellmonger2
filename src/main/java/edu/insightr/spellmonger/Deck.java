@@ -6,16 +6,31 @@ import java.util.Random;
 
 public class Deck {
     private List<Card> cardPool;
+    private List<Card> discard;
     private static Random rand;
     private int nbRand;
+    private int nbCards;
+
+    final private int nbEagle = 5;
+    final private int nbFox = 10;
+    final private int nbWolf = 10;
+    final private int nbBear = 5;
+
+    final private int nbCurse = 3;
+    final private int nbEnergyDrain = 3;
+    final private int nbBlessing = 3;
+
+    final private int nbEnchantment = 1;
 
     public Deck(int numberCards) {
         rand = new Random();
         nbRand = 0;
+        this.nbCards = numberCards;
         cardPool = new ArrayList<>(numberCards);
     }
-    public Deck (List<Card> cardPool) {
-        this.cardPool=cardPool;
+
+    public Deck(List<Card> cardPool) {
+        this.cardPool = cardPool;
     }
 
     public List<Card> getCardPool() {
@@ -25,44 +40,56 @@ public class Deck {
     // TODO : avoid french in code, prefer english for naming and comments
     // Initialisation aléatoire du deck
     public List<Card> initDeck() {
-        Card carte;
-        for (int i = 0; i < 40; i++) {
-            nbRand = rand.nextInt(8);
-            switch (nbRand) {
-                case 0:
-                    carte = new Ritual("Curse");
-                    cardPool.add(carte);
-                    break;
-                case 1:
-                    carte = new Ritual("Blessing");
-                    cardPool.add(carte);
-                    break;
-                case 2:
-                    carte = new Ritual("Energy drain");
-                    cardPool.add(carte);
-                    break;
-                case 3:
-                    carte = new Creature("Bear");
-                    cardPool.add(carte);
-                    break;
-                case 4:
-                    carte = new Creature("Wolf");
-                    cardPool.add(carte);
-                    break;
-                case 5:
-                    carte = new Creature("Eagle");
-                    cardPool.add(carte);
-                    break;
-                case 6:
-                    carte = new Creature("Fox");
-                    cardPool.add(carte);
-                    break;
-                case 7:
-                    carte = new Enchantment("Vault overclocking");
-                    cardPool.add(carte);
-            }
+        List<Card> temp = new ArrayList<>(this.nbCards);
+
+        //Ajout Creatures
+        for (int i = 0; i < nbEagle; i++) {
+            temp.add(new Creature(Creatures.EAGLE));
         }
+        for (int i = 0; i < nbFox; i++) {
+            temp.add(new Creature(Creatures.FOX));
+        }
+        for (int i = 0; i < nbWolf; i++) {
+            temp.add(new Creature(Creatures.WOLF));
+        }
+        for (int i = 0; i < nbBear; i++) {
+            temp.add(new Creature(Creatures.BEAR));
+        }
+
+        //Ajout Rituels
+        for (int i = 0; i < nbCurse; i++) {
+            temp.add(new Ritual(Rituals.CURSE));
+        }
+        for (int i = 0; i < nbEnergyDrain; i++) {
+            temp.add(new Ritual(Rituals.ENERGYDRAIN));
+        }
+        for (int i = 0; i < nbBlessing; i++) {
+            temp.add(new Ritual(Rituals.BLESSING));
+        }
+
+        //Ajout Enchantment
+        for (int i = 0; i < nbEnchantment; i++) {
+            temp.add(new Enchantment(Enchantments.VAULT_OVERCLOCKING));
+        }
+
+        this.mixDeck(temp);
         return cardPool;
+    }
+
+    private void mixDeck(List<Card> temp) {
+        this.cardPool.removeAll(this.cardPool);
+        int i = 0;
+        while (i < 40) {
+            this.nbRand = rand.nextInt(40 - i);
+            this.cardPool.add(temp.get(this.nbRand));
+            temp.remove(this.nbRand);
+            i++;
+        }
+    }
+
+    public void ajouterDiscard(Card carte)
+    {
+        discard.add(carte);
     }
 
     public void ajouterCard(Card carte) {
@@ -83,6 +110,8 @@ public class Deck {
 
     //La méthode retourne la dernière carte du paquet
     public Card drawCard() {
-        return cardPool.get(cardPool.size() - 1);
+        Card a = cardPool.get(cardPool.size() - 1);
+        cardPool.remove(cardPool.size() - 1);
+        return a;
     }
 }

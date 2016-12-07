@@ -28,7 +28,6 @@ public class Player {
         return this.name;
     }
 
-
     public int getLifePoints() {
         return this.lifePoints;
     }
@@ -57,8 +56,9 @@ public class Player {
         this.main.remove(cardToRemove);
     }
 
-    public void addEnergy(){this.energy = this.energy+1;}
-
+    public void addEnergy() {
+        this.energy = this.energy + 1;
+    }
 
     public boolean isAlive() {
         boolean isAlive = true;
@@ -84,6 +84,5 @@ public class Player {
     public String toString() {
         return "Le joueur " + this.name + " a " + this.lifePoints + " points de vie";
     }
-
 
 }

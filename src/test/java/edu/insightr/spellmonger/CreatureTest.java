@@ -6,7 +6,7 @@ import org.junit.Test;
 public class CreatureTest {
     @Test
     public void isAlive() throws Exception {
-        Creature eagle = new Creature("Eagle");
+        Creature eagle = new Creature(Creatures.EAGLE);
         Assert.assertEquals(true, eagle.isAlive());
         Assert.assertEquals(1, eagle.getPV());
         eagle.alterePV(1);
@@ -15,7 +15,7 @@ public class CreatureTest {
 
     @Test
     public void alterePV() throws Exception {
-        Creature eagle = new Creature("Eagle");
+        Creature eagle = new Creature(Creatures.EAGLE);
         eagle.alterePV(1);
         Assert.assertEquals(0, eagle.getPV());
     }
@@ -23,9 +23,9 @@ public class CreatureTest {
     @Test
     public void getDamage() throws Exception {
 
-        Creature eag1 = new Creature("Eagle");
-        Creature w1 = new Creature("Wolf");
-        Creature b1 = new Creature("Bear");
+        Creature eag1 = new Creature(Creatures.EAGLE);
+        Creature w1 = new Creature(Creatures.WOLF);
+        Creature b1 = new Creature(Creatures.BEAR);
 
         Assert.assertEquals(3, b1.getDamage());
         Assert.assertEquals(2, w1.getDamage());
@@ -35,45 +35,45 @@ public class CreatureTest {
     @Test
     public void getName() throws Exception {
 
-        Creature eag1 = new Creature("Eagle");
-        Assert.assertEquals("Eagle", eag1.getName());
+        Creature eag1 = new Creature(Creatures.EAGLE);
+        Assert.assertEquals("EAGLE", eag1.getName());
 
-        Creature w1 = new Creature("Wolf");
-        Assert.assertEquals("Wolf", w1.getName());
+        Creature w1 = new Creature(Creatures.WOLF);
+        Assert.assertEquals("WOLF", w1.getName());
 
-        Creature f1 = new Creature("Fox");
-        Assert.assertEquals("Fox", f1.getName());
+        Creature f1 = new Creature(Creatures.FOX);
+        Assert.assertEquals("FOX", f1.getName());
     }
 
     @Test
     public void getCapacity() throws Exception {
 
-        Creature eag1 = new Creature("Eagle");
+        Creature eag1 = new Creature(Creatures.EAGLE);
         Assert.assertEquals("Flying", eag1.getCapacity());
 
-        Creature w1 = new Creature("Wolf");
+        Creature w1 = new Creature(Creatures.WOLF);
         Assert.assertEquals("None", w1.getCapacity());
 
-        Creature f1 = new Creature("Fox");
+        Creature f1 = new Creature(Creatures.FOX);
         Assert.assertEquals("None", f1.getCapacity());
 
-        Creature b1 = new Creature("Bear");
+        Creature b1 = new Creature(Creatures.BEAR);
         Assert.assertEquals("None", b1.getCapacity());
     }
 
     @Test
     public void getEnergy() throws Exception {
 
-        Creature eag1 = new Creature("Eagle");
+        Creature eag1 = new Creature(Creatures.EAGLE);
         Assert.assertEquals(1.0, eag1.getEnergyCost(), 0.1);
 
-        Creature w1 = new Creature("Wolf");
+        Creature w1 = new Creature(Creatures.WOLF);
         Assert.assertEquals(2.0, w1.getEnergyCost(), 0.1);
 
-        Creature f1 = new Creature("Fox");
+        Creature f1 = new Creature(Creatures.FOX);
         Assert.assertEquals(1.0, f1.getEnergyCost(), 0.1);
 
-        Creature b1 = new Creature("Bear");
+        Creature b1 = new Creature(Creatures.BEAR);
         Assert.assertEquals(3.0, b1.getEnergyCost(), 0.1);
     }
 }
