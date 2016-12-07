@@ -289,7 +289,11 @@ public class Plateau {
         changeCurrent();
         ajouterTour();
     }
-
+    public int refreshEnergy(){
+        //retourner 0 au tour 1 et 2 retourner 1 au tour 3 et 4
+        int res=(this.getNbTours()-1)/2;
+        return res;
+    }
 }
 
 
