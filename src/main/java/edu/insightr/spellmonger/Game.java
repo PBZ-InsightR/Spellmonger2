@@ -117,6 +117,14 @@ public class Game extends Stage {
         rectP1.setStroke(Color.BLACK);
         rectP1.setStrokeType(StrokeType.INSIDE);
         Card carte = drawPlayer1();
+        for(int i=0;i<plateau.refreshEnergy();i++)
+        {
+            if(plateau.getCurrent().getEnergy()<plateau.refreshEnergy())
+            {
+                plateau.getCurrent().addEnergy();
+            }
+        }
+
         plateau.getCurrent().addEnergy();
         energyPlayer1.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP1.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
@@ -198,6 +206,13 @@ public class Game extends Stage {
         rectP2.setStroke(Color.BLACK);
         rectP2.setStrokeType(StrokeType.INSIDE);
         Card carte = drawPlayer2();
+        for(int i=0;i<plateau.refreshEnergy();i++)
+        {
+            if(plateau.getCurrent().getEnergy()<plateau.refreshEnergy())
+            {
+                plateau.getCurrent().addEnergy();
+            }
+        }
         plateau.getCurrent().addEnergy();
         energyPlayer2.setText(Integer.toString(plateau.getCurrent().getEnergy()));
         rectP2.setFill(new ImagePattern(new Image(carte.getUrlPicture())));
