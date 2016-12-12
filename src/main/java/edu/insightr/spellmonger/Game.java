@@ -84,8 +84,23 @@ public class Game extends Stage {
         paneTotal.setOpacity(1);
         nomPlayer1.setText("Alice");
         nomPlayer2.setText("Bob");
+        buttonBattle1.setDisable(true);
+        // Make button player 2 disable
+        buttonFinish2.setDisable(true);
         buttonBattle2.setDisable(true);
-        finishTurn1();
+        buttonPlayer2.setDisable(true);
+        // Make button player 2 not visable
+        buttonFinish2.setVisible(false);
+        buttonBattle2.setVisible(false);
+
+        // Make button player 1 not Disable
+        if(plateau.getOpponent().getListeCreature().size() > 0)buttonBattle1.setDisable(false);
+        buttonFinish1.setDisable(false);
+        buttonPlayer1.setDisable(false);
+        // Make button player 1 visable
+        buttonFinish1.setVisible(true);
+        buttonBattle1.setVisible(true);
+
     }
 
     @FXML
