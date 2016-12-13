@@ -285,6 +285,17 @@ public class Plateau {
         }
     }
 
+    public void RitualDamage(Ritual ritual) {
+        switch (ritual.getName()) {
+            case "CURSE":
+                opponent.altererHP(ritual.getDamage());
+                break;
+            case "BLESSING":
+                current.gainHP(ritual.getGain());
+                break;
+        }
+    }
+
     public void FinTour() {
         changeCurrent();
         ajouterTour();

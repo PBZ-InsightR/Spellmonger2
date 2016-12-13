@@ -71,6 +71,7 @@ public class Player {
     public void altererHP(int dmg) {
         this.lifePoints -= dmg;
     }
+    public void gainHP(int gain) {this.lifePoints += gain;}
 
     public int getEnergy() {
         return energy;

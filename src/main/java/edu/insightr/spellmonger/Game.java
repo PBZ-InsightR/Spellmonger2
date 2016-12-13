@@ -185,7 +185,15 @@ public class Game extends Stage {
                         currentCreature = (Creature) carte;
                         plateau.getCurrent().getListeCreature().add(currentCreature);
                         buttonBattle1.setDisable(false);
-                    } else {
+                    } else if (carte instanceof Ritual) {
+                        Ritual ritual = (Ritual) carte;
+                        CimetiereP1.setImage(new Image(carte.getUrlPicture()));
+                        plateau.RitualDamage(ritual);
+                        hpPlayer2.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
+                        hpPlayer1.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+                    }
+                    else
+                    {
                         CimetiereP1.setImage(new Image(carte.getUrlPicture()));
                     }
                     rectP1.setWidth(0);
@@ -273,7 +281,15 @@ public class Game extends Stage {
                         currentCreature = (Creature) carte;
                         plateau.getCurrent().getListeCreature().add(currentCreature);
                         buttonBattle2.setDisable(false);
-                    } else {
+                    }
+                    else if (carte instanceof Ritual) {
+                        Ritual ritual = (Ritual) carte;
+                        CimetiereP2.setImage(new Image(carte.getUrlPicture()));
+                        plateau.RitualDamage(ritual);
+                        hpPlayer2.setText(Integer.toString(plateau.getCurrent().getLifePoints()));
+                        hpPlayer1.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
+                    }
+                    else {
                         CimetiereP2.setImage(new Image(carte.getUrlPicture()));
                     }
                     posX2 = rectP2.getX();
