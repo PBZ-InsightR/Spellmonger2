@@ -244,6 +244,7 @@ public class Plateau {
                     }
                 }
             }
+
             current.getPioche().retirerCard(currentCard);
             current.getFausse().ajouterCard(currentCard);
 
@@ -293,6 +294,9 @@ public class Plateau {
             case "BLESSING":
                 current.gainHP(ritual.getGain());
                 break;
+            case "ENERGYDRAIN":
+                current.gainHP(ritual.getGain());
+                opponent.altererHP(ritual.getDamage());
         }
     }
 
