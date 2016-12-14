@@ -26,6 +26,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 
+import javax.swing.*;
+
 public class Game extends Stage {
 
     SwitchScene application;
@@ -35,6 +37,8 @@ public class Game extends Stage {
     private Button buttonPlayer1, buttonPlayer2, buttonPasserTour, buttonFinish1, buttonFinish2, buttonBattle1, buttonBattle2, btnStart;
     @FXML
     private Pane panePlayer1, panePlateau1, panePlayer2, panePlateau2, paneTotal;
+    @FXML
+    private Stage thestage;
     @FXML
     private ImageView Card1P1, Card2P1, Card3P1, Card4P1, CimetiereP1, Card1P2, Card2P2, Card3P2, Card4P2, CimetiereP2;
     private Plateau plateau = new Plateau("Alice", "Bob", 20, 0);
@@ -356,12 +360,23 @@ public class Game extends Stage {
 
     @FXML
     public void Battle1() {
+
         int nbCardOpponent = plateau.getOpponent().getListeCreature().size();
         plateau.bataille();
 
         hpPlayer2.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
         buttonBattle1.setDisable(true);
         updateFieldCard1(nbCardOpponent);
+
+        //Popup end of game
+        if(plateau.isThereAWinner()==true)
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("End of game");
+            alert.setHeaderText(null);
+            alert.setContentText(nomPlayer1.getText()+" has won!");
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -371,6 +386,16 @@ public class Game extends Stage {
         hpPlayer1.setText(Integer.toString(plateau.getOpponent().getLifePoints()));
         buttonBattle2.setDisable(true);
         updateFieldCard2(nbCardOpponent);
+
+        //Popup end of game
+        if(plateau.isThereAWinner()==true)
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("End of game");
+            alert.setHeaderText(null);
+            alert.setContentText(nomPlayer2.getText()+" has won!");
+            alert.showAndWait();
+        }
     }
 
     @FXML
