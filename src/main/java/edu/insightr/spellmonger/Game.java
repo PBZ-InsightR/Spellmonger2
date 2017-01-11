@@ -124,7 +124,7 @@ public class Game extends Stage {
 
     @FXML
     //lorsque l'on clique sur le bouton deck, place une carte dans la main du joueur1 
-    public void test1() {
+    public void positionCard1() {
         // TODO : prefer CSS for decoration
         if (pos1P1 == 0) {
             xCarteMain1 = 200;
@@ -222,7 +222,7 @@ public class Game extends Stage {
 
     //lorsque l'on clique sur le bouton deck, place une carte dans la main du joueur2
     @FXML
-    public void test2() {
+    public void positionCard2() {
         if (pos1P2 == 0) {
             xCarteMain2 = 200;
             pos1P2 = 1;

@@ -1,0 +1,57 @@
+#Finish, #Battle, #btn2 {
+    -fx-background-color: #cc0000;
+    -fx-width:85px;
+    -fx-height:85px;
+    -fx-background:#fafafa;
+    -fx-font:bold 13px Arial;
+    -fx-color:#555;
+}
+
+.button:hover{
+    -fx-cursor:pointer;
+    -fx-background-color: gold;
+}
+.button:active{
+    -fx-position:relative;
+    -fx-left:1px;
+    -fx-top:1px;
+}
+
+.label {
+    -fx-font-family: "Roboto Condensed";
+    -fx-opacity: 1.5;
+}
+
+.rectangle {
+    -fx-height:148px;
+    -fx-width:100px;
+}
+
+#Deck {
+    -fx-background-image: url("/CarteVerso.jpg");
+    -fx-background-size: 100px 148px;
+    -fx-background-attachment: fixed;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-color: white;
+    -fx-text-align: center;
+}
+
+#Cimetiere {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-align: center;
+}
+
+#anchor, #pane {
+    -fx-background-color: green;
+}
+
+#btnStart {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-align: center;
+    -fx-background-color: transparent;
+}
